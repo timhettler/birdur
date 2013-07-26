@@ -100,7 +100,9 @@ body {
     color: $color--yellow;
     display: block;
     font-style: normal;
+    overflow: hidden;
     padding: 0;
+    text-overflow: ellipsis;
     width: 100%;
   }
 
