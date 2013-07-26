@@ -1,30 +1,504 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,700);
+/* line 52, ../../sass/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
+  display: block;
 }
 
-.menu:before {
-  content: "[";
+/* line 60, ../../sass/_normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
 }
 
-.menu:after {
-  content: "]";
+/* line 71, ../../sass/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
 }
 
-.menu > li {
-  display: inline;
+/* line 78, ../../sass/_normalize.scss */
+[hidden] {
+  display: none;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+/* line 91, ../../sass/_normalize.scss */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
+/* line 105, ../../sass/_normalize.scss */
+html,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+}
+
+/* line 111, ../../sass/_normalize.scss */
+body {
+  margin: 0;
+}
+
+/* line 127, ../../sass/_normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+/* line 134, ../../sass/_normalize.scss */
+a:hover, a:active {
+  outline: 0;
+}
+
+/* line 147, ../../sass/_normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* line 152, ../../sass/_normalize.scss */
+h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+}
+
+/* line 157, ../../sass/_normalize.scss */
+h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+/* line 162, ../../sass/_normalize.scss */
+h4 {
+  font-size: 1em;
+  margin: 1.33em 0;
+}
+
+/* line 167, ../../sass/_normalize.scss */
+h5 {
+  font-size: 0.83em;
+  margin: 1.67em 0;
+}
+
+/* line 172, ../../sass/_normalize.scss */
+h6 {
+  font-size: 0.75em;
+  margin: 2.33em 0;
+}
+
+/* line 180, ../../sass/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 187, ../../sass/_normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* line 199, ../../sass/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/* line 205, ../../sass/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/* line 224, ../../sass/_normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/* line 234, ../../sass/_normalize.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* line 242, ../../sass/_normalize.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/* line 258, ../../sass/_normalize.scss */
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+/* line 265, ../../sass/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/* line 273, ../../sass/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 280, ../../sass/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 284, ../../sass/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 336, ../../sass/_normalize.scss */
+img {
+  border: 0;
+}
+
+/* line 345, ../../sass/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 355, ../../sass/_normalize.scss */
+figure {
+  margin: 0;
+}
+
+/* line 372, ../../sass/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/* line 383, ../../sass/_normalize.scss */
+legend {
+  border: 0;
   padding: 0;
+  white-space: normal;
+}
+
+/* line 400, ../../sass/_normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+}
+
+/* line 413, ../../sass/_normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/* line 423, ../../sass/_normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/* line 438, ../../sass/_normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* line 449, ../../sass/_normalize.scss */
+button[disabled],
+input[disabled] {
+  cursor: default;
+}
+
+/* line 459, ../../sass/_normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* line 471, ../../sass/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* line 482, ../../sass/_normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 490, ../../sass/_normalize.scss */
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* line 499, ../../sass/_normalize.scss */
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+/* line 510, ../../sass/_normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 1, ../../sass/_leaflet.scss */
+.leaflet-left {
+  left: 350px;
+}
+/* line 4, ../../sass/_leaflet.scss */
+.touch .leaflet-left {
+  display: none;
+}
+@media screen and (orientation: portrait) {
+  /* line 1, ../../sass/_leaflet.scss */
+  .leaflet-left {
+    left: 0;
+  }
+}
+
+/* line 13, ../../sass/_leaflet.scss */
+.leaflet-popup-content-wrapper {
+  border-radius: 5px;
+}
+
+/* line 61, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+* html {
+  font-size: 156.25%;
+}
+
+/* line 64, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+html {
+  font-size: 25px;
+  line-height: 0.96em;
+}
+
+@media (max-width: 480px) {
+  /* line 61, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+  * html {
+    font-size: 100%;
+  }
+
+  /* line 64, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+  html {
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+}
+/* line 16, ../../sass/app.scss */
+html, body, .app-wrapper, #map, .error-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* line 22, ../../sass/app.scss */
+.to-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}
+
+/* line 33, ../../sass/app.scss */
+body {
+  font-family: Raleway;
+  position: relative;
+}
+
+@media screen and (orientation: portrait) {
+  /* line 43, ../../sass/app.scss */
+  #map {
+    height: 80%;
+  }
+}
+
+/* line 51, ../../sass/app.scss */
+.hotspot-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  background-color: rgba(8, 8, 8, 0.9);
+  color: whitesmoke;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 350px;
+  z-index: 1001;
+}
+@media screen and (orientation: portrait) {
+  /* line 51, ../../sass/app.scss */
+  .hotspot-container {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(8, 8, 8, 0.9)), color-stop(50%, #080808));
+    background-image: -webkit-linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
+    background-image: -moz-linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
+    background-image: linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
+    -webkit-transition: top 200ms;
+    -moz-transition: top 200ms;
+    transition: top 200ms;
+    background-color: transparent;
+    height: 33%;
+    left: 0;
+    margin-left: 0;
+    top: 66%;
+    width: 100%;
+  }
+}
+
+/* line 76, ../../sass/app.scss */
+.hotspot-title, .hotspot-item {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+/* line 83, ../../sass/app.scss */
+.hotspot-title {
+  font-size: 1.52em;
+  line-height: 0.94737em;
+  border-bottom-style: solid;
+  border-bottom-width: 0.04em;
+  padding-bottom: 0.92em;
+  padding-top: 0.96em;
+  margin: 0;
+}
+@media screen and (orientation: portrait) {
+  /* line 83, ../../sass/app.scss */
+  .hotspot-title {
+    border-bottom-style: solid;
+    border-bottom-width: 0.04em;
+    padding-bottom: 0.44em;
+    padding-top: 0.48em;
+  }
+}
+
+/* line 96, ../../sass/app.scss */
+.hotspot-location {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: #fdd84c;
+  display: block;
+  font-style: normal;
+  padding: 0;
+  width: 100%;
+}
+
+/* line 107, ../../sass/app.scss */
+.hotspot-list {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 116, ../../sass/app.scss */
+.hotspot-item {
+  padding-top: 0.96em;
+  padding-bottom: 0.96em;
+  -webkit-transition: background-color 200ms;
+  -moz-transition: background-color 200ms;
+  transition: background-color 200ms;
+  cursor: pointer;
+  list-style: none;
+}
+@media screen and (orientation: portrait) {
+  /* line 116, ../../sass/app.scss */
+  .hotspot-item {
+    padding-top: 0.48em;
+    padding-bottom: 0.48em;
+  }
+}
+/* line 131, ../../sass/app.scss */
+.no-touch .hotspot-item:hover, .no-touch .hotspot-item.active {
+  background-color: #484848;
+}
+/* line 136, ../../sass/app.scss */
+.hotspot-item > i {
+  font-size: 0.72em;
+  line-height: 1.33333em;
+  color: #fdd84c;
+  display: block;
+}
+
+/* line 143, ../../sass/app.scss */
+.error-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+/* line 153, ../../sass/app.scss */
+.error {
+  background: rgba(8, 8, 8, 0.9);
+  color: #fdd84c;
+  border-radius: 0.5em;
+  padding: 1em;
+  width: 500px;
+}
+@media screen and (orientation: portrait) {
+  /* line 153, ../../sass/app.scss */
+  .error {
+    width: 80%;
+  }
 }

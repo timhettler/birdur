@@ -1,11 +1,11 @@
-'use strict';
-
-/* Directives */
-
-
-angular.module('myApp.directives', []).
-  directive('appVersion', ['version', function(version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    };
-  }]);
+birdur.directive('hotspot', function () {
+  return {
+    scope: {
+      name: '@',
+      detail: '&'
+    },
+    restrict: 'E',
+    replace: true,
+    template: '<div class="hotspot-item" ng-click="detail({i:$index})" ng-bind-html-unsafe="name"></div>'
+  }
+});
