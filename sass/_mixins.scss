@@ -1,0 +1,7 @@
+@import "global-vars";
+
+@mixin small-screen() {
+  @media screen and (orientation:portrait) {
+    @content;
+  }
+}
