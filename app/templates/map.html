@@ -1,0 +1,13 @@
+<div class="app-wrapper">
+  <div id="map">
+  </div>
+  <div class="hotspot-container" ng-show="hotspots">
+    <h1 class="hotspot-title"><form ng-submit="handleUserInput()"><input class="hotspot-location" ng-model="locationName"></form>Hotspots</h1>
+    <div class="hotspot-list">
+      <hotspot ng-repeat="hotspot in hotspots" name="{{hotspot.locName}}" detail="focusMarker($index)"></hotspot>
+    </div>
+  </div>
+  <div class="error-container" ng-show="errorMessage">
+    <div class="error" ng-bind-html-unsafe="errorMessage"></div>
+  </div>
+</div>
