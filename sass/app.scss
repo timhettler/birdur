@@ -51,25 +51,24 @@ body {
 
 .geolocate {
   @extend .icon-location;
-  @include box-sizing('border-box');
   background-color: rgba(#fff, 0.8);
   border: 1px solid #888;
-  border-radius: 5px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  border-radius: 4px;
+  box-shadow: 0 1px 7px rgba(0,0,0,0.65);
   cursor: pointer;
   font-size: 12px;
-  left: 363px;
+  left: 360px;
   line-height: 21px;
   padding: 2px 0 0 0;
   position: absolute;
   text-align: center;
   top: 70px;
-  width: 24px;
+  width: 26px;
   z-index: 1;
 
   &:hover {
-    background-color: #fff;
-    color: #777;
+    background-color: #f4f4f4;
+    color: #000;
   }
 }
 

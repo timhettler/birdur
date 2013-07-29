@@ -3,9 +3,11 @@
     <button ng-click="GeoLocate()" class="geolocate"></button>
   </div>
   <div class="hotspot-container" ng-show="hotspots">
-    <h1 class="hotspot-title"><form ng-submit="submit()"><input class="hotspot-location" ng-model="locationName"></form>Hotspots</h1>
+    <h1 class="hotspot-title"><!-- <form ng-submit="handleUserInput()"><input type="search" ng-model="searchQuery"></form> -->
+    <i class="hotspot-location">{{position.name}}</i>
+    Hotspots</h1>
     <div class="hotspot-list">
-      <hotspot ng-repeat="hotspot in hotspots" name="{{hotspot.locName}}" detail="focusMarker($index)"></hotspot>
+      <hotspot ng-repeat="hotspot in hotspots" name="{{hotspot.locName}}" detail="focusMarker(hotspot.id)"></hotspot>
     </div>
   </div>
   <div class="error-container" ng-show="errorMessage">

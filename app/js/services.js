@@ -2,6 +2,45 @@
 
 /* Services */
 
+birdur.factory('Map', function (){
+
+  var map = L.map('map'),
+      mapMarkers = L.layerGroup(),
+      curLoc = L.circle(),
+      init = function () {
+        L.tileLayer('http://{s}.tile.cloudmade.com/badf2c8f27664349b206f901bdaa58ea/96931/256/{z}/{x}/{y}.png', {
+          maxZoom: 18
+        }).addTo(map);
+      },
+      setView = function (latlng) {
+        map.setView(latlng, 12);
+      },
+      setMarker = function (latlng, popup) {
+        var marker = L.marker(latlng)
+                      .bindPopup(popup);
+        mapMarkers.addLayer(marker);
+        return marker;
+      },
+      focusMarker = function (id) {
+        var marker = mapMarkers.getLayer(id),
+            pos = marker.getLatLng();
+
+        map.invalidateSize();
+        map.panTo([pos.lat, pos.lng]);
+        marker.openPopup();
+        return false;
+      };
+
+  return {
+      map: map,
+      mapMarkers: mapMarkers,
+      init: init,
+      setView: setView,
+      setMarker: setMarker,
+      focusMarker: focusMarker
+  };
+});
+
 birdur.factory('GeoLoc', function ($q, $rootScope){
 
   var apply = function () {

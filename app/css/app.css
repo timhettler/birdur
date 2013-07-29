@@ -245,20 +245,6 @@ input[type="radio"] {
   padding: 0;
 }
 
-/* line 471, ../../sass/_normalize.scss */
-input[type="search"] {
-  -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
-/* line 482, ../../sass/_normalize.scss */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
 /* line 490, ../../sass/_normalize.scss */
 button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
@@ -381,31 +367,28 @@ body {
 
 /* line 52, ../../sass/app.scss */
 .geolocate {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #888;
-  border-radius: 5px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
   cursor: pointer;
   font-size: 12px;
-  left: 363px;
+  left: 360px;
   line-height: 21px;
   padding: 2px 0 0 0;
   position: absolute;
   text-align: center;
   top: 70px;
-  width: 24px;
+  width: 26px;
   z-index: 1;
 }
-/* line 70, ../../sass/app.scss */
+/* line 69, ../../sass/app.scss */
 .geolocate:hover {
-  background-color: #fff;
-  color: #777;
+  background-color: #f4f4f4;
+  color: #000;
 }
 
-/* line 76, ../../sass/app.scss */
+/* line 75, ../../sass/app.scss */
 .hotspot-container {
   display: -webkit-box;
   display: -moz-box;
@@ -426,7 +409,7 @@ body {
   z-index: 1001;
 }
 @media screen and (orientation: portrait) {
-  /* line 76, ../../sass/app.scss */
+  /* line 75, ../../sass/app.scss */
   .hotspot-container {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(8, 8, 8, 0.9)), color-stop(50%, #080808));
     background-image: -webkit-linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
@@ -444,13 +427,13 @@ body {
   }
 }
 
-/* line 101, ../../sass/app.scss */
+/* line 100, ../../sass/app.scss */
 .hotspot-title, .hotspot-item {
   padding-left: 25px;
   padding-right: 25px;
 }
 
-/* line 108, ../../sass/app.scss */
+/* line 107, ../../sass/app.scss */
 .hotspot-title {
   font-size: 1.52em;
   line-height: 0.94737em;
@@ -461,7 +444,7 @@ body {
   margin: 0;
 }
 @media screen and (orientation: portrait) {
-  /* line 108, ../../sass/app.scss */
+  /* line 107, ../../sass/app.scss */
   .hotspot-title {
     border-bottom-style: solid;
     border-bottom-width: 0.04em;
@@ -470,7 +453,7 @@ body {
   }
 }
 
-/* line 121, ../../sass/app.scss */
+/* line 120, ../../sass/app.scss */
 .hotspot-location {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -486,7 +469,7 @@ body {
   width: 100%;
 }
 
-/* line 134, ../../sass/app.scss */
+/* line 133, ../../sass/app.scss */
 .hotspot-list {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -499,7 +482,7 @@ body {
   padding: 0;
 }
 
-/* line 143, ../../sass/app.scss */
+/* line 142, ../../sass/app.scss */
 .hotspot-item {
   padding-top: 0.96em;
   padding-bottom: 0.96em;
@@ -510,17 +493,17 @@ body {
   list-style: none;
 }
 @media screen and (orientation: portrait) {
-  /* line 143, ../../sass/app.scss */
+  /* line 142, ../../sass/app.scss */
   .hotspot-item {
     padding-top: 0.48em;
     padding-bottom: 0.48em;
   }
 }
-/* line 158, ../../sass/app.scss */
+/* line 157, ../../sass/app.scss */
 .no-touch .hotspot-item:hover, .no-touch .hotspot-item.active {
   background-color: #484848;
 }
-/* line 163, ../../sass/app.scss */
+/* line 162, ../../sass/app.scss */
 .hotspot-item > i {
   font-size: 0.72em;
   line-height: 1.33333em;
@@ -528,7 +511,7 @@ body {
   display: block;
 }
 
-/* line 170, ../../sass/app.scss */
+/* line 169, ../../sass/app.scss */
 .error-container {
   display: -webkit-box;
   display: -moz-box;
@@ -547,7 +530,7 @@ body {
   top: 0;
 }
 
-/* line 180, ../../sass/app.scss */
+/* line 179, ../../sass/app.scss */
 .error {
   background: rgba(8, 8, 8, 0.9);
   color: #fdd84c;
@@ -556,7 +539,7 @@ body {
   width: 500px;
 }
 @media screen and (orientation: portrait) {
-  /* line 180, ../../sass/app.scss */
+  /* line 179, ../../sass/app.scss */
   .error {
     width: 80%;
   }

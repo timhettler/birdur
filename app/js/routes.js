@@ -5,8 +5,8 @@
 birdur.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'templates/map.html',
-      controller: 'HotspotsListCtrl'
+      templateUrl: 'templates/splash.html',
+      controller: 'SplashCtrl'
     })
     .when('/map/:query', {
       templateUrl: 'templates/map.html',
