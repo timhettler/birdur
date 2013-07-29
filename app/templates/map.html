@@ -1,8 +1,9 @@
 <div class="app-wrapper">
   <div id="map">
+    <button ng-click="GeoLocate()" class="geolocate"></button>
   </div>
   <div class="hotspot-container" ng-show="hotspots">
-    <h1 class="hotspot-title"><form ng-submit="handleUserInput()"><input class="hotspot-location" ng-model="locationName"></form>Hotspots</h1>
+    <h1 class="hotspot-title"><form ng-submit="submit()"><input class="hotspot-location" ng-model="locationName"></form>Hotspots</h1>
     <div class="hotspot-list">
       <hotspot ng-repeat="hotspot in hotspots" name="{{hotspot.locName}}" detail="focusMarker($index)"></hotspot>
     </div>

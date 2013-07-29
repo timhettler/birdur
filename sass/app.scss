@@ -2,10 +2,11 @@
 @import "compass";
 @import "flexbox";
 @import "normalize";
+@import "fonts";
 @import "mixins";
 @import "leaflet";
 
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400);
 
 @include establish-baseline();
 
@@ -45,6 +46,30 @@ body {
 
   @include small-screen {
     height: 80%;
+  }
+}
+
+.geolocate {
+  @extend .icon-location;
+  @include box-sizing('border-box');
+  background-color: rgba(#fff, 0.8);
+  border: 1px solid #888;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  cursor: pointer;
+  font-size: 12px;
+  left: 363px;
+  line-height: 21px;
+  padding: 2px 0 0 0;
+  position: absolute;
+  text-align: center;
+  top: 70px;
+  width: 24px;
+  z-index: 1;
+
+  &:hover {
+    background-color: #fff;
+    color: #777;
   }
 }
 

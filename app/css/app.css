@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,700);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400);
 /* line 52, ../../sass/_normalize.scss */
 article,
 aside,
@@ -277,6 +277,37 @@ table {
   border-spacing: 0;
 }
 
+@font-face {
+  font-family: 'broccolidry';
+  src: url("fonts/icomoon/broccolidry.eot");
+  src: url("fonts/icomoon/broccolidry.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon/broccolidry.woff") format("woff"), url("fonts/icomoon/broccolidry.ttf") format("truetype"), url("fonts/icomoon/broccolidry.svg#broccolidry") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+/* line 18, ../../sass/_fonts.scss */
+.icon-location, .geolocate {
+  font-family: 'broccolidry';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 28, ../../sass/_fonts.scss */
+.icon-location:before, .geolocate:before {
+  content: "\e000";
+}
+
 /* line 1, ../../sass/_leaflet.scss */
 .leaflet-left {
   left: 350px;
@@ -320,14 +351,14 @@ html {
     line-height: 1.5em;
   }
 }
-/* line 16, ../../sass/app.scss */
+/* line 17, ../../sass/app.scss */
 html, body, .app-wrapper, #map, .error-container {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-/* line 22, ../../sass/app.scss */
+/* line 23, ../../sass/app.scss */
 .to-top {
   position: absolute;
   top: 0;
@@ -335,20 +366,46 @@ html, body, .app-wrapper, #map, .error-container {
   z-index: 99999;
 }
 
-/* line 33, ../../sass/app.scss */
+/* line 34, ../../sass/app.scss */
 body {
   font-family: Raleway;
   position: relative;
 }
 
 @media screen and (orientation: portrait) {
-  /* line 43, ../../sass/app.scss */
+  /* line 44, ../../sass/app.scss */
   #map {
     height: 80%;
   }
 }
 
-/* line 51, ../../sass/app.scss */
+/* line 52, ../../sass/app.scss */
+.geolocate {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #888;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font-size: 12px;
+  left: 363px;
+  line-height: 21px;
+  padding: 2px 0 0 0;
+  position: absolute;
+  text-align: center;
+  top: 70px;
+  width: 24px;
+  z-index: 1;
+}
+/* line 70, ../../sass/app.scss */
+.geolocate:hover {
+  background-color: #fff;
+  color: #777;
+}
+
+/* line 76, ../../sass/app.scss */
 .hotspot-container {
   display: -webkit-box;
   display: -moz-box;
@@ -369,7 +426,7 @@ body {
   z-index: 1001;
 }
 @media screen and (orientation: portrait) {
-  /* line 51, ../../sass/app.scss */
+  /* line 76, ../../sass/app.scss */
   .hotspot-container {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(8, 8, 8, 0.9)), color-stop(50%, #080808));
     background-image: -webkit-linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
@@ -387,13 +444,13 @@ body {
   }
 }
 
-/* line 76, ../../sass/app.scss */
+/* line 101, ../../sass/app.scss */
 .hotspot-title, .hotspot-item {
   padding-left: 25px;
   padding-right: 25px;
 }
 
-/* line 83, ../../sass/app.scss */
+/* line 108, ../../sass/app.scss */
 .hotspot-title {
   font-size: 1.52em;
   line-height: 0.94737em;
@@ -404,7 +461,7 @@ body {
   margin: 0;
 }
 @media screen and (orientation: portrait) {
-  /* line 83, ../../sass/app.scss */
+  /* line 108, ../../sass/app.scss */
   .hotspot-title {
     border-bottom-style: solid;
     border-bottom-width: 0.04em;
@@ -413,7 +470,7 @@ body {
   }
 }
 
-/* line 96, ../../sass/app.scss */
+/* line 121, ../../sass/app.scss */
 .hotspot-location {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -423,11 +480,13 @@ body {
   color: #fdd84c;
   display: block;
   font-style: normal;
+  overflow: hidden;
   padding: 0;
+  text-overflow: ellipsis;
   width: 100%;
 }
 
-/* line 107, ../../sass/app.scss */
+/* line 134, ../../sass/app.scss */
 .hotspot-list {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -440,7 +499,7 @@ body {
   padding: 0;
 }
 
-/* line 116, ../../sass/app.scss */
+/* line 143, ../../sass/app.scss */
 .hotspot-item {
   padding-top: 0.96em;
   padding-bottom: 0.96em;
@@ -451,17 +510,17 @@ body {
   list-style: none;
 }
 @media screen and (orientation: portrait) {
-  /* line 116, ../../sass/app.scss */
+  /* line 143, ../../sass/app.scss */
   .hotspot-item {
     padding-top: 0.48em;
     padding-bottom: 0.48em;
   }
 }
-/* line 131, ../../sass/app.scss */
+/* line 158, ../../sass/app.scss */
 .no-touch .hotspot-item:hover, .no-touch .hotspot-item.active {
   background-color: #484848;
 }
-/* line 136, ../../sass/app.scss */
+/* line 163, ../../sass/app.scss */
 .hotspot-item > i {
   font-size: 0.72em;
   line-height: 1.33333em;
@@ -469,7 +528,7 @@ body {
   display: block;
 }
 
-/* line 143, ../../sass/app.scss */
+/* line 170, ../../sass/app.scss */
 .error-container {
   display: -webkit-box;
   display: -moz-box;
@@ -488,7 +547,7 @@ body {
   top: 0;
 }
 
-/* line 153, ../../sass/app.scss */
+/* line 180, ../../sass/app.scss */
 .error {
   background: rgba(8, 8, 8, 0.9);
   color: #fdd84c;
@@ -497,7 +556,7 @@ body {
   width: 500px;
 }
 @media screen and (orientation: portrait) {
-  /* line 153, ../../sass/app.scss */
+  /* line 180, ../../sass/app.scss */
   .error {
     width: 80%;
   }

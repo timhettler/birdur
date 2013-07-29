@@ -2,20 +2,23 @@
 
 /* Controllers */
 
-birdur.controller('HotspotsListCtrl', function ($scope, $routeParams, GeoLoc, eBird, LocationService) {
+birdur.controller('HotspotsListCtrl', function ($scope, $routeParams, $location, GeoLoc, eBird, LocationService) {
 
   var map = L.map('map'),
       mapMarkers = L.layerGroup(),
       curLoc = L.circle();
 
   L.tileLayer('http://{s}.tile.cloudmade.com/badf2c8f27664349b206f901bdaa58ea/96931/256/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
     maxZoom: 18
   }).addTo(map);
 
   $scope.position = null;
   $scope.errorMessage = "";
   $scope.locationName = $routeParams.query;
+
+  $scope.$watch("position", function(newPos, oldPos){
+    console.log(newPos, oldPos);
+  });
 
   $scope.setMarkers = function(hotspots) {
     if(!hotspots || hotspots.length < 1) { return; }
@@ -81,6 +84,10 @@ birdur.controller('HotspotsListCtrl', function ($scope, $routeParams, GeoLoc, eB
     });
   };
 
+  $scope.submit = function() {
+    $location.path('/map/'+$scope.locationName);
+  }
+
   $scope.handleUserInput = function(query) {
     var regex_latLng = /^(-?\d{1,3}(\.\d*)?),\s?(-?\d{1,3}(\.\d*)?)$/,
         regex_whitespace = /\s+/g,
@@ -103,7 +110,7 @@ birdur.controller('HotspotsListCtrl', function ($scope, $routeParams, GeoLoc, eB
     } else {
 
       if(regex_zipcode.test(query)) {
-        geosearchQuery = "[zip="+query+"]";
+        geosearchQuery = "[zip="+query+"][country=United States]";
       } else if(regex_address.test(query)) {
         var address = query.split(regex_addressSeparator);
         if(address.length == 1) {
@@ -124,22 +131,31 @@ birdur.controller('HotspotsListCtrl', function ($scope, $routeParams, GeoLoc, eB
         LocationService.geosearch({
           q: geosearchQuery
         }, function (data) {
-          var coords = data.places[0].position;
-          $scope.handleLocationData(coords.lat, coords.lon);
+          if(data.places) {
+            var coords = data.places[0].position;
+            $scope.handleLocationData(coords.lat, coords.lon);
+          } else {
+            $scope.errorMessage = "<p>We can't determine where you are!</p><p>Try again when you have a better internet connection.</p>";
+            map.setView([43.236406, -76.225033], 9);
+          }
         });
       }
     }
   }
 
-  if($scope.locationName) {
-    $scope.handleUserInput();
-  } else {
+  $scope.GeoLocate = function () {
     GeoLoc.locate()
       .then(function (position) {
-        $scope.handleLocationData(position.coords.latitude, position.coords.longitude);
+        $location.path('/map/'+position.coords.latitude+','+position.coords.longitude);
       }, function () {
         $scope.errorMessage = "<p>We can't determine where you are!</p><p>Try again when you have a better internet connection.</p>";
         map.setView([43.236406, -76.225033], 9);
       });
+  }
+
+  if($scope.locationName) {
+    $scope.handleUserInput();
+  } else {
+    $scope.GeoLocate();
   }
 });
