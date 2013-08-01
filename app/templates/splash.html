@@ -4,8 +4,8 @@
     <h1 class="splash-title">Birdur</h1>
 
     <div class="splash-form-container">
-      <form name="locationForm" ng-submit="">
-        <input class="splash-input" name="location" type="text" placeholder="Enter your city, state or zip" required />
+      <form name="locationForm" ng-submit="handleUserInput()">
+        <input ng-model="searchQuery" class="splash-input" name="location" type="text" placeholder="Enter your city, state or zip" required />
         <button class="splash-submit" type="submit">Submit</button>
       </form>
     </div>

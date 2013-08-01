@@ -350,11 +350,12 @@ table {
 /* line 19, ../../sass/_splash.scss */
 .splash-title {
   font: normal 48px "bonvenocflight", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
   margin: 0;
   text-transform: uppercase;
 }
 
-/* line 25, ../../sass/_splash.scss */
+/* line 26, ../../sass/_splash.scss */
 .splash-input {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -369,19 +370,26 @@ table {
   width: 100%;
 }
 
-/* line 37, ../../sass/_splash.scss */
+/* line 38, ../../sass/_splash.scss */
 .splash-submit {
   background-color: #eead21;
   border: none;
   border-bottom: 2px solid #ee8121;
   color: #fff;
   font-size: 20px;
+  -webkit-font-smoothing: antialiased;
   font-weight: bold;
   line-height: 50px;
   margin-top: 30px;
+  outline: none;
   padding: 0;
   text-transform: uppercase;
   width: 100%;
+}
+/* line 53, ../../sass/_splash.scss */
+.splash-submit:active {
+  border-bottom: none;
+  border-top: 2px solid #ee8121;
 }
 
 /* line 105, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */

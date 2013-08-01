@@ -18,6 +18,7 @@ $splash-element-separation: 30px;
 
 .splash-title {
   font: normal 48px $font-stack--title;
+  -webkit-font-smoothing: antialiased;
   margin: 0;
   text-transform: uppercase;
 }
@@ -40,10 +41,17 @@ $splash-element-separation: 30px;
   border-bottom: 2px solid #ee8121;
   color: #fff;
   font-size: 20px;
+  -webkit-font-smoothing: antialiased;
   font-weight: bold;
   line-height: 50px;
   margin-top: $splash-element-separation;
+  outline: none;
   padding: 0;
   text-transform: uppercase;
   width: 100%;
+
+  &:active {
+    border-bottom: none;
+    border-top: 2px solid #ee8121;
+  }
 }
