@@ -1,23 +1,20 @@
 @import "global-vars";
+@import "mixins";
+@import "placeholders";
+
 @import "compass";
 @import "flexbox";
+
 @import "normalize";
 @import "fonts";
-@import "mixins";
-@import "leaflet";
 
-@import url(http://fonts.googleapis.com/css?family=Raleway:400);
+@import "leaflet";
+@import "splash";
 
 @include establish-baseline();
 
 @media (max-width: 480px) {
   @include establish-baseline($base-font-size * 0.64);
-}
-
-%fullscreen {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
 
 .to-top {
@@ -33,7 +30,7 @@ html {
 
 body {
   @extend %fullscreen;
-  font-family: Raleway;
+  font-family: $font-stack--base;
   position: relative;
 }
 

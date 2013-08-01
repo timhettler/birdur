@@ -1,0 +1,49 @@
+$splash-element-separation: 30px;
+
+.splash {
+  @extend %fullscreen;
+  @include align-items('center');
+  @include display-flex();
+  @include justify-content('center');
+  background-image: image-url('bg_1.jpg');
+  background-size: cover;
+  color: #fff;
+}
+
+.splash-container {
+  text-align: center;
+  margin: 0 10px;
+  max-width: 297px;
+}
+
+.splash-title {
+  font: normal 48px $font-stack--title;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.splash-input {
+  @include box-sizing('border-box');
+  background-color: #fff;
+  border: 1px solid #bbb;
+  font-size: 16px;
+  line-height: 37px;
+  margin-top: $splash-element-separation;
+  padding: 0 8px;
+  text-align: left;
+  width: 100%
+}
+
+.splash-submit {
+  background-color: #eead21;
+  border: none;
+  border-bottom: 2px solid #ee8121;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 50px;
+  margin-top: $splash-element-separation;
+  padding: 0;
+  text-transform: uppercase;
+  width: 100%;
+}

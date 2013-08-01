@@ -23,6 +23,9 @@ birdur.controller('HotspotsListCtrl', function ($scope, $routeParams, $location,
   }
   $scope.errorMessage = "";
   $scope.searchQuery = $routeParams.query;
+  $scope.selectedHotspotId = null;
+
+  console.log($scope);
 
   $scope.setMarkers = function(hotspots) {
     if(!hotspots || hotspots.length < 1) { return; }

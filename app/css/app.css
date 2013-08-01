@@ -1,4 +1,10 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:400);
+/* line 1, ../../sass/_placeholders.scss */
+.splash, html, body, .app-wrapper, #map, .error-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 /* line 52, ../../sass/_normalize.scss */
 article,
 aside,
@@ -264,20 +270,22 @@ table {
 }
 
 @font-face {
-  font-family: 'broccolidry';
-  src: url("fonts/icomoon/broccolidry.eot");
-  src: url("fonts/icomoon/broccolidry.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon/broccolidry.woff") format("woff"), url("fonts/icomoon/broccolidry.ttf") format("truetype"), url("fonts/icomoon/broccolidry.svg#broccolidry") format("svg");
+  font-family: 'bonvenocflight';
+  src: url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.eot');
+  src: url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.eot?#iefix') format("embedded-opentype"), url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.woff') format("woff"), url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.ttf') format("truetype"), url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.svg#bonvenocflight') format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-/* Use the following CSS code if you want to have a class per icon */
-/*
-Instead of a list of all class selectors,
-you can use the generic selector below, but it's slower:
-[class*="icon-"] {
-*/
-/* line 18, ../../sass/_fonts.scss */
+@font-face {
+  font-family: 'broccolidry';
+  src: url('fonts/icomoon/broccolidry.eot');
+  src: url('fonts/icomoon/broccolidry.eot?#iefix') format("embedded-opentype"), url('fonts/icomoon/broccolidry.woff') format("woff"), url('fonts/icomoon/broccolidry.ttf') format("truetype"), url('fonts/icomoon/broccolidry.svg#broccolidry') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 24, ../../sass/_fonts.scss */
 .icon-location, .geolocate {
   font-family: 'broccolidry';
   speak: none;
@@ -288,8 +296,7 @@ you can use the generic selector below, but it's slower:
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-
-/* line 28, ../../sass/_fonts.scss */
+/* line 34, ../../sass/_fonts.scss */
 .icon-location:before, .geolocate:before {
   content: "\e000";
 }
@@ -314,37 +321,83 @@ you can use the generic selector below, but it's slower:
   border-radius: 5px;
 }
 
-/* line 61, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
-* html {
-  font-size: 156.25%;
+/* line 3, ../../sass/_splash.scss */
+.splash {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background-image: url('../img/bg_1.jpg?1375326262');
+  background-size: cover;
+  color: #fff;
 }
 
-/* line 64, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+/* line 13, ../../sass/_splash.scss */
+.splash-container {
+  text-align: center;
+  margin: 0 10px;
+  max-width: 297px;
+}
+
+/* line 19, ../../sass/_splash.scss */
+.splash-title {
+  font: normal 48px "bonvenocflight", Arial, sans-serif;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* line 25, ../../sass/_splash.scss */
+.splash-input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #bbb;
+  font-size: 16px;
+  line-height: 37px;
+  margin-top: 30px;
+  padding: 0 8px;
+  text-align: left;
+  width: 100%;
+}
+
+/* line 37, ../../sass/_splash.scss */
+.splash-submit {
+  background-color: #eead21;
+  border: none;
+  border-bottom: 2px solid #ee8121;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 50px;
+  margin-top: 30px;
+  padding: 0;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+/* line 105, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
 html {
-  font-size: 25px;
+  font-size: 156.25%;
   line-height: 0.96em;
 }
 
 @media (max-width: 480px) {
-  /* line 61, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
-  * html {
-    font-size: 100%;
-  }
-
-  /* line 64, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+  /* line 105, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
   html {
-    font-size: 16px;
-    line-height: 1.5em;
+    font-size: 100%;
+    line-height: 0.96em;
   }
 }
-/* line 17, ../../sass/app.scss */
-html, body, .app-wrapper, #map, .error-container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-/* line 23, ../../sass/app.scss */
+/* line 20, ../../sass/app.scss */
 .to-top {
   position: absolute;
   top: 0;
@@ -352,20 +405,20 @@ html, body, .app-wrapper, #map, .error-container {
   z-index: 99999;
 }
 
-/* line 34, ../../sass/app.scss */
+/* line 31, ../../sass/app.scss */
 body {
-  font-family: Raleway;
+  font-family: Arial, sans-serif;
   position: relative;
 }
 
 @media screen and (orientation: portrait) {
-  /* line 44, ../../sass/app.scss */
+  /* line 41, ../../sass/app.scss */
   #map {
     height: 80%;
   }
 }
 
-/* line 52, ../../sass/app.scss */
+/* line 49, ../../sass/app.scss */
 .geolocate {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #888;
@@ -382,13 +435,13 @@ body {
   width: 26px;
   z-index: 1;
 }
-/* line 69, ../../sass/app.scss */
+/* line 66, ../../sass/app.scss */
 .geolocate:hover {
   background-color: #f4f4f4;
   color: #000;
 }
 
-/* line 75, ../../sass/app.scss */
+/* line 72, ../../sass/app.scss */
 .hotspot-container {
   display: -webkit-box;
   display: -moz-box;
@@ -409,9 +462,8 @@ body {
   z-index: 1001;
 }
 @media screen and (orientation: portrait) {
-  /* line 75, ../../sass/app.scss */
+  /* line 72, ../../sass/app.scss */
   .hotspot-container {
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(8, 8, 8, 0.9)), color-stop(50%, #080808));
     background-image: -webkit-linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
     background-image: -moz-linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
     background-image: linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
@@ -427,33 +479,33 @@ body {
   }
 }
 
-/* line 100, ../../sass/app.scss */
+/* line 97, ../../sass/app.scss */
 .hotspot-title, .hotspot-item {
   padding-left: 25px;
   padding-right: 25px;
 }
 
-/* line 107, ../../sass/app.scss */
+/* line 104, ../../sass/app.scss */
 .hotspot-title {
   font-size: 1.52em;
   line-height: 0.94737em;
-  border-bottom-style: solid;
   border-bottom-width: 0.04em;
+  border-bottom-style: solid;
   padding-bottom: 0.92em;
   padding-top: 0.96em;
   margin: 0;
 }
 @media screen and (orientation: portrait) {
-  /* line 107, ../../sass/app.scss */
+  /* line 104, ../../sass/app.scss */
   .hotspot-title {
-    border-bottom-style: solid;
     border-bottom-width: 0.04em;
+    border-bottom-style: solid;
     padding-bottom: 0.44em;
     padding-top: 0.48em;
   }
 }
 
-/* line 120, ../../sass/app.scss */
+/* line 117, ../../sass/app.scss */
 .hotspot-location {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -469,7 +521,7 @@ body {
   width: 100%;
 }
 
-/* line 133, ../../sass/app.scss */
+/* line 130, ../../sass/app.scss */
 .hotspot-list {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -482,7 +534,7 @@ body {
   padding: 0;
 }
 
-/* line 142, ../../sass/app.scss */
+/* line 139, ../../sass/app.scss */
 .hotspot-item {
   padding-top: 0.96em;
   padding-bottom: 0.96em;
@@ -493,17 +545,17 @@ body {
   list-style: none;
 }
 @media screen and (orientation: portrait) {
-  /* line 142, ../../sass/app.scss */
+  /* line 139, ../../sass/app.scss */
   .hotspot-item {
     padding-top: 0.48em;
     padding-bottom: 0.48em;
   }
 }
-/* line 157, ../../sass/app.scss */
+/* line 154, ../../sass/app.scss */
 .no-touch .hotspot-item:hover, .no-touch .hotspot-item.active {
   background-color: #484848;
 }
-/* line 162, ../../sass/app.scss */
+/* line 159, ../../sass/app.scss */
 .hotspot-item > i {
   font-size: 0.72em;
   line-height: 1.33333em;
@@ -511,7 +563,7 @@ body {
   display: block;
 }
 
-/* line 169, ../../sass/app.scss */
+/* line 166, ../../sass/app.scss */
 .error-container {
   display: -webkit-box;
   display: -moz-box;
@@ -530,7 +582,7 @@ body {
   top: 0;
 }
 
-/* line 179, ../../sass/app.scss */
+/* line 176, ../../sass/app.scss */
 .error {
   background: rgba(8, 8, 8, 0.9);
   color: #fdd84c;
@@ -539,7 +591,7 @@ body {
   width: 500px;
 }
 @media screen and (orientation: portrait) {
-  /* line 179, ../../sass/app.scss */
+  /* line 176, ../../sass/app.scss */
   .error {
     width: 80%;
   }

@@ -1,9 +1,13 @@
-<div class="splash-container">
-  <h1 class="splash-title">Birdur</h1>
-  <h2 class="splash-sub-title">Find the Best Birding Spots</h2>
+<div class="splash">
+  <div class="splash-container">
+    <div class="splash-logo"><img src="img/birdur_logo.png" alt=""></div>
+    <h1 class="splash-title">Birdur</h1>
 
-  <form name="locationForm" ng-submit="">
-    <input class="splash-input" name="location" type="text" placeholder="Enter a location" required />
-    <input type="submit" value="Go" />
-  </form>
+    <div class="splash-form-container">
+      <form name="locationForm" ng-submit="">
+        <input class="splash-input" name="location" type="text" placeholder="Enter your city, state or zip" required />
+        <button class="splash-submit" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>

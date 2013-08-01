@@ -17,6 +17,7 @@ birdur.factory('Map', function (){
       },
       setMarker = function (latlng, popup) {
         var marker = L.marker(latlng)
+                      .on('click', markerFocus)
                       .bindPopup(popup);
         mapMarkers.addLayer(marker);
         return marker;
@@ -29,6 +30,9 @@ birdur.factory('Map', function (){
         map.panTo([pos.lat, pos.lng]);
         marker.openPopup();
         return false;
+      },
+      markerFocus = function (e) {
+        console.log(e.target._leaflet_id);
       };
 
   return {
