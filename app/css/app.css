@@ -285,7 +285,7 @@ table {
   font-style: normal;
 }
 
-/* line 24, ../../sass/_fonts.scss */
+/* line 23, ../../sass/_fonts.scss */
 .icon-location, .geolocate {
   font-family: 'broccolidry';
   speak: none;
@@ -296,7 +296,7 @@ table {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
 }
-/* line 34, ../../sass/_fonts.scss */
+/* line 33, ../../sass/_fonts.scss */
 .icon-location:before, .geolocate:before {
   content: "\e000";
 }
@@ -335,19 +335,20 @@ table {
   -moz-box-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background-image: url('../img/bg_1.jpg?1375326262');
+  background-image: url('../img/bg_1.jpg?1375386754');
+  background-position: center;
   background-size: cover;
   color: #fff;
 }
 
-/* line 13, ../../sass/_splash.scss */
+/* line 14, ../../sass/_splash.scss */
 .splash-container {
   text-align: center;
-  margin: 0 10px;
+  margin: 10px;
   max-width: 297px;
 }
 
-/* line 19, ../../sass/_splash.scss */
+/* line 20, ../../sass/_splash.scss */
 .splash-title {
   font: normal 48px "bonvenocflight", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -355,8 +356,11 @@ table {
   text-transform: uppercase;
 }
 
-/* line 26, ../../sass/_splash.scss */
+/* line 27, ../../sass/_splash.scss */
 .splash-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -370,7 +374,7 @@ table {
   width: 100%;
 }
 
-/* line 38, ../../sass/_splash.scss */
+/* line 40, ../../sass/_splash.scss */
 .splash-submit {
   background-color: #eead21;
   border: none;
@@ -386,7 +390,7 @@ table {
   text-transform: uppercase;
   width: 100%;
 }
-/* line 53, ../../sass/_splash.scss */
+/* line 55, ../../sass/_splash.scss */
 .splash-submit:active {
   border-bottom: none;
   border-top: 2px solid #ee8121;
