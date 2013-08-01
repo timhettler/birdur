@@ -41,7 +41,7 @@ body {
 #map {
   @extend %fullscreen;
 
-  @include small-screen {
+  @include mq-portrait {
     height: 80%;
   }
 }
@@ -82,7 +82,7 @@ body {
   width: 350px;
   z-index: 1001;
 
-  @include small-screen {
+  @include mq-portrait {
     @include background-image(linear-gradient(rgba($color--black, 0.9), rgba($color--black, 1) 50%));
     @include single-transition(top);
     background-color: transparent;
@@ -108,7 +108,7 @@ body {
   @include padding-leader(1);
   margin: 0;
 
-  @include small-screen {
+  @include mq-portrait {
     @include apply-side-rhythm-border($side:bottom, $lines: 0.5);
     @include padding-leader(0.5);
   }
@@ -144,7 +144,7 @@ body {
   cursor: pointer;
   list-style: none;
 
-  @include small-screen {
+  @include mq-portrait {
     @include padding-leader(0.5);
     @include padding-trailer(0.5);
   }
@@ -180,7 +180,7 @@ body {
     padding: 1em;
     width: 500px;
 
-    @include small-screen {
+    @include mq-portrait {
       width: 80%;
     }
   }

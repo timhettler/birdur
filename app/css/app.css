@@ -309,7 +309,7 @@ table {
 .touch .leaflet-left {
   display: none;
 }
-@media screen and (orientation: portrait) {
+@media (orientation: portrait) {
   /* line 1, ../../sass/_leaflet.scss */
   .leaflet-left {
     left: 0;
@@ -335,20 +335,40 @@ table {
   -moz-box-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background-image: url('../img/bg_1.jpg?1375386754');
+  background-image: url('../img/bg_l.jpg?1375387815');
   background-position: center;
   background-size: cover;
   color: #fff;
 }
+@media (max-width: 599px) {
+  /* line 3, ../../sass/_splash.scss */
+  .splash {
+    background-image: url('../img/bg_p.jpg?1375390839');
+  }
+}
+@media (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 599px) and (min-resolution: 192dpi) {
+  /* line 3, ../../sass/_splash.scss */
+  .splash {
+    background-image: url('../img/bg_p@2x.jpg?1375390809');
+  }
+}
 
-/* line 14, ../../sass/_splash.scss */
+/* line 18, ../../sass/_splash.scss */
 .splash-container {
   text-align: center;
   margin: 10px;
   max-width: 297px;
 }
 
-/* line 20, ../../sass/_splash.scss */
+/* line 24, ../../sass/_splash.scss */
+.splash-logo {
+  background-image: url('../img/birdur_logo.png?1375387815');
+  height: 167px;
+  margin: 0 auto;
+  width: 168px;
+}
+
+/* line 31, ../../sass/_splash.scss */
 .splash-title {
   font: normal 48px "bonvenocflight", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -356,7 +376,7 @@ table {
   text-transform: uppercase;
 }
 
-/* line 27, ../../sass/_splash.scss */
+/* line 38, ../../sass/_splash.scss */
 .splash-input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -366,6 +386,7 @@ table {
   box-sizing: border-box;
   background-color: #fff;
   border: 1px solid #bbb;
+  border-radius: 0;
   font-size: 16px;
   line-height: 37px;
   margin-top: 30px;
@@ -374,7 +395,7 @@ table {
   width: 100%;
 }
 
-/* line 40, ../../sass/_splash.scss */
+/* line 52, ../../sass/_splash.scss */
 .splash-submit {
   background-color: #eead21;
   border: none;
@@ -390,7 +411,7 @@ table {
   text-transform: uppercase;
   width: 100%;
 }
-/* line 55, ../../sass/_splash.scss */
+/* line 67, ../../sass/_splash.scss */
 .splash-submit:active {
   border-bottom: none;
   border-top: 2px solid #ee8121;
@@ -423,7 +444,7 @@ body {
   position: relative;
 }
 
-@media screen and (orientation: portrait) {
+@media (orientation: portrait) {
   /* line 41, ../../sass/app.scss */
   #map {
     height: 80%;
@@ -473,7 +494,7 @@ body {
   width: 350px;
   z-index: 1001;
 }
-@media screen and (orientation: portrait) {
+@media (orientation: portrait) {
   /* line 72, ../../sass/app.scss */
   .hotspot-container {
     background-image: -webkit-linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
@@ -507,7 +528,7 @@ body {
   padding-top: 0.96em;
   margin: 0;
 }
-@media screen and (orientation: portrait) {
+@media (orientation: portrait) {
   /* line 104, ../../sass/app.scss */
   .hotspot-title {
     border-bottom-width: 0.04em;
@@ -556,7 +577,7 @@ body {
   cursor: pointer;
   list-style: none;
 }
-@media screen and (orientation: portrait) {
+@media (orientation: portrait) {
   /* line 139, ../../sass/app.scss */
   .hotspot-item {
     padding-top: 0.48em;
@@ -602,7 +623,7 @@ body {
   padding: 1em;
   width: 500px;
 }
-@media screen and (orientation: portrait) {
+@media (orientation: portrait) {
   /* line 176, ../../sass/app.scss */
   .error {
     width: 80%;

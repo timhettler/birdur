@@ -1,7 +1,21 @@
 @import "global-vars";
 
-@mixin small-screen() {
-  @media screen and (orientation:portrait) {
+@mixin mq-portrait() {
+  @media (orientation:portrait) {
     @content;
+  }
+}
+
+@mixin mq-small-screen() {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin retina-image($image-name, $image-extension) {
+  background-image: image-url($image-name + '.' + $image-extension);
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: image-url($image-name + '@2x.' + $image-extension);
   }
 }

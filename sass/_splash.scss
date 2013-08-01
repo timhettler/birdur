@@ -5,16 +5,27 @@ $splash-element-separation: 30px;
   @include align-items('center');
   @include display-flex();
   @include justify-content('center');
-  background-image: image-url('bg_1.jpg');
+  background-image: image-url('bg_l.jpg');
   background-position: center;
   background-size: cover;
   color: #fff;
+
+  @include mq-small-screen {
+    @include retina-image('bg_p', 'jpg');
+  }
 }
 
 .splash-container {
   text-align: center;
   margin: 10px;
   max-width: 297px;
+}
+
+.splash-logo {
+  background-image: image-url('birdur_logo.png');
+  height: 167px;
+  margin: 0 auto;
+  width: 168px;
 }
 
 .splash-title {
@@ -29,6 +40,7 @@ $splash-element-separation: 30px;
   @include box-sizing('border-box');
   background-color: #fff;
   border: 1px solid #bbb;
+  border-radius: 0;
   font-size: 16px;
   line-height: 37px;
   margin-top: $splash-element-separation;
