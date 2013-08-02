@@ -359,9 +359,10 @@ table {
   text-align: center;
   margin: 10px;
   max-width: 297px;
+  width: 100%;
 }
 
-/* line 25, ../../sass/_splash.scss */
+/* line 26, ../../sass/_splash.scss */
 .splash-logo {
   background-image: url('../img/birdur_logo.png?1375387815');
   height: 167px;
@@ -369,7 +370,7 @@ table {
   width: 168px;
 }
 
-/* line 32, ../../sass/_splash.scss */
+/* line 33, ../../sass/_splash.scss */
 .splash-title {
   font: normal 48px "bonvenocflight", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -377,7 +378,7 @@ table {
   text-transform: uppercase;
 }
 
-/* line 39, ../../sass/_splash.scss */
+/* line 40, ../../sass/_splash.scss */
 .splash-error {
   color: red;
   font-size: 16px;
@@ -386,7 +387,13 @@ table {
   text-align: left;
 }
 
-/* line 47, ../../sass/_splash.scss */
+/* line 48, ../../sass/_splash.scss */
+.splash-input-container {
+  margin-top: 30px;
+  position: relative;
+}
+
+/* line 53, ../../sass/_splash.scss */
 .splash-input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -399,14 +406,23 @@ table {
   border-radius: 0;
   font-size: 16px;
   line-height: 37px;
-  margin-top: 30px;
-  padding: 0 8px;
+  padding: 0 38px 0 8px;
   text-align: left;
   width: 100%;
 }
 
-/* line 61, ../../sass/_splash.scss */
+/* line 66, ../../sass/_splash.scss */
+.splash-spinner {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+/* line 72, ../../sass/_splash.scss */
 .splash-submit {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
   background-color: #eead21;
   border: none;
   border-bottom: 2px solid #ee8121;
@@ -419,12 +435,17 @@ table {
   outline: none;
   padding: 0;
   text-transform: uppercase;
+  -webkit-touch-callout: none;
   width: 100%;
 }
-/* line 76, ../../sass/_splash.scss */
+/* line 89, ../../sass/_splash.scss */
 .splash-submit:active {
   border-bottom: none;
   border-top: 2px solid #ee8121;
+}
+/* line 94, ../../sass/_splash.scss */
+.splash-submit[disabled] {
+  pointer-events: none;
 }
 
 /* line 105, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */

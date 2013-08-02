@@ -2,13 +2,13 @@
   <div class="splash-container">
     <div class="splash-logo"></div>
     <h1 class="splash-title">Birdur</h1>
-
-    <div class="splash-form-container">
-      <form name="locationForm" ng-submit="handleUserInput()">
-        <div ng-show="errorMessage" class="splash-error">{{errorMessage}}</div>
-        <input ng-model="searchString" class="splash-input" name="location" type="text" placeholder="Enter your city, state or zip" required />
-        <button class="splash-submit" type="submit">Submit</button>
-      </form>
-    </div>
+    <form name="splashForm" ng-submit="handleUserInput()">
+      <div ng-show="errorMessage" class="splash-error">{{errorMessage}}</div>
+      <div class="splash-input-container">
+        <input ng-disabled="submitted" ng-model="searchString" class="splash-input" name="splashLocation" type="text" placeholder="Enter your city, state or zip" required />
+        <spinner class="splash-spinner" ng-show="submitted"></spinner>
+      </div>
+      <button ng-disabled="submitted" name="splashSubmit" class="splash-submit" type="submit">Submit</button>
+    </form>
   </div>
 </div>

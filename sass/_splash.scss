@@ -20,6 +20,7 @@ $splash-element-separation: 30px;
   text-align: center;
   margin: 10px;
   max-width: 297px;
+  width: 100%;
 }
 
 .splash-logo {
@@ -44,6 +45,11 @@ $splash-element-separation: 30px;
   text-align: left;
 }
 
+.splash-input-container {
+  margin-top: $splash-element-separation;
+  position: relative;
+}
+
 .splash-input {
   @include appearance('none');
   @include box-sizing('border-box');
@@ -52,13 +58,19 @@ $splash-element-separation: 30px;
   border-radius: 0;
   font-size: 16px;
   line-height: 37px;
-  margin-top: $splash-element-separation;
-  padding: 0 8px;
+  padding: 0 38px 0 8px;
   text-align: left;
-  width: 100%
+  width: 100%;
+}
+
+.splash-spinner {
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
 .splash-submit {
+  @include user-select(none);
   background-color: #eead21;
   border: none;
   border-bottom: 2px solid #ee8121;
@@ -71,10 +83,15 @@ $splash-element-separation: 30px;
   outline: none;
   padding: 0;
   text-transform: uppercase;
+  -webkit-touch-callout: none;
   width: 100%;
 
   &:active {
     border-bottom: none;
     border-top: 2px solid #ee8121;
+  }
+
+  &[disabled] {
+    pointer-events: none;
   }
 }

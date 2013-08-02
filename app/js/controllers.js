@@ -9,14 +9,17 @@ birdur.controller('SplashCtrl', function ($scope, $location, UserInput, GeoLoc, 
     });
 
   $scope.searchString = null;
+  $scope.submitted = false;
   $scope.errorMessage = null;
 
   $scope.handleUserInput = function () {
+    $scope.submitted = true;
     $scope.errorMessage = null;
     UserInput.getLatLng($scope.searchString)
       .then(function(latLng) {
         $location.path('/map/'+latLng.join());
       }, function() {
+        $scope.submitted = false;
         $scope.errorMessage = "That search didn't return any results. Did you spell it right?";
       });
   };
