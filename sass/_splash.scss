@@ -5,6 +5,7 @@ $splash-element-separation: 30px;
   @include align-items('center');
   @include display-flex();
   @include justify-content('center');
+  background-color: #859288;
   background-image: image-url('bg_l.jpg');
   background-position: center;
   background-size: cover;
@@ -33,6 +34,14 @@ $splash-element-separation: 30px;
   -webkit-font-smoothing: antialiased;
   margin: 0;
   text-transform: uppercase;
+}
+
+.splash-error {
+  color: red;
+  font-size: 16px;
+  line-height: 1.2;
+  margin-top: $splash-element-separation;
+  text-align: left;
 }
 
 .splash-input {

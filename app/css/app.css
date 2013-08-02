@@ -335,6 +335,7 @@ table {
   -moz-box-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
+  background-color: #859288;
   background-image: url('../img/bg_l.jpg?1375387815');
   background-position: center;
   background-size: cover;
@@ -353,14 +354,14 @@ table {
   }
 }
 
-/* line 18, ../../sass/_splash.scss */
+/* line 19, ../../sass/_splash.scss */
 .splash-container {
   text-align: center;
   margin: 10px;
   max-width: 297px;
 }
 
-/* line 24, ../../sass/_splash.scss */
+/* line 25, ../../sass/_splash.scss */
 .splash-logo {
   background-image: url('../img/birdur_logo.png?1375387815');
   height: 167px;
@@ -368,7 +369,7 @@ table {
   width: 168px;
 }
 
-/* line 31, ../../sass/_splash.scss */
+/* line 32, ../../sass/_splash.scss */
 .splash-title {
   font: normal 48px "bonvenocflight", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -376,7 +377,16 @@ table {
   text-transform: uppercase;
 }
 
-/* line 38, ../../sass/_splash.scss */
+/* line 39, ../../sass/_splash.scss */
+.splash-error {
+  color: red;
+  font-size: 16px;
+  line-height: 1.2;
+  margin-top: 30px;
+  text-align: left;
+}
+
+/* line 47, ../../sass/_splash.scss */
 .splash-input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -395,7 +405,7 @@ table {
   width: 100%;
 }
 
-/* line 52, ../../sass/_splash.scss */
+/* line 61, ../../sass/_splash.scss */
 .splash-submit {
   background-color: #eead21;
   border: none;
@@ -411,7 +421,7 @@ table {
   text-transform: uppercase;
   width: 100%;
 }
-/* line 67, ../../sass/_splash.scss */
+/* line 76, ../../sass/_splash.scss */
 .splash-submit:active {
   border-bottom: none;
   border-top: 2px solid #ee8121;

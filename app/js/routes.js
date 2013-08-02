@@ -2,7 +2,7 @@
 
 /* Routes */
 
-birdur.config(function ($routeProvider) {
+birdur.config(function ($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'templates/splash.html',
@@ -14,5 +14,7 @@ birdur.config(function ($routeProvider) {
     })
     .otherwise({
       redirectTo: "/"
-    })
+    });
+
+  $locationProvider.html5Mode(true);
 })

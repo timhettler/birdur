@@ -2,7 +2,91 @@
 
 /* Services */
 
-birdur.factory('Map', function (){
+birdur.factory('UserInput', function ($q, $log, LocationService) {
+  var regex_latLng = /^(-?\d{1,3}(\.\d*)?),\s?(-?\d{1,3}(\.\d*)?)$/,
+      regex_whitespace = /\s+/g,
+      regex_zipcode = /^\d{5}(-\d{4})?$/g,
+      regex_address = /^(.*)?(\w+)?(,?\s?)?(\w)+(,\s?)(\w)+/,
+      regex_addressSeparator = /,\s?/;
+
+  var formatQuery = function (searchString) {
+    var query = null;
+    searchString = searchString
+              .trim()
+              .replace(regex_whitespace, ' ')
+              .toLowerCase();
+
+    if(regex_zipcode.test(searchString)) {
+
+      query = "[zip="+searchString+"][country=United States]";
+
+    } else if(regex_address.test(searchString)) {
+
+      var address = searchString.split(regex_addressSeparator);
+
+      if(address.length == 1) {
+
+        query = "[city="+address[0]+"][country=United States]";
+
+      } else if(address.length == 2) {
+
+        query = "[city="+address[0]+"][state="+address[1]+"][country=United States]";
+
+      }
+      else if(address.length == 3) {
+
+        query = "[street="+address[0]+"][city="+address[1]+"][state="+address[2]+"][country=United States]";
+
+      }
+      else if(address.length == 4) {
+
+        query = "[housenumber="+address[0]+"][street="+address[1]+"][city="+address[2]+"][state="+address[3]+"][country=United States]";
+
+      }
+    } else {
+      query = "[sight="+searchString+"][country=United States]";
+    }
+
+    $log.log(query);
+    return query;
+  };
+
+  var isLatLng = function (searchString) {
+    if(regex_latLng.test(searchString)) {
+      return true;
+    }
+    return false;
+  };
+
+  var getLatLng = function (searchString) {
+    var defer = $q.defer();
+    if(isLatLng(searchString)) {
+      defer.resolve(searchString.split(','));
+    } else {
+      LocationService.geosearch({
+        q: formatQuery(searchString)
+      }, function (data) {
+        if(data.places) {
+          $log.log(data);
+          var coords = data.places[0].position;
+          defer.resolve([coords.lat,coords.lon]);
+        } else {
+          defer.reject();
+        }
+      }, function (data) {
+        defer.reject();
+      });
+    }
+
+    return defer.promise;
+  };
+
+  return {
+    getLatLng: getLatLng
+  }
+});
+
+birdur.factory('Map', function ($log){
 
   var map = L.map('map'),
       mapMarkers = L.layerGroup(),
@@ -32,7 +116,7 @@ birdur.factory('Map', function (){
         return false;
       },
       markerFocus = function (e) {
-        console.log(e.target._leaflet_id);
+        $log.log(e.target._leaflet_id);
       };
 
   return {
