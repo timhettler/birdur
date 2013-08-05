@@ -336,7 +336,7 @@ table {
   -webkit-justify-content: center;
   justify-content: center;
   background-color: #859288;
-  background-image: url('../img/bg_l.jpg?1375387815');
+  background-image: url('../img/bg_l.jpg?1375712024');
   background-position: center;
   background-size: cover;
   color: #fff;
@@ -344,13 +344,13 @@ table {
 @media (max-width: 599px) {
   /* line 3, ../../sass/_splash.scss */
   .splash {
-    background-image: url('../img/bg_p.jpg?1375390839');
+    background-image: url('../img/bg_p.jpg?1375712020');
   }
 }
 @media (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 599px) and (min-resolution: 192dpi) {
   /* line 3, ../../sass/_splash.scss */
   .splash {
-    background-image: url('../img/bg_p@2x.jpg?1375390809');
+    background-image: url('../img/bg_p@2x.jpg?1375712020');
   }
 }
 
@@ -364,7 +364,7 @@ table {
 
 /* line 26, ../../sass/_splash.scss */
 .splash-logo {
-  background-image: url('../img/birdur_logo.png?1375387815');
+  background-image: url('../img/birdur_logo.png?1375712021');
   height: 167px;
   margin: 0 auto;
   width: 168px;

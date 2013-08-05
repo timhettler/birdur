@@ -2,4 +2,4 @@
 
 /* App Module */
 
-var birdur = angular.module('birdur', ['ng', 'ngResource']);
+var birdur = angular.module('birdur', ['ng', 'ngResource', 'leaflet-directive']);

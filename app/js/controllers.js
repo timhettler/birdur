@@ -11,6 +11,7 @@ birdur.controller('SplashCtrl', function ($scope, $location, UserInput, GeoLoc, 
   $scope.searchString = null;
   $scope.submitted = false;
   $scope.errorMessage = null;
+  $scope.selectedIndex = null;
 
   $scope.handleUserInput = function () {
     $scope.submitted = true;
@@ -25,77 +26,82 @@ birdur.controller('SplashCtrl', function ($scope, $location, UserInput, GeoLoc, 
   };
 });
 
-birdur.controller('HotspotsListCtrl', function ($scope, $log, $routeParams, $location, UserInput, Map, GeoLoc, eBird, LocationService) {
+birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParams, $location, UserInput, GeoLoc, eBird, LocationService) {
 
-  var map = Map.map,
-      mapMarkers = Map.mapMarkers;
-
-  Map.init();
-
-  $scope.position = {
-    latitude: null,
-    longitude: null,
-    name: null
-  }
   $scope.errorMessage = "";
   $scope.selectedHotspotId = null;
-
-  console.log($scope);
+  $scope.center = {
+    zoom: 12
+  };
+  $scope.markers = {};
+  $scope.mapDefaults = {
+      tileLayer: 'http://{s}.tile.cloudmade.com/badf2c8f27664349b206f901bdaa58ea/96931/256/{z}/{x}/{y}.png',
+      tileLayerOptions: {
+        attribution: ''
+      },
+      minZoom: 10,
+  }
 
   $scope.setMarkers = function(hotspots) {
     if(!hotspots || hotspots.length < 1) { return; }
 
-    mapMarkers.clearLayers();
-
     for (var i = 0; i < hotspots.length; i++) {
       var spot = hotspots[i];
 
-      spot.id = Map.setMarker(
-        [spot.lat, spot.lng],
-        '<b>'+spot.locName+'</b><br/><a href="https://maps.google.com/maps?saddr='+$scope.position.latitude+', '+$scope.position.longitude+'&daddr='+spot.lat+', '+spot.lng+'" target="_blank">Get directions</a>'
-      )._leaflet_id;
+      $scope.markers[i] = {
+        lat: spot.lat,
+        lng: spot.lng,
+        message: '<b>'+spot.locName+'</b><br/><a href="http://maps.apple.com/?saddr='+$scope.center.lat+', '+$scope.center.lng+'&daddr='+spot.lat+', '+spot.lng+'" target="_blank">Get directions</a>',
+        events: {
+          popupopen: function() {
+            name = this.name;
+            if(!$scope.$$phase) {
+              $scope.$apply(function(){
+                $scope.selectedIndex = name;
+              });
+            } else {
+              $scope.selectedIndex = name;
+            }
+          },
+          popupclose: function() {
+            if(!$scope.$$phase) {
+              $scope.$apply(function(){
+                $scope.selectedIndex = null;
+              });
+            } else {
+              $scope.selectedIndex = null;
+            }
+          }
+        }
+      }
     };
-    mapMarkers.addTo(map);
-  };
 
-  $scope.parseLocName = function(locName) {
-    var names = locName.split('--'),
-        newName = locName;
-    if(names[1]) {
-      newName = names[1]+"<i>"+names[0]+"</i>";
-    }
-    return newName;
   };
 
   $scope.focusMarker = function(id) {
-    return Map.focusMarker(id);
+    var marker = $scope.markers[id];
+
+    angular.forEach($scope.markers, function(m){
+      m.focus = false;
+    });
+
+    marker.focus = true;
+    $scope.center.lat = marker.lat;
+    $scope.center.lng = marker.lng;
   };
 
   $scope.handleLocationData = function(lat, lng) {
 
-    $scope.position = {
-      latitude: lat,
-      longitude: lng
-    };
+    $scope.center.lat = lat;
+    $scope.center.lng = lng;
 
-    $scope.setView();
-
-    eBird.geo($scope.position, function(data){
+    eBird.geo({latitude: $scope.center.lat, longitude: $scope.center.lng}, function(data){
       angular.forEach(data, function(key){
         key.locName = key.locName.replace('--','<br/>');
       });
       $scope.hotspots = data;
       $scope.setMarkers($scope.hotspots);
     });
-
-    // LocationService.geosearch({
-    //   q: "[latitude="+$scope.position.latitude+"][longitude="+$scope.position.longitude+"]"
-    // }, function (data) {
-    //   console.log(data);
-    //   var place = data.places[0].city || data.places[0].name || data.places[0].zip,
-    //       state = data.places[0].state || '';
-    //   $scope.position.name = place.replace('~','') + ', ' + state.replace(/\./g,'').toUpperCase();
-    // });
   };
 
   $scope.GeoLocate = function () {
@@ -105,10 +111,6 @@ birdur.controller('HotspotsListCtrl', function ($scope, $log, $routeParams, $loc
       }, function () {
         $scope.errorMessage = "<p>We can't determine where you are!</p><p>Try again when you have a better internet connection.</p>";
       });
-  };
-
-  $scope.setView = function () {
-    Map.setView([$scope.position.latitude, $scope.position.longitude]);
   };
 
   UserInput.getLatLng($routeParams.query)

@@ -1,13 +1,14 @@
 <div class="app-wrapper">
-  <div id="map">
+  <!-- <div id="map">
     <button ng-click="setView()" class="geolocate"></button>
-  </div>
+  </div> -->
+  <leaflet id="map" markers="markers" center="center" defaults="mapDefaults"></leaflet>
   <div class="hotspot-container" ng-show="hotspots">
     <h1 class="hotspot-title"><!-- <form ng-submit="handleUserInput()"><input type="search" ng-model="searchQuery"></form> -->
     <i class="hotspot-location">{{position.name}}</i>
     Hotspots</h1>
     <div class="hotspot-list">
-      <hotspot ng-repeat="hotspot in hotspots" name="{{hotspot.locName}}" detail="focusMarker(hotspot.id)"></hotspot>
+      <div ng-repeat="hotspot in hotspots" class="hotspot-item" ng-class="{'active': $index==selectedIndex}" ng-click="focusMarker($index)" ng-bind-html-unsafe="hotspot.locName"></div>
     </div>
   </div>
   <div class="error-container" ng-show="errorMessage">
