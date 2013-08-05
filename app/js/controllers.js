@@ -78,7 +78,7 @@ birdur.controller('HotspotsListCtrl', function ($scope, $log, $routeParams, $loc
       longitude: lng
     };
 
-    Map.setView([$scope.position.latitude, $scope.position.longitude]);
+    $scope.setView();
 
     eBird.geo($scope.position, function(data){
       angular.forEach(data, function(key){
@@ -105,7 +105,11 @@ birdur.controller('HotspotsListCtrl', function ($scope, $log, $routeParams, $loc
       }, function () {
         $scope.errorMessage = "<p>We can't determine where you are!</p><p>Try again when you have a better internet connection.</p>";
       });
-  }
+  };
+
+  $scope.setView = function () {
+    Map.setView([$scope.position.latitude, $scope.position.longitude]);
+  };
 
   UserInput.getLatLng($routeParams.query)
     .then(function(latLng){
