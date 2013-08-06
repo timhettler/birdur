@@ -1,12 +1,17 @@
 .leaflet-left {
-  left: 350px;
+  @include single-transition();
+  @include translate3d(0, 0, 0);
+
+  .in-detail & {
+    @include translate3d(350px, 0, 0);
+  }
 
   .touch & {
     display: none;
   }
 
   @include mq-portrait {
-    left: 0;
+    @include translate3d(0, 0, 0);
   }
 }
 

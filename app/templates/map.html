@@ -1,16 +1,17 @@
-<div class="app-wrapper">
+<div class="app-wrapper" ng-class="{'in-detail' : currentHotspot.sightings}">
   <!-- <div id="map">
     <button ng-click="setView()" class="geolocate"></button>
   </div> -->
   <leaflet id="map" markers="markers" center="center" defaults="mapDefaults"></leaflet>
-  <div class="hotspot-container" ng-show="hotspots">
-    <h1 class="hotspot-title"><!-- <form ng-submit="handleUserInput()"><input type="search" ng-model="searchQuery"></form> -->
-    <i class="hotspot-location">{{position.name}}</i>
-    Hotspots</h1>
-    <div class="hotspot-list">
-      <div ng-repeat="hotspot in hotspots" class="hotspot-item" ng-class="{'active': $index==selectedIndex}" ng-click="focusMarker($index)" ng-bind-html-unsafe="hotspot.locName"></div>
-    </div>
-  </div>
+  <article class="hotspot-container">
+    <header class="hotspot-header">
+      <h1 class="hotspot-title">{{currentHotspot.locName}}</h1>
+      <div class="hotspot-directions"><a href="http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}" target="_blank">Get directions</a></div>
+    </header>
+    <main class="hotspot-list">
+      <div ng-repeat="bird in currentHotspot.sightings" class="hotspot-item">{{bird.comName}}</div>
+    </main>
+  </article>
   <div class="error-container" ng-show="errorMessage">
     <div class="error" ng-bind-html-unsafe="errorMessage"></div>
   </div>

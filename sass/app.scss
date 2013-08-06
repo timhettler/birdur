@@ -34,6 +34,15 @@ body {
   position: relative;
 }
 
+a {
+  color: $color--slate;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .app-wrapper {
   @extend %fullscreen;
 }
@@ -72,6 +81,8 @@ body {
 .hotspot-container {
   @include display-flex();
   @include flex-direction(column);
+  @include single-transition();
+  @include translate3d(-350px, 0, 0);
   background-color: rgba($color--black, 0.9);
   color: $color--slate;
   height: 100%;
@@ -82,9 +93,12 @@ body {
   width: 350px;
   z-index: 1001;
 
+  .in-detail & {
+    @include translate3d(0, 0, 0);
+  }
+
   @include mq-portrait {
     @include background-image(linear-gradient(rgba($color--black, 0.9), rgba($color--black, 1) 50%));
-    @include single-transition(top);
     background-color: transparent;
     height: 33%;
     left: 0;
@@ -101,9 +115,8 @@ body {
   };
 }
 
-.hotspot-title {
+.hotspot-header {
   @extend %hotspot-child;
-  @include adjust-font-size-to($base-font-size * 1.52, 1.5);
   @include apply-side-rhythm-border(bottom);
   @include padding-leader(1);
   margin: 0;
@@ -114,17 +127,13 @@ body {
   }
 }
 
-  .hotspot-location {
-    @include appearance(none);
-    background: transparent;
-    border: 0;
+  .hotspot-title {
+    @include adjust-font-size-to($base-font-size * 1.52, 1.5);
     color: $color--yellow;
-    display: block;
-    font-style: normal;
-    overflow: hidden;
-    padding: 0;
-    text-overflow: ellipsis;
-    width: 100%;
+  }
+
+  .hotspot-directions {
+    @include adjust-font-size-to($base-font-size * 0.72);
   }
 
 .hotspot-list {
@@ -147,19 +156,6 @@ body {
   @include mq-portrait {
     @include padding-leader(0.5);
     @include padding-trailer(0.5);
-  }
-
-  .no-touch & {
-    &:hover,
-    &.active {
-      background-color: lighten($color--black, 25%);
-    }
-  }
-
-  > i {
-    @include adjust-font-size-to($base-font-size * 0.72);
-    color: $color--yellow;
-    display: block;
   }
 }
 

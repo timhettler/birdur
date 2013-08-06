@@ -132,20 +132,43 @@ birdur.factory('LocationService', function($resource) {
   );
 });
 
-birdur.factory('eBird', function($resource) {
+birdur.factory('eBirdRef', function($resource) {
   return $resource(
-    'http://ebird.org/ws1.1/ref/hotspot/:type?lng=:longitude&lat=:latitude&fmt=:fmt&back=:back&callback=:callback',
-    {
-      longitude: '@longitude',
-      latitude: '@latitude',
-      fmt: 'json',
-      back: '30',
-      callback: 'JSON_CALLBACK'
-    },
+    'http://ebird.org/ws1.1/ref/hotspot/:type',
+    {},
     {
       geo: {
         method:'JSONP',
-        params:{type: 'geo'},
+        params:{
+          type: 'geo',
+          fmt: 'json',
+          callback: 'JSON_CALLBACK',
+          back: '30',
+          lng: '@lng',
+          lat: '@lat'
+        },
+        isArray: true
+      }
+    }
+  );
+});
+
+birdur.factory('eBirdObs', function($resource) {
+  return $resource(
+    'http://ebird.org/ws1.1/product/obs/hotspot/:type',
+    {
+      r: '@r',
+    },
+    {
+      summary: {
+        method: 'JSONP',
+        params: {
+          type: 'recent',
+          fmt: 'json',
+          callback: 'JSON_CALLBACK',
+          back: '30',
+          includeProvisional: 'true'
+        },
         isArray: true
       }
     }
