@@ -246,24 +246,12 @@ leafletDirective.directive('leaflet', ['$http', '$log', '$parse', '$rootScope', 
                     }
                 }, true);
 
-                map.on("dragend", function( /* event */ ) {
+                map.on("moveend", function( /* event */ ) {
                     $scope.safeApply(function(scope) {
                         centerModel.lat.assign(scope, map.getCenter().lat);
                         centerModel.lng.assign(scope, map.getCenter().lng);
+                        centerModel.zoom.assign(scope, map.getZoom());
                     });
-                });
-
-                map.on("zoomend", function( /* event */ ) {
-                    if (angular.isUndefined($scope.center)) {
-                        $log.warn("[AngularJS - Leaflet] 'center' is undefined in the current scope, did you forget to initialize it?");
-                    }
-                    if (angular.isUndefined($scope.center) || $scope.center.zoom !== map.getZoom()) {
-                        $scope.safeApply(function(s) {
-                            centerModel.zoom.assign(s, map.getZoom());
-                            centerModel.lat.assign(s, map.getCenter().lat);
-                            centerModel.lng.assign(s, map.getCenter().lng);
-                        });
-                    }
                 });
             }
 
@@ -371,12 +359,14 @@ leafletDirective.directive('leaflet', ['$http', '$log', '$parse', '$rootScope', 
                     }
                 });
 
+                // Set up marker events
+                // Pass original marker name with the event data for easier reference
                 var eventData = {
                     name: scope_watch_name.replace('markers.', '')
                 };
 
-                if ( typeof(marker_data.events) == 'object'){
-                    for (var bind_to in marker_data.events){
+                if (typeof(marker_data.events) == 'object') {
+                    for (var bind_to in marker_data.events) {
                         marker.on(bind_to, marker_data.events[bind_to], eventData);
                     }
                 }
