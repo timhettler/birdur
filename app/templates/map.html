@@ -6,7 +6,7 @@
   <article class="hotspot-container">
     <header class="hotspot-header">
       <h1 class="hotspot-title" ng-bind-html-unsafe="currentHotspot.locName"></h1>
-      <div class="hotspot-directions"><a href="http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}" target="_blank">Directions</a></div>
+      <a class="hotspot-directions" href="http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}" target="_blank">Directions</a>
     </header>
     <main class="hotspot-list">
       <div class="hotspot-item-container">
