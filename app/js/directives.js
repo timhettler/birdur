@@ -1,16 +1,16 @@
 birdur.directive('spinner', function () {
   return {
     restrict: 'E',
-    link: function (scope, element) {
+    link: function (scope, element, attrs) {
       var opts = {
-        lines: 13, // The number of lines to draw
-        length: 4, // The length of each line
-        width: 2, // The line thickness
-        radius: 4, // The radius of the inner circle
+        lines: parseInt(attrs.lines) || 13, // The number of lines to draw
+        length: parseInt(attrs["length"]) || 4, // The length of each line
+        width: parseInt(attrs.width) || 2, // The line thickness
+        radius: parseInt(attrs.radius) || 4, // The radius of the inner circle
         corners: 1, // Corner roundness (0..1)
         rotate: 0, // The rotation offset
         direction: 1, // 1: clockwise, -1: counterclockwise
-        color: '#000', // #rgb or #rrggbb
+        color: attrs.color || '#000', // #rgb or #rrggbb
         speed: 1, // Rounds per second
         trail: 60, // Afterglow percentage
         shadow: false, // Whether to render a shadow

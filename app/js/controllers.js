@@ -51,24 +51,28 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParam
 
       $scope.markers[i] = {
         lat: spot.lat,
-        lng: spot.lng,
-        events: {
-          click: function() {
-            console.log($scope.markers);
-            $scope.focusMarker(this.name);
-          }
-        }
+        lng: spot.lng
       }
     };
 
   };
 
+  $scope.$on('leafletDirectiveMarker.click', function(e, data){
+      $scope.focusMarker(parseInt(data.markerName));
+  });
+
+
   $scope.focusMarker = function(id) {
     var marker = $scope.markers[id];
 
-    angular.forEach($scope.markers, function(m){
-      m.focus = false;
-    });
+    if($scope.currentHotspot) {
+      if($scope.currentHotspot.markerID === id) { return; }
+      $scope.markers[$scope.currentHotspot.markerID] = false;
+      $scope.currentHotspot.sightings = null;
+    }
+
+    $scope.currentHotspot = $scope.hotspots[id];
+    $scope.currentHotspot.markerID = id
 
     marker.focus = true;
     $scope.center.lat = marker.lat;
@@ -83,17 +87,16 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParam
     $scope.center.lng = lng;
 
     eBirdRef.geo({lat: $scope.center.lat, lng: $scope.center.lng}, function(data){
-      // angular.forEach(data, function(key){
-      //   key.locName = key.locName.replace('--','<br/>');
-      // });
+      angular.forEach(data, function(key){
+        var name = key.locName.split('--');
+        key.locName = (name.length === 1) ? name[0] : name[1] + ' <i>'+name[0]+'</i>';
+      });
       $scope.hotspots = data;
       $scope.setMarkers($scope.hotspots);
     });
   };
 
   $scope.getSightingSummary = function(id) {
-    $scope.currentHotspot = $scope.hotspots[id];
-    $log.log($scope.currentHotspot);
     eBirdObs.summary({r: $scope.currentHotspot.locID}, function(data){
       $scope.currentHotspot.sightings = data;
     });
