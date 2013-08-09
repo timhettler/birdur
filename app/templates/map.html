@@ -6,10 +6,13 @@
   <article class="hotspot-container">
     <header class="hotspot-header">
       <h1 class="hotspot-title" ng-bind-html-unsafe="currentHotspot.locName"></h1>
-      <div class="hotspot-directions"><a href="http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}" target="_blank">Get directions</a></div>
+      <div class="hotspot-directions"><a href="http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}" target="_blank">Directions</a></div>
     </header>
     <main class="hotspot-list">
-      <div ng-repeat="bird in currentHotspot.sightings" class="hotspot-item">{{bird.comName}}</div>
+      <div class="hotspot-item-container">
+        <h2 class="hotspot-list-title">Recent Observations</h2>
+        <div ng-repeat="bird in currentHotspot.sightings" class="hotspot-item">{{bird.comName}}</div>
+      </div>
       <spinner ng-show="!currentHotspot.sightings" class="hotspot-spinner" color="#fff" lines="13" length="20" width="10" radius="30"></spinner>
     </main>
   </article>
