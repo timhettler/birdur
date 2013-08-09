@@ -67,7 +67,7 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParam
 
     if($scope.currentHotspot) {
       if($scope.currentHotspot.markerID === id) { return; }
-      $scope.markers[$scope.currentHotspot.markerID] = false;
+      $scope.markers[$scope.currentHotspot.markerID].focus = false;
       $scope.currentHotspot.sightings = null;
     }
 
