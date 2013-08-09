@@ -24,8 +24,9 @@ $splash-element-separation: 30px;
 }
 
 .splash-logo {
-  background-image: image-url('birdur_logo.png');
-  height: 167px;
+  background-image: image-url('birdur_logo.svg');
+  background-size: 100%;
+  height: 168px;
   margin: 0 auto;
   width: 168px;
 }
