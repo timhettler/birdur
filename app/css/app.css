@@ -310,6 +310,7 @@
   background-color: rgba(8, 8, 8, 0.9);
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.65);
   color: whitesmoke;
+  -webkit-font-smoothing: antialiased;
   height: 100%;
   left: 0;
   overflow: hidden;
@@ -319,7 +320,7 @@
   width: 350px;
   z-index: 1001;
 }
-/* line 28, ../../sass/_hotspot-detail.scss */
+/* line 29, ../../sass/_hotspot-detail.scss */
 .in-detail .hotspot-container {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
@@ -340,13 +341,13 @@
     top: 100%;
     width: 100%;
   }
-  /* line 41, ../../sass/_hotspot-detail.scss */
+  /* line 42, ../../sass/_hotspot-detail.scss */
   .in-detail .hotspot-container {
     -webkit-transform: translate3d(0, -64px, 0);
     -moz-transform: translate3d(0, -64px, 0);
     transform: translate3d(0, -64px, 0);
   }
-  /* line 45, ../../sass/_hotspot-detail.scss */
+  /* line 46, ../../sass/_hotspot-detail.scss */
   .in-hotspot-focus .hotspot-container {
     -webkit-transform: translate3d(0, -100%, 0);
     -moz-transform: translate3d(0, -100%, 0);
@@ -354,7 +355,7 @@
   }
 }
 
-/* line 51, ../../sass/_hotspot-detail.scss */
+/* line 52, ../../sass/_hotspot-detail.scss */
 .hotspot-header {
   border-bottom: 1px solid;
   display: table;
@@ -362,25 +363,25 @@
   width: 100%;
 }
 
-/* line 58, ../../sass/_hotspot-detail.scss */
+/* line 59, ../../sass/_hotspot-detail.scss */
 .hotspot-title, .hotspot-directions {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 63, ../../sass/_hotspot-detail.scss */
+/* line 64, ../../sass/_hotspot-detail.scss */
 .hotspot-title {
   padding-left: 1em;
 }
 
-/* line 68, ../../sass/_hotspot-detail.scss */
+/* line 69, ../../sass/_hotspot-detail.scss */
 .hotspot-title--main {
   font-size: 1.2em;
   line-height: 1.33333em;
   color: #fdd84c;
 }
 @media (max-width: 599px) {
-  /* line 68, ../../sass/_hotspot-detail.scss */
+  /* line 69, ../../sass/_hotspot-detail.scss */
   .hotspot-title--main {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -388,12 +389,12 @@
   }
 }
 
-/* line 77, ../../sass/_hotspot-detail.scss */
+/* line 78, ../../sass/_hotspot-detail.scss */
 .hotspot-title--sub {
   color: whitesmoke;
 }
 
-/* line 81, ../../sass/_hotspot-detail.scss */
+/* line 82, ../../sass/_hotspot-detail.scss */
 .hotspot-directions {
   font-size: 0.66667em;
   line-height: 2em;
@@ -402,7 +403,7 @@
   width: 25%;
 }
 
-/* line 89, ../../sass/_hotspot-detail.scss */
+/* line 90, ../../sass/_hotspot-detail.scss */
 .hotspot-directions-icon {
   background-image: url('../img/icon-directions.png?1376083024');
   background-position: center 6px;
@@ -411,7 +412,7 @@
   padding-top: 24px;
 }
 
-/* line 97, ../../sass/_hotspot-detail.scss */
+/* line 98, ../../sass/_hotspot-detail.scss */
 .hotspot-list {
   margin-top: 1.33333em;
   -webkit-box-flex: 1;
@@ -426,23 +427,20 @@
   -moz-box-orient: vertical;
   -webkit-flex-direction: column;
   flex-direction: column;
-  min-height: 1px;
   overflow: hidden;
   position: relative;
 }
 
 /* line 107, ../../sass/_hotspot-detail.scss */
 .hotspot-item-container {
+  -webkit-flex: 1 1 100%;
+  flex: 1 1 100%;
   background-clip: padding-box;
   background-color: #3b3b3b;
   border-radius: 3px;
   padding-left: 1em;
   padding-right: 1em;
   position: relative;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }

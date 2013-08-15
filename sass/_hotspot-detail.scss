@@ -16,6 +16,7 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   background-color: rgba($hotspot-color--background, 0.9);
   box-shadow: 0 0 7px rgba(0,0,0,0.65);
   color: $hotspot-color--text;
+  -webkit-font-smoothing: antialiased;
   height: 100%;
   left: 0;
   overflow: hidden;
@@ -99,12 +100,12 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   @include flex(1);
   @include display-flex();
   @include flex-direction(column);
-  min-height: 1px;
   overflow: hidden;
   position: relative;
 }
 
 .hotspot-item-container {
+  @include flex(1 1 100%);
   background-clip: padding-box;
   background-color: lighten($hotspot-color--background, 20%);
   border-radius: $hotspot-unit--container-border-radius;
@@ -113,9 +114,8 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
     right: $hotspot-unit--container-padding;
   };
   position: relative;
-    @include flex(1);
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
   %hotspot-list-child {
