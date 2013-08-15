@@ -1,8 +1,14 @@
 /* line 1, ../../sass/_placeholders.scss */
-.splash, html, body, .app-wrapper, #map, .error-container {
+.install, .splash, html, body, .app-wrapper, #map, .error-container {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+/* line 7, ../../sass/_placeholders.scss */
+.install-logo, .splash-logo {
+  background-image: url('../img/birdur_logo.svg?1376071781');
+  background-size: 100%;
 }
 
 @font-face {
@@ -70,6 +76,79 @@
   border-radius: 5px;
 }
 
+/* line 1, ../../sass/_install.scss */
+.install {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background-color: #859288;
+  background-image: url('../img/bg_l.jpg?1375712024');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+@media (max-width: 599px) {
+  /* line 1, ../../sass/_install.scss */
+  .install {
+    background-image: url('../img/bg_p.jpg?1375712020');
+  }
+}
+@media (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 599px) and (min-resolution: 192dpi) {
+  /* line 1, ../../sass/_install.scss */
+  .install {
+    background-image: url('../img/bg_p@2x.jpg?1375712020');
+  }
+}
+/* line 16, ../../sass/_install.scss */
+.install p {
+  margin: 1.2em 0;
+}
+/* line 20, ../../sass/_install.scss */
+.install strong, .install b {
+  font-weight: bold;
+}
+
+/* line 25, ../../sass/_install.scss */
+.install-container {
+  text-align: center;
+  margin: 10px;
+  max-width: 297px;
+  width: 100%;
+}
+
+/* line 32, ../../sass/_install.scss */
+.install-title {
+  font: 28px "bonvenocflight", Futura, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+  text-shadow: 0 -1px rgba(50, 50, 50, 0.25);
+}
+
+/* line 37, ../../sass/_install.scss */
+.install-logo {
+  height: 120px;
+  width: 120px;
+  margin: 1.2em auto;
+}
+
+/* line 42, ../../sass/_install.scss */
+.cta {
+  bottom: 1.2em;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
 /* line 3, ../../sass/_splash.scss */
 .splash {
   -webkit-box-align: center;
@@ -113,22 +192,31 @@
 
 /* line 26, ../../sass/_splash.scss */
 .splash-logo {
-  background-image: url('../img/birdur_logo.svg?1376071781');
-  background-size: 100%;
   height: 168px;
-  margin: 0 auto;
   width: 168px;
+  margin: 0 auto;
 }
 
-/* line 34, ../../sass/_splash.scss */
+/* line 31, ../../sass/_splash.scss */
 .splash-title {
-  font: normal 48px "bonvenocflight", Arial, sans-serif;
+  font: 48px "bonvenocflight", Futura, sans-serif;
   -webkit-font-smoothing: antialiased;
-  margin: 0;
   text-transform: uppercase;
 }
 
-/* line 41, ../../sass/_splash.scss */
+/* line 35, ../../sass/_splash.scss */
+.splash-form {
+  -webkit-transition: opacity 200ms;
+  -moz-transition: opacity 200ms;
+  transition: opacity 200ms;
+  opacity: 0;
+}
+/* line 39, ../../sass/_splash.scss */
+.splash-form.is-visible {
+  opacity: 1;
+}
+
+/* line 44, ../../sass/_splash.scss */
 .splash-error {
   color: red;
   font-size: 16px;
@@ -137,13 +225,13 @@
   text-align: left;
 }
 
-/* line 49, ../../sass/_splash.scss */
+/* line 52, ../../sass/_splash.scss */
 .splash-input-container {
   margin-top: 30px;
   position: relative;
 }
 
-/* line 54, ../../sass/_splash.scss */
+/* line 57, ../../sass/_splash.scss */
 .splash-input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -154,6 +242,7 @@
   background-color: #fff;
   border: 1px solid #bbb;
   border-radius: 0;
+  font-family: Avenir, Arial, sans-serif;
   font-size: 16px;
   line-height: 37px;
   padding: 0 38px 0 8px;
@@ -161,14 +250,14 @@
   width: 100%;
 }
 
-/* line 67, ../../sass/_splash.scss */
+/* line 71, ../../sass/_splash.scss */
 .splash-spinner {
   position: absolute;
   right: 20px;
   top: 20px;
 }
 
-/* line 73, ../../sass/_splash.scss */
+/* line 77, ../../sass/_splash.scss */
 .splash-submit {
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
@@ -177,6 +266,7 @@
   border: none;
   border-bottom: 2px solid #ee8121;
   color: #fff;
+  font-family: Avenir, Arial, sans-serif;
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
   font-weight: bold;
@@ -188,12 +278,12 @@
   -webkit-touch-callout: none;
   width: 100%;
 }
-/* line 90, ../../sass/_splash.scss */
+/* line 95, ../../sass/_splash.scss */
 .splash-submit:active {
   border-bottom: none;
   border-top: 2px solid #ee8121;
 }
-/* line 95, ../../sass/_splash.scss */
+/* line 100, ../../sass/_splash.scss */
 .splash-submit[disabled] {
   pointer-events: none;
 }
@@ -224,7 +314,7 @@
   left: 0;
   overflow: hidden;
   position: absolute;
-  padding: 18px;
+  padding: 1em;
   top: 0;
   width: 350px;
   z-index: 1001;
@@ -238,106 +328,135 @@
 @media (orientation: portrait) {
   /* line 10, ../../sass/_hotspot-detail.scss */
   .hotspot-container {
-    background-image: -webkit-linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
-    background-image: -moz-linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
-    background-image: linear-gradient(rgba(8, 8, 8, 0.9), #080808 50%);
+    background-image: -webkit-linear-gradient(rgba(8, 8, 8, 0.9), #080808);
+    background-image: -moz-linear-gradient(rgba(8, 8, 8, 0.9), #080808);
+    background-image: linear-gradient(rgba(8, 8, 8, 0.9), #080808);
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     background-color: transparent;
-    height: 33%;
     left: 0;
     margin-left: 0;
     top: 100%;
     width: 100%;
   }
-  /* line 42, ../../sass/_hotspot-detail.scss */
+  /* line 41, ../../sass/_hotspot-detail.scss */
   .in-detail .hotspot-container {
-    -webkit-transform: translate3d(0, -60px, 0);
-    -moz-transform: translate3d(0, -60px, 0);
-    transform: translate3d(0, -60px, 0);
+    -webkit-transform: translate3d(0, -64px, 0);
+    -moz-transform: translate3d(0, -64px, 0);
+    transform: translate3d(0, -64px, 0);
+  }
+  /* line 45, ../../sass/_hotspot-detail.scss */
+  .in-hotspot-focus .hotspot-container {
+    -webkit-transform: translate3d(0, -100%, 0);
+    -moz-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
   }
 }
 
-/* line 48, ../../sass/_hotspot-detail.scss */
+/* line 51, ../../sass/_hotspot-detail.scss */
 .hotspot-header {
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: flex;
-  border-bottom-width: 0.05556em;
-  border-bottom-style: solid;
-  padding-bottom: 0.83324em;
-  padding-left: 18px;
+  border-bottom: 1px solid;
+  display: table;
+  padding-bottom: 1em;
+  width: 100%;
 }
 
-/* line 55, ../../sass/_hotspot-detail.scss */
-.hotspot-title {
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  -webkit-flex: 1;
-  flex: 1;
-  font-size: 1.2em;
-  line-height: 1.33333em;
-  color: #fdd84c;
-  margin: 0;
+/* line 58, ../../sass/_hotspot-detail.scss */
+.hotspot-title, .hotspot-directions {
+  display: table-cell;
+  vertical-align: middle;
 }
-/* line 61, ../../sass/_hotspot-detail.scss */
-.hotspot-title > i {
-  font-size: 1em;
-  line-height: 1.33333em;
-  color: whitesmoke;
-  display: block;
+
+/* line 63, ../../sass/_hotspot-detail.scss */
+.hotspot-title {
+  padding-left: 1em;
 }
 
 /* line 68, ../../sass/_hotspot-detail.scss */
+.hotspot-title--main {
+  font-size: 1.2em;
+  line-height: 1.33333em;
+  color: #fdd84c;
+}
+@media (max-width: 599px) {
+  /* line 68, ../../sass/_hotspot-detail.scss */
+  .hotspot-title--main {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+/* line 77, ../../sass/_hotspot-detail.scss */
+.hotspot-title--sub {
+  color: whitesmoke;
+}
+
+/* line 81, ../../sass/_hotspot-detail.scss */
 .hotspot-directions {
   font-size: 0.66667em;
   line-height: 2em;
-  background-image: url('../img/icon-directions.png?1376079205');
-  background-position: center 6px;
-  background-repeat: no-repeat;
-  padding-top: 24px;
+  display: table-cell;
   text-align: center;
   width: 25%;
 }
 
-/* line 78, ../../sass/_hotspot-detail.scss */
+/* line 89, ../../sass/_hotspot-detail.scss */
+.hotspot-directions-icon {
+  background-image: url('../img/icon-directions.png?1376083024');
+  background-position: center 6px;
+  background-repeat: no-repeat;
+  display: block;
+  padding-top: 24px;
+}
+
+/* line 97, ../../sass/_hotspot-detail.scss */
 .hotspot-list {
   margin-top: 1.33333em;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
-}
-
-/* line 85, ../../sass/_hotspot-detail.scss */
-.hotspot-item-container {
-  background-clip: padding-box;
-  background-color: rgba(59, 59, 59, 0.9);
-  border-radius: 3px;
-  padding-left: 18px;
-  padding-right: 18px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  min-height: 1px;
+  overflow: hidden;
   position: relative;
 }
 
-/* line 96, ../../sass/_hotspot-detail.scss */
-.hotspot-list-title, .hotspot-item {
-  padding-bottom: 1em;
-  border-top-width: 0.05556em;
-  border-top-style: solid;
-  padding-top: 0.94444em;
-  padding-left: 0.5em;
-  padding-right: 0.5em;
+/* line 107, ../../sass/_hotspot-detail.scss */
+.hotspot-item-container {
+  background-clip: padding-box;
+  background-color: #3b3b3b;
+  border-radius: 3px;
+  padding-left: 1em;
+  padding-right: 1em;
+  position: relative;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* line 105, ../../sass/_hotspot-detail.scss */
+/* line 121, ../../sass/_hotspot-detail.scss */
+.hotspot-list-title, .hotspot-item {
+  padding-bottom: 1em;
+  padding-top: 1em;
+  border-top: 1px solid;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+
+/* line 131, ../../sass/_hotspot-detail.scss */
 .hotspot-list-title {
   font-size: 1.2em;
   line-height: 1.33333em;
@@ -346,14 +465,14 @@
 }
 
 @media (orientation: portrait) {
-  /* line 112, ../../sass/_hotspot-detail.scss */
+  /* line 138, ../../sass/_hotspot-detail.scss */
   .hotspot-item {
     padding-top: 0.66667em;
     padding-bottom: 0.66667em;
   }
 }
 
-/* line 121, ../../sass/_hotspot-detail.scss */
+/* line 147, ../../sass/_hotspot-detail.scss */
 .hotspot-spinner {
   left: 50%;
   margin-left: -5px;
@@ -433,30 +552,30 @@ html {
   line-height: 1.33333em;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 599px) {
   /* line 105, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
   html {
-    font-size: 72%;
+    font-size: 84.375%;
     line-height: 1.33333em;
   }
 }
-/* line 27, ../../sass/app.scss */
+/* line 28, ../../sass/app.scss */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Avenir, Arial, sans-serif;
   position: relative;
 }
 
-/* line 33, ../../sass/app.scss */
+/* line 34, ../../sass/app.scss */
 a {
   color: whitesmoke;
   text-decoration: none;
 }
-/* line 37, ../../sass/app.scss */
+/* line 38, ../../sass/app.scss */
 a:hover {
   text-decoration: underline;
 }
 
-/* line 54, ../../sass/app.scss */
+/* line 55, ../../sass/app.scss */
 .geolocate {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #888;
@@ -473,13 +592,13 @@ a:hover {
   width: 26px;
   z-index: 1;
 }
-/* line 71, ../../sass/app.scss */
+/* line 72, ../../sass/app.scss */
 .geolocate:hover {
   background-color: #f4f4f4;
   color: #000;
 }
 
-/* line 77, ../../sass/app.scss */
+/* line 78, ../../sass/app.scss */
 .error-container {
   display: -webkit-box;
   display: -moz-box;
@@ -498,7 +617,7 @@ a:hover {
   top: 0;
 }
 
-/* line 87, ../../sass/app.scss */
+/* line 88, ../../sass/app.scss */
 .error {
   background: rgba(8, 8, 8, 0.9);
   color: #fdd84c;
@@ -507,7 +626,7 @@ a:hover {
   width: 500px;
 }
 @media (orientation: portrait) {
-  /* line 87, ../../sass/app.scss */
+  /* line 88, ../../sass/app.scss */
   .error {
     width: 80%;
   }

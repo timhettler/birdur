@@ -19,3 +19,21 @@
     background-image: image-url($image-name + '@2x.' + $image-extension);
   }
 }
+
+@mixin overflow-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin logo($size) {
+  @extend %logo;
+  height: $size;
+  width: $size;
+}
+
+@mixin headline($size) {
+  font: $size $font-stack--title;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+}

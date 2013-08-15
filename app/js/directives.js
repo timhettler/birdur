@@ -24,3 +24,11 @@ birdur.directive('spinner', function () {
     }
   };
 });
+
+birdur.directive('disableTouch', function () {
+  return function (scope, element) {
+    element.bind('touchmove', function (e) {
+      e.preventDefault();
+    })
+  };
+});

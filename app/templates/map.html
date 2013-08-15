@@ -1,12 +1,12 @@
-<div class="app-wrapper" ng-class="{'in-detail' : currentHotspot}">
-  <!-- <div id="map">
-    <button ng-click="setView()" class="geolocate"></button>
-  </div> -->
-  <leaflet id="map" markers="markers" center="center" defaults="mapDefaults"></leaflet>
+<div class="app-wrapper" ng-class="{'in-detail' : currentHotspot, 'in-hotspot-focus' : hotspotfocus}">
+  <leaflet testing="testing" id="map" markers="markers" center="center" defaults="mapDefaults"></leaflet>
   <article class="hotspot-container">
-    <header class="hotspot-header">
-      <h1 class="hotspot-title" ng-bind-html-unsafe="currentHotspot.locName"></h1>
-      <a class="hotspot-directions" href="http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}" target="_blank">Directions</a>
+    <header class="hotspot-header" ng-click="hotspotfocus = !hotspotfocus">
+      <div class="hotspot-title">
+        <h1 class="hotspot-title--main">{{currentHotspot.mainLoc}}</h1>
+        <h2 class="hotspot-title--sub">{{currentHotspot.subLoc}}</h2>
+      </div>
+      <a class="hotspot-directions" href="http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}" target="_blank"><span class="hotspot-directions-icon">Directions</span></a>
     </header>
     <main class="hotspot-list">
       <div class="hotspot-item-container">

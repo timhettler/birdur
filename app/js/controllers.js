@@ -2,15 +2,32 @@
 
 /* Controllers */
 
-birdur.controller('SplashCtrl', function ($scope, $location, UserInput, GeoLoc, LocationService) {
+birdur.controller('InstallCtrl', function ($location, Install) {
+  if(!Install.requiresInstall()) {
+    $location.path('/');
+  }
+});
+
+birdur.controller('SplashCtrl', function ($scope, $location, UserInput, GeoLoc, LocationService, Install) {
+
+  if(Install.requiresInstall()) {
+    $location.path('/install/');
+    return;
+  }
+
   GeoLoc.locate()
     .then(function (position) {
       $location.path('/map/'+position.coords.latitude+','+position.coords.longitude);
+    }, function () {
+      $scope.noGeo = true;
     });
 
+  $scope.noGeo = false;
+  $scope.showInstallScreen = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g) && !window.navigator.standalone;
   $scope.searchString = null;
   $scope.submitted = false;
   $scope.errorMessage = null;
+  $scope.hotspotFocus = false;
 
   $scope.handleUserInput = function () {
     $scope.submitted = true;
@@ -25,7 +42,11 @@ birdur.controller('SplashCtrl', function ($scope, $location, UserInput, GeoLoc, 
   };
 });
 
-birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParams, $location, UserInput, GeoLoc, eBirdRef, eBirdObs, LocationService) {
+birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParams, $location, UserInput, GeoLoc, eBirdRef, eBirdObs, LocationService, Install) {
+  if(Install.requiresInstall()) {
+    $location.path('/install/');
+    return;
+  }
 
   $scope.origin = {};
   $scope.errorMessage = "";
@@ -40,7 +61,7 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParam
       tileLayerOptions: {
         attribution: ''
       },
-      minZoom: 10,
+      minZoom: 8,
   };
 
   $scope.setMarkers = function(hotspots) {
@@ -55,10 +76,11 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParam
       }
     };
 
+    $scope.focusMarker(0);
   };
 
   $scope.$on('leafletDirectiveMarker.click', function(e, data){
-      $scope.focusMarker(parseInt(data.markerName));
+    $scope.focusMarker(parseInt(data.markerName));
   });
 
 
@@ -68,17 +90,27 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParam
     if($scope.currentHotspot) {
       if($scope.currentHotspot.markerID === id) { return; }
       $scope.markers[$scope.currentHotspot.markerID].focus = false;
-      $scope.currentHotspot.sightings = null;
+      $scope.currentHotspot = null;
     }
 
     $scope.currentHotspot = $scope.hotspots[id];
-    $scope.currentHotspot.markerID = id
+    $scope.currentHotspot.markerID = id;
 
     marker.focus = true;
     $scope.center.lat = marker.lat;
     $scope.center.lng = marker.lng;
 
-    $scope.getSightingSummary(id);
+    $log.log($scope.currentHotspot.sightings);
+
+    if(!$scope.currentHotspot.sightings) {
+      $scope.getSightingSummary(id);
+    }
+  };
+
+  $scope.getSightingSummary = function(id) {
+    eBirdObs.summary({r: $scope.currentHotspot.locID}, function(data){
+      $scope.hotspots[id].sightings = $scope.currentHotspot.sightings = data;
+    });
   };
 
   $scope.handleLocationData = function(lat, lng) {
@@ -89,18 +121,13 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $routeParam
     eBirdRef.geo({lat: $scope.center.lat, lng: $scope.center.lng}, function(data){
       angular.forEach(data, function(key){
         var name = key.locName.split('--');
-        key.locName = (name.length === 1) ? name[0] : name[1] + ' <i>'+name[0]+'</i>';
+        key.mainLoc = (name.length === 1) ? name[0] : name[1];
+        key.subLoc = (name.length > 1) ? name[0] : null;
       });
       $scope.hotspots = data;
       $scope.setMarkers($scope.hotspots);
     });
   };
-
-  $scope.getSightingSummary = function(id) {
-    eBirdObs.summary({r: $scope.currentHotspot.locID}, function(data){
-      $scope.currentHotspot.sightings = data;
-    });
-  }
 
   $scope.GeoLocate = function () {
     GeoLoc.locate()

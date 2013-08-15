@@ -3,7 +3,7 @@ $hotspot-color--background: $color--black;
 $hotspot-color--text: $color--slate;
 $hotspot-color--text--alt: $color--yellow;
 $hotspot-color--border: $color--slate;
-$hotspot-unit--container-padding: $base-font-size;
+$hotspot-unit--container-padding: 1em;
 $hotspot-unit--container-border-radius: 3px;
 $hotspot-unit--title-size: $base-font-size * 1.2;
 
@@ -20,7 +20,7 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   left: 0;
   overflow: hidden;
   position: absolute;
-  padding: $base-font-size;
+  padding: $hotspot-unit--container-padding;
   top: 0;
   width: 350px;
   z-index: 1001;
@@ -30,75 +30,101 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   }
 
   @include mq-portrait {
-    @include background-image(linear-gradient(rgba($hotspot-color--background, 0.9), rgba($hotspot-color--background, 1) 50%));
+    @include background-image(linear-gradient(rgba($hotspot-color--background, 0.9), rgba($hotspot-color--background, 1)));
     @include translate3d(0, 0, 0);
     background-color: transparent;
-    height: 33%;
     left: 0;
     margin-left: 0;
     top: 100%;
     width: 100%;
 
     .in-detail & {
-      @include translate3d(0, -60px, 0);
+      @include translate3d(0, -64px, 0);
+    }
+
+    .in-hotspot-focus & {
+      @include translate3d(0, -100%, 0);
     }
   }
 }
 
 .hotspot-header {
-  @include align-items('center');
-  @include display-flex();
-  @include apply-side-rhythm-border(bottom, 1px, 0.6666);
-  padding-left: $hotspot-unit--container-padding;
+  border-bottom: 1px solid;
+  display: table;
+  padding-bottom: $hotspot-unit--container-padding;
+  width: 100%;
 }
 
+  %hotspot-header-child {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
   .hotspot-title {
-    @include flex(1);
+    @extend %hotspot-header-child;
+    padding-left: $hotspot-unit--container-padding;
+  }
+
+  .hotspot-title--main {
     @include adjust-font-size-to($hotspot-unit--title-size, 1.2);
     color: $hotspot-color--text--alt;
-    margin: 0;
 
-    > i {
-      @include adjust-font-size-to($base-font-size);
-      color: $hotspot-color--text;
-      display: block;
+    @include mq-small-screen() {
+      @include overflow-ellipsis();
     }
   }
 
+  .hotspot-title--sub {
+    color: $hotspot-color--text;
+  }
+
   .hotspot-directions {
+    @extend %hotspot-header-child;
     @include adjust-font-size-to(12px);
-    background-image: image-url('icon-directions.png');
-    background-position: center 6px;
-    background-repeat: no-repeat;
-    padding-top: 24px;
+    display: table-cell;
     text-align: center;
     width: 25%;
   }
 
+    .hotspot-directions-icon {
+      background-image: image-url('icon-directions.png');
+      background-position: center 6px;
+      background-repeat: no-repeat;
+      display: block;
+      padding-top: 24px;
+    }
+
 .hotspot-list {
   @include leader();
   @include flex(1);
-  -webkit-overflow-scrolling: touch;
-  overflow-y: auto;
+  @include display-flex();
+  @include flex-direction(column);
+  min-height: 1px;
+  overflow: hidden;
+  position: relative;
 }
 
 .hotspot-item-container {
   background-clip: padding-box;
-  background-color: rgba(lighten($hotspot-color--background, 20%), 0.9);
+  background-color: lighten($hotspot-color--background, 20%);
   border-radius: $hotspot-unit--container-border-radius;
   padding: {
     left: $hotspot-unit--container-padding;
     right: $hotspot-unit--container-padding;
   };
   position: relative;
+    @include flex(1);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
 }
 
   %hotspot-list-child {
     @include padding-trailer(0.75);
-    @include apply-side-rhythm-border(top, 1px, 0.75);
+    @include padding-leader(0.75);
+    border-top: 1px solid;
     padding: {
-      left: 0.5em;
-      right: 0.5em;
+      left: 0.25em;
+      right: 0.25em;
     };
   }
 

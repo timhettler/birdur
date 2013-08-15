@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Birdur | Go birding</title>
+  <title>Birdur</title>
   <meta name="description" content="Find birding hotspots anywhere in the United States" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -27,8 +27,9 @@
   <script src="js/directives.js"></script>
   <script src="lib/spin.min.js"></script>
   <script src="lib/modernizr/modernizr.custom.30791.js"></script>
+  <script src="lib/fastclick.js"></script>
 </head>
-<body ng-app="birdur">
+<body ng-app="birdur" disable-touch>
   <ng-view></ng-view>
   <script>
     var _gaq = _gaq || [];
@@ -40,6 +41,11 @@
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
+  </script>
+  <script>
+    window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+    }, false);
   </script>
 </body>
 </html>

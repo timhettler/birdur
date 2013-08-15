@@ -1,14 +1,15 @@
 @import "global-vars";
-@import "mixins";
-@import "placeholders";
 
 @import "compass";
 @import "flexbox";
 
+@import "mixins";
+@import "placeholders";
 //@import "normalize";
 @import "fonts";
 
 @import "leaflet";
+@import "install";
 @import "splash";
 @import "hotspot-detail";
 
@@ -16,8 +17,8 @@
 
 @include establish-baseline();
 
-@media (max-width: 480px) {
-  @include establish-baseline($base-font-size * 0.64);
+@include mq-small-screen() {
+  @include establish-baseline($base-font-size * 0.75);
 }
 
 html {

@@ -8,6 +8,10 @@ birdur.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'templates/splash.html',
       controller: 'SplashCtrl'
     })
+    .when('/install', {
+      templateUrl: 'templates/install.html',
+      controller: 'InstallCtrl'
+    })
     .when('/map/:query', {
       templateUrl: 'templates/map.html',
       controller: 'HotspotsListCtrl'

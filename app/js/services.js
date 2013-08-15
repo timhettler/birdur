@@ -2,6 +2,21 @@
 
 /* Services */
 
+birdur.factory('Install', function($location) {
+  var isIOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g),
+      isFullscreen = window.navigator.standalone,
+      requiresInstall = function () {
+        if(isIOS && !isFullscreen) {
+          return true;
+        }
+        return false;
+      };
+
+  return {
+    requiresInstall: requiresInstall
+  }
+});
+
 birdur.factory('UserInput', function ($q, $log, LocationService) {
   var regex_latLng = /^(-?\d{1,3}(\.\d*)?),\s?(-?\d{1,3}(\.\d*)?)$/,
       regex_whitespace = /\s+/g,

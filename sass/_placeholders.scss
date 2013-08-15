@@ -3,3 +3,24 @@
   height: 100%;
   overflow: hidden;
 }
+
+%logo {
+  background-image: image-url('birdur_logo.svg');
+  background-size: 100%;
+}
+
+%main-element {
+  @extend %fullscreen;
+  @include align-items('center');
+  @include display-flex();
+  @include justify-content('center');
+  background-color: #859288;
+  background-image: image-url('bg_l.jpg');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+
+  @include mq-small-screen {
+    @include retina-image('bg_p', 'jpg');
+  }
+}
