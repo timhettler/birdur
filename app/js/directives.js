@@ -27,9 +27,28 @@ birdur.directive('spinner', function () {
 
 birdur.directive('disableTouch', function () {
   return function (scope, element) {
-    element.bind('touchmove', function (e) {
-      e.preventDefault();
-    });
+
+    if (!Modernizr.touch) { return; }
+
+    var isTouchAllowed = function($elem) {
+      while ($elem[0] !== element[0]) {
+        console.log($elem,element);
+        if ($elem.hasClass('allow-touch')) {
+          return true;
+        }
+        $elem = $elem.parent();
+      }
+      return false;
+    }
+
+    Hammer(element[0])
+      .on("dragstart", function (e) {
+        if(!isTouchAllowed(angular.element(e.target))) {
+          e.gesture.preventDefault();
+        } else {
+          console.log('touch allowed!');
+        }
+      });
   };
 });
 
@@ -64,7 +83,7 @@ birdur.directive('hammerDrag', function () {
         dir = null;
 
     Hammer(element[0])
-      .on("dragstart", function () {
+      .on("dragstart", function (e) {
         startY = parseInt(getTransform(dragTarget)[1]);
         $dragTarget.addClass('is-dragging');
       })

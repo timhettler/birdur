@@ -21,7 +21,11 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   left: 0;
   overflow: hidden;
   position: absolute;
-  padding: $hotspot-unit--container-padding;
+  padding: {
+    bottom: $hotspot-unit--container-padding;
+    left: $hotspot-unit--container-padding;
+    right: $hotspot-unit--container-padding;
+  };
   top: 0;
   width: 350px;
   z-index: 1001;
@@ -52,13 +56,17 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 .hotspot-header {
   border-bottom: 1px solid;
   display: table;
-  padding-bottom: $hotspot-unit--container-padding;
+  padding: {
+    bottom: $hotspot-unit--container-padding;
+    top: $hotspot-unit--container-padding;
+  };
   width: 100%;
 }
 
   %hotspot-header-child {
     display: table-cell;
     vertical-align: middle;
+    width: 75%;
   }
 
   .hotspot-title {

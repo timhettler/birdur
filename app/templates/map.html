@@ -9,7 +9,7 @@
       <a class="hotspot-directions" href="http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}" target="_blank"><span class="hotspot-directions-icon">Directions</span></a>
     </header>
     <main class="hotspot-list">
-      <div class="hotspot-item-container">
+      <div class="hotspot-item-container allow-touch">
         <h2 class="hotspot-list-title">Recent Observations</h2>
         <div ng-repeat="bird in currentHotspot.sightings" class="hotspot-item">{{bird.comName}}</div>
       </div>
