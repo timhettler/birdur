@@ -373,13 +373,17 @@
   width: 100%;
 }
 
-/* line 70, ../../sass/_hotspot-detail.scss */
+/* line 67, ../../sass/_hotspot-detail.scss */
+.hotspot-title, .hotspot-directions {
+  padding-left: 1em;
+}
+
+/* line 71, ../../sass/_hotspot-detail.scss */
 .hotspot-title {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  padding-left: 1em;
 }
 
 /* line 76, ../../sass/_hotspot-detail.scss */
@@ -407,11 +411,14 @@
 .hotspot-directions {
   font-size: 0.66667em;
   line-height: 2em;
+  border-left: 1px solid;
+  display: block;
+  -webkit-tap-highlight-color: rgba(245, 245, 245, 0.25);
   text-align: center;
-  width: 25%;
+  width: 20%;
 }
 
-/* line 96, ../../sass/_hotspot-detail.scss */
+/* line 99, ../../sass/_hotspot-detail.scss */
 .hotspot-directions-icon {
   background-image: url('../img/icon-directions.png?1376083024');
   background-position: center 6px;
@@ -420,7 +427,7 @@
   padding-top: 24px;
 }
 
-/* line 104, ../../sass/_hotspot-detail.scss */
+/* line 107, ../../sass/_hotspot-detail.scss */
 .hotspot-list {
   margin-top: 1.33333em;
   -webkit-box-flex: 1;
@@ -439,7 +446,7 @@
   position: relative;
 }
 
-/* line 113, ../../sass/_hotspot-detail.scss */
+/* line 116, ../../sass/_hotspot-detail.scss */
 .hotspot-item-container {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -455,7 +462,7 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 127, ../../sass/_hotspot-detail.scss */
+/* line 130, ../../sass/_hotspot-detail.scss */
 .hotspot-list-title, .hotspot-item {
   padding-bottom: 1em;
   padding-top: 1em;
@@ -464,7 +471,7 @@
   padding-right: 0.25em;
 }
 
-/* line 137, ../../sass/_hotspot-detail.scss */
+/* line 140, ../../sass/_hotspot-detail.scss */
 .hotspot-list-title {
   font-size: 1.2em;
   line-height: 1.33333em;
@@ -473,14 +480,14 @@
 }
 
 @media (orientation: portrait) {
-  /* line 144, ../../sass/_hotspot-detail.scss */
+  /* line 147, ../../sass/_hotspot-detail.scss */
   .hotspot-item {
     padding-top: 0.66667em;
     padding-bottom: 0.66667em;
   }
 }
 
-/* line 153, ../../sass/_hotspot-detail.scss */
+/* line 156, ../../sass/_hotspot-detail.scss */
 .hotspot-spinner {
   left: 50%;
   margin-left: -5px;

@@ -65,12 +65,12 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 }
 
   %hotspot-header-child {
+    padding-left: $hotspot-unit--container-padding;
   }
 
   .hotspot-title {
     @include flex(1);
     @extend %hotspot-header-child;
-    padding-left: $hotspot-unit--container-padding;
   }
 
   .hotspot-title--main {
@@ -89,8 +89,11 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   .hotspot-directions {
     @extend %hotspot-header-child;
     @include adjust-font-size-to(12px);
+    border-left: 1px solid;
+    display: block;
+    -webkit-tap-highlight-color: rgba($color--slate, 0.25);
     text-align: center;
-    width: 25%;
+    width: 20%;
   }
 
     .hotspot-directions-icon {

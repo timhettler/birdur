@@ -32,7 +32,6 @@ birdur.directive('disableTouch', function () {
 
     var isTouchAllowed = function($elem) {
       while ($elem[0] !== element[0]) {
-        console.log($elem,element);
         if ($elem.hasClass('allow-touch')) {
           return true;
         }
@@ -45,8 +44,10 @@ birdur.directive('disableTouch', function () {
       .on("dragstart", function (e) {
         if(!isTouchAllowed(angular.element(e.target))) {
           e.gesture.preventDefault();
-        } else {
-          console.log('touch allowed!');
+        }
+      }).on("tap", function (e) {
+        if(!isTouchAllowed(angular.element(e.target))) {
+          e.gesture.preventDefault();
         }
       });
   };
@@ -95,6 +96,7 @@ birdur.directive('hammerDrag', function () {
       })
       .on("tap", function (e) {
         toggleView();
+        e.gesture.stopPropagation();
       })
       .on("dragend", function (e) {
         var g = e.gesture,
