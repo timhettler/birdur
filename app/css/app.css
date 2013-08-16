@@ -359,33 +359,37 @@
 
 /* line 56, ../../sass/_hotspot-detail.scss */
 .hotspot-header {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
   border-bottom: 1px solid;
-  display: table;
   padding-bottom: 1em;
   padding-top: 1em;
   width: 100%;
 }
 
-/* line 66, ../../sass/_hotspot-detail.scss */
-.hotspot-title, .hotspot-directions {
-  display: table-cell;
-  vertical-align: middle;
-  width: 75%;
-}
-
-/* line 72, ../../sass/_hotspot-detail.scss */
+/* line 70, ../../sass/_hotspot-detail.scss */
 .hotspot-title {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
   padding-left: 1em;
 }
 
-/* line 77, ../../sass/_hotspot-detail.scss */
+/* line 76, ../../sass/_hotspot-detail.scss */
 .hotspot-title--main {
   font-size: 1.2em;
   line-height: 1.33333em;
   color: #fdd84c;
 }
 @media (max-width: 599px) {
-  /* line 77, ../../sass/_hotspot-detail.scss */
+  /* line 76, ../../sass/_hotspot-detail.scss */
   .hotspot-title--main {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -394,21 +398,20 @@
   }
 }
 
-/* line 86, ../../sass/_hotspot-detail.scss */
+/* line 85, ../../sass/_hotspot-detail.scss */
 .hotspot-title--sub {
   color: whitesmoke;
 }
 
-/* line 90, ../../sass/_hotspot-detail.scss */
+/* line 89, ../../sass/_hotspot-detail.scss */
 .hotspot-directions {
   font-size: 0.66667em;
   line-height: 2em;
-  display: table-cell;
   text-align: center;
   width: 25%;
 }
 
-/* line 98, ../../sass/_hotspot-detail.scss */
+/* line 96, ../../sass/_hotspot-detail.scss */
 .hotspot-directions-icon {
   background-image: url('../img/icon-directions.png?1376083024');
   background-position: center 6px;
@@ -417,7 +420,7 @@
   padding-top: 24px;
 }
 
-/* line 106, ../../sass/_hotspot-detail.scss */
+/* line 104, ../../sass/_hotspot-detail.scss */
 .hotspot-list {
   margin-top: 1.33333em;
   -webkit-box-flex: 1;
@@ -436,7 +439,7 @@
   position: relative;
 }
 
-/* line 115, ../../sass/_hotspot-detail.scss */
+/* line 113, ../../sass/_hotspot-detail.scss */
 .hotspot-item-container {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -452,7 +455,7 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 129, ../../sass/_hotspot-detail.scss */
+/* line 127, ../../sass/_hotspot-detail.scss */
 .hotspot-list-title, .hotspot-item {
   padding-bottom: 1em;
   padding-top: 1em;
@@ -461,7 +464,7 @@
   padding-right: 0.25em;
 }
 
-/* line 139, ../../sass/_hotspot-detail.scss */
+/* line 137, ../../sass/_hotspot-detail.scss */
 .hotspot-list-title {
   font-size: 1.2em;
   line-height: 1.33333em;
@@ -470,14 +473,14 @@
 }
 
 @media (orientation: portrait) {
-  /* line 146, ../../sass/_hotspot-detail.scss */
+  /* line 144, ../../sass/_hotspot-detail.scss */
   .hotspot-item {
     padding-top: 0.66667em;
     padding-bottom: 0.66667em;
   }
 }
 
-/* line 155, ../../sass/_hotspot-detail.scss */
+/* line 153, ../../sass/_hotspot-detail.scss */
 .hotspot-spinner {
   left: 50%;
   margin-left: -5px;
