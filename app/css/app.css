@@ -301,9 +301,9 @@
   -webkit-transition: all 200ms;
   -moz-transition: all 200ms;
   transition: all 200ms;
-  -webkit-transform: translate3d(-386px, 0, 0);
-  -moz-transform: translate3d(-386px, 0, 0);
-  transform: translate3d(-386px, 0, 0);
+  -webkit-transform: translate3d(-386px, 0, 1px);
+  -moz-transform: translate3d(-386px, 0, 1px);
+  transform: translate3d(-386px, 0, 1px);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -321,10 +321,16 @@
   z-index: 1001;
 }
 /* line 29, ../../sass/_hotspot-detail.scss */
+.hotspot-container.is-dragging {
+  -webkit-transition: none 200ms;
+  -moz-transition: none 200ms;
+  transition: none 200ms;
+}
+/* line 33, ../../sass/_hotspot-detail.scss */
 .in-detail .hotspot-container {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 1px);
+  -moz-transform: translate3d(0, 0, 1px);
+  transform: translate3d(0, 0, 1px);
 }
 @media (orientation: portrait) {
   /* line 10, ../../sass/_hotspot-detail.scss */
@@ -332,26 +338,20 @@
     background-image: -webkit-linear-gradient(rgba(8, 8, 8, 0.9), #080808);
     background-image: -moz-linear-gradient(rgba(8, 8, 8, 0.9), #080808);
     background-image: linear-gradient(rgba(8, 8, 8, 0.9), #080808);
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 1px);
+    -moz-transform: translate3d(0, 0, 1px);
+    transform: translate3d(0, 0, 1px);
     background-color: transparent;
     left: 0;
     margin-left: 0;
     top: 100%;
     width: 100%;
   }
-  /* line 42, ../../sass/_hotspot-detail.scss */
-  .in-detail .hotspot-container {
-    -webkit-transform: translate3d(0, -64px, 0);
-    -moz-transform: translate3d(0, -64px, 0);
-    transform: translate3d(0, -64px, 0);
-  }
   /* line 46, ../../sass/_hotspot-detail.scss */
-  .in-hotspot-focus .hotspot-container {
-    -webkit-transform: translate3d(0, -100%, 0);
-    -moz-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
+  .in-detail .hotspot-container {
+    -webkit-transform: translate3d(0, -64px, 1px);
+    -moz-transform: translate3d(0, -64px, 1px);
+    transform: translate3d(0, -64px, 1px);
   }
 }
 
@@ -433,8 +433,10 @@
 
 /* line 107, ../../sass/_hotspot-detail.scss */
 .hotspot-item-container {
-  -webkit-flex: 1 1 100%;
-  flex: 1 1 100%;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
   background-clip: padding-box;
   background-color: #3b3b3b;
   border-radius: 3px;

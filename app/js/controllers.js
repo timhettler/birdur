@@ -27,7 +27,6 @@ birdur.controller('SplashCtrl', function ($scope, $location, UserInput, GeoLoc, 
   $scope.searchString = null;
   $scope.submitted = false;
   $scope.errorMessage = null;
-  $scope.hotspotFocus = false;
 
   $scope.handleUserInput = function () {
     $scope.submitted = true;

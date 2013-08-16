@@ -11,7 +11,7 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   @include display-flex();
   @include flex-direction(column);
   @include single-transition();
-  @include translate3d(-350px - ($base-font-size * 2), 0, 0);
+  @include translate3d(-350px - ($base-font-size * 2), 0, 1px);
   @include box-sizing('border-box');
   background-color: rgba($hotspot-color--background, 0.9);
   box-shadow: 0 0 7px rgba(0,0,0,0.65);
@@ -26,13 +26,17 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   width: 350px;
   z-index: 1001;
 
+  &.is-dragging {
+    @include single-transition(none);
+  }
+
   .in-detail & {
-    @include translate3d(0, 0, 0);
+    @include translate3d(0, 0, 1px);
   }
 
   @include mq-portrait {
     @include background-image(linear-gradient(rgba($hotspot-color--background, 0.9), rgba($hotspot-color--background, 1)));
-    @include translate3d(0, 0, 0);
+    @include translate3d(0, 0, 1px);
     background-color: transparent;
     left: 0;
     margin-left: 0;
@@ -40,11 +44,7 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
     width: 100%;
 
     .in-detail & {
-      @include translate3d(0, -64px, 0);
-    }
-
-    .in-hotspot-focus & {
-      @include translate3d(0, -100%, 0);
+      @include translate3d(0, -64px, 1px);
     }
   }
 }
@@ -105,7 +105,7 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 }
 
 .hotspot-item-container {
-  @include flex(1 1 100%);
+  @include flex(1);
   background-clip: padding-box;
   background-color: lighten($hotspot-color--background, 20%);
   border-radius: $hotspot-unit--container-border-radius;

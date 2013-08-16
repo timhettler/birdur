@@ -29,6 +29,65 @@ birdur.directive('disableTouch', function () {
   return function (scope, element) {
     element.bind('touchmove', function (e) {
       e.preventDefault();
-    })
+    });
   };
 });
+
+birdur.directive('hammerDrag', function () {
+  return function (scope, element) {
+
+    if (!Modernizr.touch) { return; }
+
+    var getTransform = function(el) {
+            var transform = window.getComputedStyle(el, null).getPropertyValue('-webkit-transform');
+            var results = transform.match(/matrix(?:(3d)\(-{0,1}\d+(?:, -{0,1}\d+)*(?:, (-{0,1}\d+))(?:, (-{0,1}\d+))(?:, (-{0,1}\d+)), -{0,1}\d+\)|\(-{0,1}\d+(?:, -{0,1}\d+)*(?:, (-{0,1}\d+))(?:, (-{0,1}\d+))\))/);
+
+            if(!results) return [0, 0, 0];
+            if(results[1] == '3d') return results.slice(2,5);
+
+            results.push(0);
+            return results.slice(5, 8); // returns the [X,Y,Z,1] values
+        },
+        toggleView = function () {
+          var curY = parseInt(getTransform(dragTarget)[1]),
+              y = (curY >= minY) ? maxY : minY;
+          setYValue(y);
+        },
+        setYValue = function (y) {
+          dragTarget.style.webkitTransform = 'translate3d(0, '+y+ 'px, 1px)';
+        }
+        dragTarget = document.querySelector('.hotspot-container'),
+        $dragTarget = angular.element(dragTarget),
+        minY = -64,
+        maxY = dragTarget.offsetHeight * -1,
+        startY = parseInt(getTransform(dragTarget)[1]),
+        dir = null;
+
+    Hammer(element[0])
+      .on("dragstart", function () {
+        startY = parseInt(getTransform(dragTarget)[1]);
+        $dragTarget.addClass('is-dragging');
+      })
+      .on("drag", function (e) {
+        var ey = parseInt(e.gesture.deltaY) + startY,
+            y = (ey > minY) ? minY : (ey < maxY) ? maxY : ey;
+
+        setYValue(y);
+      })
+      .on("tap", function (e) {
+        toggleView();
+      })
+      .on("dragend", function (e) {
+        var g = e.gesture,
+            finalY = (g.direction === "up") ? maxY : minY;
+
+        $dragTarget.removeClass('is-dragging');
+        setYValue(finalY);
+      });
+  };
+});
+
+
+
+webkitTransform: "translate3d(0px, -64px, 0px)"
+
