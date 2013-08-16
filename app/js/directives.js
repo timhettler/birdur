@@ -25,6 +25,17 @@ birdur.directive('spinner', function () {
   };
 });
 
+birdur.directive('directionsLink', function () {
+  return function (scope, element) {
+    element.bind('click', function(e){
+      var url = 'http://maps.apple.com/?saddr='+scope.origin.lat+','+scope.origin.lng+'&daddr='+scope.currentHotspot.lat+','+scope.currentHotspot.lng;
+      window.open(url, '_blank');
+      return false;
+      e.stopPropagation();
+    })
+  };
+});
+
 birdur.directive('disableTouch', function () {
   return function (scope, element) {
 
@@ -96,7 +107,6 @@ birdur.directive('hammerDrag', function () {
       })
       .on("tap", function (e) {
         toggleView();
-        e.gesture.stopPropagation();
       })
       .on("dragend", function (e) {
         var g = e.gesture,
