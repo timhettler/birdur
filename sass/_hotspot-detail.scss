@@ -79,6 +79,10 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 
     @include mq-small-screen() {
       @include overflow-ellipsis();
+
+      .is-up & {
+        white-space: normal;
+      }
     }
   }
 

@@ -25,17 +25,6 @@ birdur.directive('spinner', function () {
   };
 });
 
-birdur.directive('directionsLink', function () {
-  return function (scope, element) {
-    element.bind('click', function(e){
-      var url = 'http://maps.apple.com/?saddr='+scope.origin.lat+','+scope.origin.lng+'&daddr='+scope.currentHotspot.lat+','+scope.currentHotspot.lng;
-      window.open(url, '_blank');
-      return false;
-      e.stopPropagation();
-    })
-  };
-});
-
 birdur.directive('disableTouch', function () {
   return function (scope, element) {
 
@@ -79,10 +68,11 @@ birdur.directive('hammerDrag', function () {
             results.push(0);
             return results.slice(5, 8); // returns the [X,Y,Z,1] values
         },
-        toggleView = function () {
-          var curY = parseInt(getTransform(dragTarget)[1]),
-              y = (curY >= minY) ? maxY : minY;
+        toggleView = function (y) {
           setYValue(y);
+          $dragTarget
+            .removeClass('is-dragging')
+            .toggleClass('is-up', y === maxY);
         },
         setYValue = function (y) {
           dragTarget.style.webkitTransform = 'translate3d(0, '+y+ 'px, 1px)';
@@ -106,14 +96,18 @@ birdur.directive('hammerDrag', function () {
         setYValue(y);
       })
       .on("tap", function (e) {
-        toggleView();
+        if (angular.element(e.target).hasClass('hotspot-directions-icon')) { return false; }
+
+        var curY = parseInt(getTransform(dragTarget)[1]),
+            y = (curY >= minY) ? maxY : minY;
+
+        toggleView(y);
       })
       .on("dragend", function (e) {
         var g = e.gesture,
             finalY = (g.direction === "up") ? maxY : minY;
 
-        $dragTarget.removeClass('is-dragging');
-        setYValue(finalY);
+        toggleView(finalY);
       });
   };
 });

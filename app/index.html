@@ -31,6 +31,7 @@
   <script src="lib/modernizr/modernizr.custom.30791.js"></script>
   <script src="lib/fastclick.js"></script>
   <script src="lib/hammer.js"></script>
+  <script src="lib/scrollfix.js"></script>
 </head>
 <body ng-app="birdur" disable-touch>
   <ng-view></ng-view>
@@ -47,6 +48,7 @@
   </script>
   <script>
     window.addEventListener('load', function() {
+        new ScrollFix(document.querySelector('.hotspot-item-container'));
         FastClick.attach(document.body);
     }, false);
   </script>

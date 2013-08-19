@@ -35,7 +35,7 @@ a {
   color: $color--slate;
   text-decoration: none;
 
-  &:hover {
+  .no-touch &:hover {
     text-decoration: underline;
   }
 }

@@ -6,9 +6,9 @@ birdur.factory('Install', function($location) {
   var isIOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g),
       isFullscreen = window.navigator.standalone,
       requiresInstall = function () {
-        if(isIOS && !isFullscreen) {
-          return true;
-        }
+        // if(isIOS && !isFullscreen) {
+        //   return true;
+        // }
         return false;
       };
 

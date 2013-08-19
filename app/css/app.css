@@ -400,14 +400,18 @@
     white-space: nowrap;
     width: 100%;
   }
+  /* line 83, ../../sass/_hotspot-detail.scss */
+  .is-up .hotspot-title--main {
+    white-space: normal;
+  }
 }
 
-/* line 85, ../../sass/_hotspot-detail.scss */
+/* line 89, ../../sass/_hotspot-detail.scss */
 .hotspot-title--sub {
   color: whitesmoke;
 }
 
-/* line 89, ../../sass/_hotspot-detail.scss */
+/* line 93, ../../sass/_hotspot-detail.scss */
 .hotspot-directions {
   font-size: 0.66667em;
   line-height: 2em;
@@ -418,16 +422,16 @@
   width: 20%;
 }
 
-/* line 99, ../../sass/_hotspot-detail.scss */
+/* line 103, ../../sass/_hotspot-detail.scss */
 .hotspot-directions-icon {
-  background-image: url('../img/icon-directions.png?1376083024');
+  background-image: url('../img/icon-directions.png?1376684413');
   background-position: center 6px;
   background-repeat: no-repeat;
   display: block;
   padding-top: 24px;
 }
 
-/* line 107, ../../sass/_hotspot-detail.scss */
+/* line 111, ../../sass/_hotspot-detail.scss */
 .hotspot-list {
   margin-top: 1.33333em;
   -webkit-box-flex: 1;
@@ -446,7 +450,7 @@
   position: relative;
 }
 
-/* line 116, ../../sass/_hotspot-detail.scss */
+/* line 120, ../../sass/_hotspot-detail.scss */
 .hotspot-item-container {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -462,7 +466,7 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 130, ../../sass/_hotspot-detail.scss */
+/* line 134, ../../sass/_hotspot-detail.scss */
 .hotspot-list-title, .hotspot-item {
   padding-bottom: 1em;
   padding-top: 1em;
@@ -471,7 +475,7 @@
   padding-right: 0.25em;
 }
 
-/* line 140, ../../sass/_hotspot-detail.scss */
+/* line 144, ../../sass/_hotspot-detail.scss */
 .hotspot-list-title {
   font-size: 1.2em;
   line-height: 1.33333em;
@@ -480,14 +484,14 @@
 }
 
 @media (orientation: portrait) {
-  /* line 147, ../../sass/_hotspot-detail.scss */
+  /* line 151, ../../sass/_hotspot-detail.scss */
   .hotspot-item {
     padding-top: 0.66667em;
     padding-bottom: 0.66667em;
   }
 }
 
-/* line 156, ../../sass/_hotspot-detail.scss */
+/* line 160, ../../sass/_hotspot-detail.scss */
 .hotspot-spinner {
   left: 50%;
   margin-left: -5px;
@@ -586,7 +590,7 @@ a {
   text-decoration: none;
 }
 /* line 38, ../../sass/app.scss */
-a:hover {
+.no-touch a:hover {
   text-decoration: underline;
 }
 
