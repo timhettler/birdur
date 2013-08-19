@@ -45,10 +45,6 @@ birdur.directive('disableTouch', function () {
         if(!isTouchAllowed(angular.element(e.target))) {
           e.gesture.preventDefault();
         }
-      }).on("tap", function (e) {
-        if(!isTouchAllowed(angular.element(e.target))) {
-          e.gesture.preventDefault();
-        }
       });
   };
 });
