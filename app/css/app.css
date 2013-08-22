@@ -1,5 +1,5 @@
 /* line 1, ../../sass/_placeholders.scss */
-.install, .splash, html, body, .app-wrapper, #map, .error-container {
+.install, .splash, html, body, .map-wrapper, #map, .error-container {
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -9,6 +9,60 @@
 .install-logo, .splash-logo {
   background-image: url('../img/birdur_logo.svg?1376071781');
   background-size: 100%;
+}
+
+/* line 28, ../../sass/_placeholders.scss */
+.splash-input, .map-search-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 0;
+  font-family: Avenir, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 37px;
+  margin: 0;
+  padding: 0 38px 0 8px;
+  text-align: left;
+  width: 100%;
+}
+/* line 41, ../../sass/_placeholders.scss */
+.splash-input:focus, .map-search-input:focus {
+  outline: none;
+}
+
+/* line 46, ../../sass/_placeholders.scss */
+.splash-submit, .map-search-button {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: #eead21;
+  border: none;
+  border-bottom: 2px solid #ee8121;
+  color: #fff;
+  font-family: Avenir, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-touch-callout: none;
+  width: 100%;
+}
+/* line 62, ../../sass/_placeholders.scss */
+.splash-submit:active, .map-search-button:active {
+  border-bottom: none;
+  border-top: 2px solid #ee8121;
+}
+/* line 67, ../../sass/_placeholders.scss */
+[disabled].splash-submit, [disabled].map-search-button {
+  background-color: #888;
+  border-color: #555;
+  pointer-events: none;
 }
 
 @font-face {
@@ -90,34 +144,17 @@
   -moz-box-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background-color: #859288;
-  background-image: url('../img/bg_l.jpg?1375712024');
-  background-position: center;
-  background-size: cover;
-  color: #fff;
 }
-@media (max-width: 599px) {
-  /* line 1, ../../sass/_install.scss */
-  .install {
-    background-image: url('../img/bg_p.jpg?1375712020');
-  }
-}
-@media (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 599px) and (min-resolution: 192dpi) {
-  /* line 1, ../../sass/_install.scss */
-  .install {
-    background-image: url('../img/bg_p@2x.jpg?1375712020');
-  }
-}
-/* line 16, ../../sass/_install.scss */
+/* line 7, ../../sass/_install.scss */
 .install p {
   margin: 1.2em 0;
 }
-/* line 20, ../../sass/_install.scss */
+/* line 11, ../../sass/_install.scss */
 .install strong, .install b {
   font-weight: bold;
 }
 
-/* line 25, ../../sass/_install.scss */
+/* line 16, ../../sass/_install.scss */
 .install-container {
   text-align: center;
   margin: 10px;
@@ -125,7 +162,7 @@
   width: 100%;
 }
 
-/* line 32, ../../sass/_install.scss */
+/* line 23, ../../sass/_install.scss */
 .install-title {
   font: 28px "bonvenocflight", Futura, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -133,14 +170,14 @@
   text-shadow: 0 -1px rgba(50, 50, 50, 0.25);
 }
 
-/* line 37, ../../sass/_install.scss */
+/* line 28, ../../sass/_install.scss */
 .install-logo {
   height: 120px;
   width: 120px;
   margin: 1.2em auto;
 }
 
-/* line 42, ../../sass/_install.scss */
+/* line 33, ../../sass/_install.scss */
 .cta {
   bottom: 1.2em;
   left: 0;
@@ -163,26 +200,9 @@
   -moz-box-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  background-color: #859288;
-  background-image: url('../img/bg_l.jpg?1375712024');
-  background-position: center;
-  background-size: cover;
-  color: #fff;
-}
-@media (max-width: 599px) {
-  /* line 3, ../../sass/_splash.scss */
-  .splash {
-    background-image: url('../img/bg_p.jpg?1375712020');
-  }
-}
-@media (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 599px) and (min-resolution: 192dpi) {
-  /* line 3, ../../sass/_splash.scss */
-  .splash {
-    background-image: url('../img/bg_p@2x.jpg?1375712020');
-  }
 }
 
-/* line 19, ../../sass/_splash.scss */
+/* line 10, ../../sass/_splash.scss */
 .splash-container {
   text-align: center;
   margin: 10px;
@@ -190,33 +210,33 @@
   width: 100%;
 }
 
-/* line 26, ../../sass/_splash.scss */
+/* line 17, ../../sass/_splash.scss */
 .splash-logo {
   height: 168px;
   width: 168px;
   margin: 0 auto;
 }
 
-/* line 31, ../../sass/_splash.scss */
+/* line 22, ../../sass/_splash.scss */
 .splash-title {
   font: 48px "bonvenocflight", Futura, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-transform: uppercase;
 }
 
-/* line 35, ../../sass/_splash.scss */
+/* line 26, ../../sass/_splash.scss */
 .splash-form {
   -webkit-transition: opacity 200ms;
   -moz-transition: opacity 200ms;
   transition: opacity 200ms;
   opacity: 0;
 }
-/* line 39, ../../sass/_splash.scss */
+/* line 30, ../../sass/_splash.scss */
 .splash-form.is-visible {
   opacity: 1;
 }
 
-/* line 44, ../../sass/_splash.scss */
+/* line 35, ../../sass/_splash.scss */
 .splash-error {
   color: red;
   font-size: 16px;
@@ -225,67 +245,29 @@
   text-align: left;
 }
 
-/* line 52, ../../sass/_splash.scss */
+/* line 43, ../../sass/_splash.scss */
 .splash-input-container {
   margin-top: 30px;
   position: relative;
 }
 
-/* line 57, ../../sass/_splash.scss */
+/* line 48, ../../sass/_splash.scss */
 .splash-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background-color: #fff;
   border: 1px solid #bbb;
-  border-radius: 0;
-  font-family: Avenir, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 37px;
-  padding: 0 38px 0 8px;
-  text-align: left;
-  width: 100%;
 }
 
-/* line 71, ../../sass/_splash.scss */
+/* line 53, ../../sass/_splash.scss */
+.splash-submit {
+  font-size: 20px;
+  line-height: 50px;
+  margin-top: 30px;
+}
+
+/* line 60, ../../sass/_splash.scss */
 .splash-spinner {
   position: absolute;
   right: 20px;
   top: 20px;
-}
-
-/* line 77, ../../sass/_splash.scss */
-.splash-submit {
-  -moz-user-select: -moz-none;
-  -webkit-user-select: none;
-  user-select: none;
-  background-color: #eead21;
-  border: none;
-  border-bottom: 2px solid #ee8121;
-  color: #fff;
-  font-family: Avenir, Arial, sans-serif;
-  font-size: 20px;
-  -webkit-font-smoothing: antialiased;
-  font-weight: bold;
-  line-height: 50px;
-  margin-top: 30px;
-  outline: none;
-  padding: 0;
-  text-transform: uppercase;
-  -webkit-touch-callout: none;
-  width: 100%;
-}
-/* line 95, ../../sass/_splash.scss */
-.splash-submit:active {
-  border-bottom: none;
-  border-top: 2px solid #ee8121;
-}
-/* line 100, ../../sass/_splash.scss */
-.splash-submit[disabled] {
-  pointer-events: none;
 }
 
 /* line 10, ../../sass/_hotspot-detail.scss */
@@ -424,7 +406,7 @@
 
 /* line 103, ../../sass/_hotspot-detail.scss */
 .hotspot-directions-icon {
-  background-image: url('../img/icon-directions.png?1376684413');
+  background-image: url('../img/icon-directions.png?1376941673');
   background-position: center 6px;
   background-repeat: no-repeat;
   display: block;
@@ -498,6 +480,82 @@
   margin-top: -5px;
   position: absolute;
   top: 50%;
+}
+
+/* line 168, ../../sass/_hotspot-detail.scss */
+.map-search {
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  transition: all 200ms;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  right: 0;
+  top: 0;
+  width: 350px;
+  z-index: 1001;
+  position: absolute;
+}
+@media (orientation: portrait) {
+  /* line 168, ../../sass/_hotspot-detail.scss */
+  .map-search {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0.5em;
+    width: 100%;
+  }
+  /* line 186, ../../sass/_hotspot-detail.scss */
+  .map-search.is-hidden {
+    -webkit-transform: translate3d(0, -100%, 1px);
+    -moz-transform: translate3d(0, -100%, 1px);
+    transform: translate3d(0, -100%, 1px);
+  }
+}
+
+/* line 192, ../../sass/_hotspot-detail.scss */
+.map-search-form {
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.65);
+}
+/* line 39, ../../sass/_utils.scss */
+.map-search-form:before, .map-search-form:after {
+  display: table;
+  content: " ";
+  line-height: 0;
+}
+/* line 45, ../../sass/_utils.scss */
+.map-search-form:after {
+  clear: both;
+}
+
+/* line 197, ../../sass/_hotspot-detail.scss */
+.map-search-input-container {
+  float: left;
+  width: 75%;
+}
+
+/* line 202, ../../sass/_hotspot-detail.scss */
+.map-search-input {
+  border: 0;
+}
+
+/* line 207, ../../sass/_hotspot-detail.scss */
+.map-search-button {
+  float: left;
+  width: 25%;
+  height: 37px;
+}
+
+/* line 213, ../../sass/_hotspot-detail.scss */
+.map-search-button {
+  background-image: url('../img/search.svg?1377182897');
+  direction: ltr;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
 }
 
 /* line 17, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
@@ -578,23 +636,46 @@ html {
     line-height: 1.33333em;
   }
 }
-/* line 28, ../../sass/app.scss */
+/* line 29, ../../sass/app.scss */
 body {
+  background-color: #859288;
+  background-image: url('../img/bg_l.jpg?1375712024');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
   font-family: Avenir, Arial, sans-serif;
   position: relative;
 }
+@media (max-width: 599px) {
+  /* line 29, ../../sass/app.scss */
+  body {
+    background-image: url('../img/bg_p.jpg?1375712020');
+  }
+}
+@media (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 599px) and (min-resolution: 192dpi) {
+  /* line 29, ../../sass/app.scss */
+  body {
+    background-image: url('../img/bg_p@2x.jpg?1375712020');
+  }
+}
 
-/* line 34, ../../sass/app.scss */
+/* line 44, ../../sass/app.scss */
 a {
   color: whitesmoke;
   text-decoration: none;
 }
-/* line 38, ../../sass/app.scss */
+/* line 48, ../../sass/app.scss */
 .no-touch a:hover {
   text-decoration: underline;
 }
 
-/* line 55, ../../sass/app.scss */
+/* line 53, ../../sass/app.scss */
+.map-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* line 63, ../../sass/app.scss */
 .geolocate {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #888;
@@ -611,13 +692,13 @@ a {
   width: 26px;
   z-index: 1;
 }
-/* line 72, ../../sass/app.scss */
+/* line 80, ../../sass/app.scss */
 .geolocate:hover {
   background-color: #f4f4f4;
   color: #000;
 }
 
-/* line 78, ../../sass/app.scss */
+/* line 86, ../../sass/app.scss */
 .error-container {
   display: -webkit-box;
   display: -moz-box;
@@ -636,7 +717,7 @@ a {
   top: 0;
 }
 
-/* line 88, ../../sass/app.scss */
+/* line 96, ../../sass/app.scss */
 .error {
   background: rgba(8, 8, 8, 0.9);
   color: #fdd84c;
@@ -645,7 +726,7 @@ a {
   width: 500px;
 }
 @media (orientation: portrait) {
-  /* line 88, ../../sass/app.scss */
+  /* line 96, ../../sass/app.scss */
   .error {
     width: 80%;
   }

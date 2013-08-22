@@ -91,7 +91,8 @@ leafletDirective.directive('leaflet', ['$http', '$log', '$parse', '$rootScope', 
             setupMarkers();
             setupPaths();
             setupLegend();
-            setupEvents();
+            setupMapEventBroadcasting();
+            setupMapEventCallbacks();
             setupGeojson();
 
             // use of leafletDirectiveSetMap event is not encouraged. only use
@@ -115,6 +116,40 @@ leafletDirective.directive('leaflet', ['$http', '$log', '$parse', '$rootScope', 
             }
 
             /*
+             * Set up broadcasting of map events to the rootScope
+             *
+             * Listeners listen at leafletDirectiveMap.<event name>
+             *
+             * All events listed at http://leafletjs.com/reference.html#map-events are supported
+             */
+            function setupMapEventBroadcasting() {
+
+                function genDispatchMapEvent(eventName) {
+                    return function(e) {
+                        // Put together broadcast name for use in safeApply
+                        var broadcastName = 'leafletDirectiveMap.' + eventName;
+
+                        // Safely broadcast the event
+                        safeApply(function(scope) {
+                            $rootScope.$broadcast(broadcastName, {
+                                leafletEvent: e
+                            });
+                        });
+                    };
+                }
+
+                var mapEvents = ['click', 'dblclick', 'mousedown', 'mouseup', 'mouseover', 'mouseout', 'mousemove', 'contextmenu', 'focus', 'blur', 'preclick', 'load', 'unload', 'viewreset', 'movestart', 'move', 'moveend', 'dragstart', 'drag', 'dragend', 'zoomstart', 'zoomend', 'zoomlevelschange', 'resize', 'autopanstart', 'layeradd', 'layerremove', 'baselayerchange', 'overlayadd', 'overlayremove', 'locationfound', 'locationerror', 'popupopen', 'popupclose'];
+
+                for (var i = 0; i < mapEvents.length; i++) {
+                    var eventName = mapEvents[i];
+
+                    map.on(eventName, genDispatchMapEvent(eventName), {
+                        eventName: eventName
+                    });
+                }
+            }
+
+            /*
              * Event setup watches for callbacks set in the parent scope
              *
              *    $scope.events = {
@@ -127,7 +162,7 @@ leafletDirective.directive('leaflet', ['$http', '$log', '$parse', '$rootScope', 
              * }
              */
 
-            function setupEvents() {
+            function setupMapEventCallbacks() {
                 if (typeof($scope.events) != 'object') {
                     return false;
                 } else {

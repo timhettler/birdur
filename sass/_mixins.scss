@@ -38,3 +38,11 @@
   -webkit-font-smoothing: antialiased;
   text-transform: uppercase;
 }
+
+@mixin image-replace($bg-src) {
+  background-image: $bg-src;
+  direction: ltr;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}

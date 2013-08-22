@@ -164,3 +164,56 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   position: absolute;
   top: 50%;
 }
+
+.map-search {
+  @include single-transition();
+  padding: {
+    bottom: $hotspot-unit--container-padding;
+    left: $hotspot-unit--container-padding;
+    right: $hotspot-unit--container-padding;
+  };
+  right: 0;
+  top: 0;
+  width: 350px;
+  z-index: 1001;
+  position: absolute;
+
+  @include mq-portrait {
+    @include box-sizing('border-box');
+    padding: $hotspot-unit--container-padding/2;
+    width: 100%;
+
+    &.is-hidden {
+      @include translate3d(0, -100%, 1px);
+    }
+  }
+}
+
+  .map-search-form {
+    @include clearfix();
+    box-shadow: 0 0 3px rgba(0,0,0,0.65);
+  }
+
+  .map-search-input-container {
+    float: left;
+    width: 75%;
+  }
+
+  .map-search-input {
+    @extend %input;
+    border: 0;
+  }
+
+  .map-search-button {
+    float: left;
+    width: 25%;
+    height: 37px;
+  }
+
+  .map-search-button {
+    @extend %button;
+    @include image-replace(image-url('search.svg'));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+  }

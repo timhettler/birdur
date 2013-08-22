@@ -5,15 +5,6 @@ $splash-element-separation: 30px;
   @include align-items('center');
   @include display-flex();
   @include justify-content('center');
-  background-color: #859288;
-  background-image: image-url('bg_l.jpg');
-  background-position: center;
-  background-size: cover;
-  color: #fff;
-
-  @include mq-small-screen {
-    @include retina-image('bg_p', 'jpg');
-  }
 }
 
 .splash-container {
@@ -55,49 +46,19 @@ $splash-element-separation: 30px;
 }
 
 .splash-input {
-  @include appearance('none');
-  @include box-sizing('border-box');
-  background-color: #fff;
+  @extend %input;
   border: 1px solid #bbb;
-  border-radius: 0;
-  font-family: $font-stack--base;
-  font-size: 16px;
-  line-height: 37px;
-  padding: 0 38px 0 8px;
-  text-align: left;
-  width: 100%;
+}
+
+.splash-submit {
+  @extend %button;
+  font-size: 20px;
+  line-height: 50px;
+  margin-top: $splash-element-separation;
 }
 
 .splash-spinner {
   position: absolute;
   right: 20px;
   top: 20px;
-}
-
-.splash-submit {
-  @include user-select(none);
-  background-color: #eead21;
-  border: none;
-  border-bottom: 2px solid #ee8121;
-  color: #fff;
-  font-family: $font-stack--base;
-  font-size: 20px;
-  -webkit-font-smoothing: antialiased;
-  font-weight: bold;
-  line-height: 50px;
-  margin-top: $splash-element-separation;
-  outline: none;
-  padding: 0;
-  text-transform: uppercase;
-  -webkit-touch-callout: none;
-  width: 100%;
-
-  &:active {
-    border-bottom: none;
-    border-top: 2px solid #ee8121;
-  }
-
-  &[disabled] {
-    pointer-events: none;
-  }
 }

@@ -1,3 +1,11 @@
+birdur.directive('installPrompt', function () {
+  return {
+    restrict: 'E',
+    replace: true,
+    templateUrl: 'templates/install.html'
+  }
+});
+
 birdur.directive('spinner', function () {
   return {
     restrict: 'E',
@@ -72,9 +80,14 @@ birdur.directive('hammerDrag', function () {
         },
         setYValue = function (y) {
           dragTarget.style.webkitTransform = 'translate3d(0, '+y+ 'px, 1px)';
+          setSearchClass(y);
+        },
+        setSearchClass = function (y) {
+          $searchBar.toggleClass('is-hidden', y !== minY);
         }
         dragTarget = document.querySelector('.hotspot-container'),
         $dragTarget = angular.element(dragTarget),
+        $searchBar = angular.element(document.querySelector('.map-search')),
         minY = -64,
         maxY = dragTarget.offsetHeight * -1,
         startY = parseInt(getTransform(dragTarget)[1]),
@@ -107,8 +120,4 @@ birdur.directive('hammerDrag', function () {
       });
   };
 });
-
-
-
-webkitTransform: "translate3d(0px, -64px, 0px)"
 

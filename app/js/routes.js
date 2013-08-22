@@ -2,15 +2,11 @@
 
 /* Routes */
 
-birdur.config(function ($routeProvider, $locationProvider) {
+birdur.config(function ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'templates/splash.html',
       controller: 'SplashCtrl'
-    })
-    .when('/install', {
-      templateUrl: 'templates/install.html',
-      controller: 'InstallCtrl'
     })
     .when('/map/:query', {
       templateUrl: 'templates/map.html',
@@ -19,6 +15,4 @@ birdur.config(function ($routeProvider, $locationProvider) {
     .otherwise({
       redirectTo: "/"
     });
-
-  //$locationProvider.html5Mode(true);
 })

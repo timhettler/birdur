@@ -2,10 +2,10 @@
   <div class="splash-container">
     <div class="splash-logo"></div>
     <h1 class="splash-title">Birdur</h1>
-    <form class="splash-form" name="splashForm" ng-class="{'is-visible': noGeo}" ng-submit="handleUserInput()">
+    <form class="splash-form" name="splashForm" ng-class="{'is-visible': showForm}" ng-submit="handleUserInput(searchString)">
       <div ng-show="errorMessage" class="splash-error">{{errorMessage}}</div>
       <div class="splash-input-container">
-        <input ng-disabled="submitted" ng-model="searchString" class="splash-input" name="splashLocation" type="text" placeholder="Enter your city, state or zip" autocorrect="off" required />
+        <input ng-disabled="submitted" ng-model="searchString" class="splash-input" name="splashLocation" type="text" placeholder="Where do you want to go birding?" autocorrect="off" required />
         <spinner class="splash-spinner" ng-show="submitted"></spinner>
       </div>
       <button ng-disabled="submitted" name="splashSubmit" class="splash-submit" type="submit">Submit</button>

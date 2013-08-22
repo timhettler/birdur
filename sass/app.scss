@@ -3,6 +3,7 @@
 @import "compass";
 @import "flexbox";
 
+@import "utils";
 @import "mixins";
 @import "placeholders";
 //@import "normalize";
@@ -27,8 +28,17 @@ html {
 
 body {
   @extend %fullscreen;
+  background-color: #859288;
+  background-image: image-url('bg_l.jpg');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
   font-family: $font-stack--base;
   position: relative;
+
+  @include mq-small-screen {
+    @include retina-image('bg_p', 'jpg');
+  }
 }
 
 a {
@@ -40,16 +50,14 @@ a {
   }
 }
 
-.app-wrapper {
+.map-wrapper {
   @extend %fullscreen;
+  position: relative;
+  z-index: 1;
 }
 
 #map {
   @extend %fullscreen;
-
-  // @include mq-portrait {
-  //   height: 80%;
-  // }
 }
 
 .geolocate {

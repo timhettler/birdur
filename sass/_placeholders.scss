@@ -24,3 +24,49 @@
     @include retina-image('bg_p', 'jpg');
   }
 }
+
+%input {
+  @include appearance('none');
+  @include box-sizing('border-box');
+  background-color: #fff;
+  border-radius: 0;
+  font-family: $font-stack--base;
+  font-size: 16px;
+  line-height: 37px;
+  margin: 0;
+  padding: 0 38px 0 8px;
+  text-align: left;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+%button {
+  @include user-select(none);
+  background-color: #eead21;
+  border: none;
+  border-bottom: 2px solid #ee8121;
+  color: #fff;
+  font-family: $font-stack--base;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-touch-callout: none;
+  width: 100%;
+
+  &:active {
+    border-bottom: none;
+    border-top: 2px solid #ee8121;
+  }
+
+  &[disabled] {
+    background-color: #888;
+    border-color: #555;
+    pointer-events: none;
+  }
+}

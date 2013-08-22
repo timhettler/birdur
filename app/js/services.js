@@ -2,19 +2,42 @@
 
 /* Services */
 
-birdur.factory('Install', function($location) {
-  var isIOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g),
-      isFullscreen = window.navigator.standalone,
-      requiresInstall = function () {
-        if(isIOS && !isFullscreen) {
-          return true;
-        }
-        return false;
+birdur.service('Map', function(LocationService) {
+
+  var data = {
+        origin: {},
+        center: {},
+        locationName: null
+      },
+      setMapView = function (lat, lng, name) {
+        data.origin.lat = data.center.lat = lat;
+        data.origin.lng = data.center.lng = lng;
+        data.center.zoom = 12;
+        data.locationName = name || "Current Location";
+
+        return data;
+      },
+      getOrigin = function () {
+        return [data.origin.lat, data.origin.lng]
       };
 
   return {
-    requiresInstall: requiresInstall
+    data: data,
+    setMapView: setMapView,
+    getOrigin: getOrigin
   }
+});
+
+birdur.factory('InstallCheck', function () {
+  var isIOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g),
+      isFullscreen = window.navigator.standalone;
+
+  return function () {
+    if(isIOS && isFullscreen || !isIOS) {
+      return false;
+    }
+    return true;
+  };
 });
 
 birdur.factory('UserInput', function ($q, $log, LocationService) {
@@ -75,7 +98,9 @@ birdur.factory('UserInput', function ($q, $log, LocationService) {
 
   var getLatLng = function (searchString) {
     var defer = $q.defer();
-    if(isLatLng(searchString)) {
+    if (!searchString) {
+      defer.reject();
+    } else if (isLatLng(searchString)) {
       defer.resolve(searchString.split(','));
     } else {
       LocationService.geosearch({
@@ -101,28 +126,47 @@ birdur.factory('UserInput', function ($q, $log, LocationService) {
   }
 });
 
+birdur.factory("Timer", function ($timeout) {
+            var data = { lastUpdated: new Date(), calls: 0 };
+
+            var updateTimer = function () {
+                data.lastUpdated = new Date();
+                data.calls += 1;
+                console.log("updateTimer: " + data.lastUpdated);
+
+                $timeout(updateTimer, 5000);
+            };
+            updateTimer();
+
+            return {
+                data: data
+            };
+        });
+
 birdur.factory('GeoLoc', function ($q, $rootScope){
 
   var apply = function () {
-    $rootScope.$apply();
-  };
-
-  var locate = function () {
-    var defer = $q.defer();
-    navigator.geolocation.getCurrentPosition(
-      function (position) {
-        defer.resolve(position);
-        apply();
+        $rootScope.$apply();
       },
-      function(error) {
-        defer.reject(error);
-        apply();
-      });
-    return defer.promise;
-  };
+      locate = function () {
+        var defer = $q.defer();
+
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            defer.resolve(position);
+            apply();
+          },
+          function(error) {
+            defer.reject(error);
+            apply();
+          });
+        return defer.promise;
+    },
+    geoAllowed = null;
 
   return {
-      locate: locate
+      locate: locate,
+      geoAllowed: geoAllowed
   };
 
 });
