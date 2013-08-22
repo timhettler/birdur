@@ -13,7 +13,7 @@ birdur.service('Map', function(LocationService) {
         data.origin.lat = data.center.lat = lat;
         data.origin.lng = data.center.lng = lng;
         data.center.zoom = 12;
-        data.locationName = name || "Current Location";
+        //data.locationName = name || "Current Location";
 
         return data;
       },
@@ -47,7 +47,20 @@ birdur.factory('UserInput', function ($q, $log, LocationService) {
       regex_address = /^(.*)?(\w+)?(,?\s?)?(\w)+(,\s?)(\w)+/,
       regex_addressSeparator = /,\s?/;
 
-  var formatQuery = function (searchString) {
+  var isPark = function (place) {
+    var types = [
+              "state park",
+              "national park",
+              "wildlife",
+              "conservation",
+            ]
+    for(var i=0;i<types.length;i++) {
+      if(place.indexOf(types[i]) >= 0) {
+        return true;
+      }
+    }
+    return false;
+  }, formatQuery = function (searchString) {
     var query = null;
     searchString = searchString
               .trim()
@@ -63,12 +76,14 @@ birdur.factory('UserInput', function ($q, $log, LocationService) {
       var address = searchString.split(regex_addressSeparator);
 
       if(address.length == 1) {
-
-        query = "[city="+address[0]+"][country=United States]";
+        var type = (isPark(address[0])) ? 'sight' : 'city';
+        console.log(isPark(address[0]), address[0]);
+        query = "["+type+"="+address[0]+"][country=United States]";
 
       } else if(address.length == 2) {
-
-        query = "[city="+address[0]+"][state="+address[1]+"][country=United States]";
+        var type = (isPark(address[0])) ? 'sight' : 'city';
+        console.log(isPark(address[0]), address[0]);
+        query = "["+type+"="+address[0]+"][state="+address[1]+"][country=United States]";
 
       }
       else if(address.length == 3) {
@@ -125,23 +140,6 @@ birdur.factory('UserInput', function ($q, $log, LocationService) {
     getLatLng: getLatLng
   }
 });
-
-birdur.factory("Timer", function ($timeout) {
-            var data = { lastUpdated: new Date(), calls: 0 };
-
-            var updateTimer = function () {
-                data.lastUpdated = new Date();
-                data.calls += 1;
-                console.log("updateTimer: " + data.lastUpdated);
-
-                $timeout(updateTimer, 5000);
-            };
-            updateTimer();
-
-            return {
-                data: data
-            };
-        });
 
 birdur.factory('GeoLoc', function ($q, $rootScope){
 
