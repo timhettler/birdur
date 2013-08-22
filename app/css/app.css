@@ -23,9 +23,9 @@
   border-radius: 0;
   font-family: Avenir, Arial, sans-serif;
   font-size: 16px;
-  line-height: 37px;
+  line-height: 24px;
   margin: 0;
-  padding: 0 38px 0 8px;
+  padding: 6px 38px 7px 8px;
   text-align: left;
   width: 100%;
 }
@@ -487,14 +487,12 @@
   -webkit-transition: all 200ms;
   -moz-transition: all 200ms;
   transition: all 200ms;
-  padding-bottom: 1em;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
+  position: absolute;
   right: 0;
   top: 0;
   width: 350px;
   z-index: 1001;
-  position: absolute;
 }
 @media (orientation: portrait) {
   /* line 168, ../../sass/_hotspot-detail.scss */
@@ -505,7 +503,7 @@
     padding: 0.5em;
     width: 100%;
   }
-  /* line 186, ../../sass/_hotspot-detail.scss */
+  /* line 182, ../../sass/_hotspot-detail.scss */
   .map-search.is-hidden {
     -webkit-transform: translate3d(0, -100%, 1px);
     -moz-transform: translate3d(0, -100%, 1px);
@@ -513,9 +511,9 @@
   }
 }
 
-/* line 192, ../../sass/_hotspot-detail.scss */
+/* line 188, ../../sass/_hotspot-detail.scss */
 .map-search-form {
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.65);
 }
 /* line 39, ../../sass/_utils.scss */
 .map-search-form:before, .map-search-form:after {
@@ -528,27 +526,27 @@
   clear: both;
 }
 
-/* line 197, ../../sass/_hotspot-detail.scss */
+/* line 193, ../../sass/_hotspot-detail.scss */
 .map-search-input-container {
   float: left;
   width: 75%;
 }
 
-/* line 202, ../../sass/_hotspot-detail.scss */
+/* line 198, ../../sass/_hotspot-detail.scss */
 .map-search-input {
   border: 0;
 }
 
-/* line 207, ../../sass/_hotspot-detail.scss */
+/* line 203, ../../sass/_hotspot-detail.scss */
 .map-search-button {
   float: left;
   width: 25%;
   height: 37px;
 }
 
-/* line 213, ../../sass/_hotspot-detail.scss */
+/* line 209, ../../sass/_hotspot-detail.scss */
 .map-search-button {
-  background-image: url('../img/search.svg?1377182897');
+  background-image: url('../img/search.svg?1377200244');
   direction: ltr;
   overflow: hidden;
   text-indent: 100%;

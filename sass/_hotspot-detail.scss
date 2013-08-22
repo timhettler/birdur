@@ -167,16 +167,12 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 
 .map-search {
   @include single-transition();
-  padding: {
-    bottom: $hotspot-unit--container-padding;
-    left: $hotspot-unit--container-padding;
-    right: $hotspot-unit--container-padding;
-  };
+  padding: $hotspot-unit--container-padding;
+  position: absolute;
   right: 0;
   top: 0;
   width: 350px;
   z-index: 1001;
-  position: absolute;
 
   @include mq-portrait {
     @include box-sizing('border-box');
@@ -191,7 +187,7 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 
   .map-search-form {
     @include clearfix();
-    box-shadow: 0 0 3px rgba(0,0,0,0.65);
+    box-shadow: 0 0 7px rgba(0,0,0,0.65);
   }
 
   .map-search-input-container {
