@@ -55,7 +55,7 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $location, 
   $scope.mapData = Map.data;
   $scope.markers = {};
   $scope.mapDefaults = {
-      tileLayer: 'http://{s}.tile.cloudmade.com/badf2c8f27664349b206f901bdaa58ea/96931/256/{z}/{x}/{y}.png',
+      tileLayer: 'http://{s}.tiles.mapbox.com/v3/timhettler.map-jws9isw6/{z}/{x}/{y}.png',
       tileLayerOptions: {
         attribution: ''
       },
