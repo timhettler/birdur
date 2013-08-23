@@ -3,6 +3,7 @@
   @include align-items('center');
   @include display-flex();
   @include justify-content('center');
+  pointer-events: none;
 
   p {
     margin: 1.2em 0;

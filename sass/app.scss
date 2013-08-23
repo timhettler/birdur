@@ -22,6 +22,11 @@
   @include establish-baseline($base-font-size * 0.75);
 }
 
+* {
+  @include box-sizing(border-box);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 html {
   @extend %fullscreen;
 }
@@ -39,6 +44,10 @@ body {
   @include mq-small-screen {
     @include retina-image('bg_p', 'jpg');
   }
+}
+
+html, body {
+  @include user-select(none);
 }
 
 a {

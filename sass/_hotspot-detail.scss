@@ -54,6 +54,7 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 }
 
 .hotspot-header {
+  @include trailer();
   @include display-flex();
   @include align-items('center');
   border-bottom: 1px solid;
@@ -109,7 +110,6 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
     }
 
 .hotspot-list {
-  @include leader();
   @include flex(1);
   @include display-flex();
   @include flex-direction(column);

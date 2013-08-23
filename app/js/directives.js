@@ -51,7 +51,10 @@ birdur.directive('disableTouch', function () {
     Hammer(element[0])
       .on("dragstart tap", function (e) {
         if(!isTouchAllowed(angular.element(e.target))) {
+          e.preventDefault();
+          e.stopPropagation();
           e.gesture.preventDefault();
+          e.gesture.stopPropagation();
         }
       });
   };
@@ -97,6 +100,7 @@ birdur.directive('hammerDrag', function () {
       .on("dragstart", function (e) {
         startY = parseInt(getTransform(dragTarget)[1]);
         $dragTarget.addClass('is-dragging');
+        e.preventDefault();
         e.gesture.preventDefault();
       })
       .on("drag", function (e) {
@@ -104,6 +108,7 @@ birdur.directive('hammerDrag', function () {
             y = (ey > minY) ? minY : (ey < maxY) ? maxY : ey;
 
         setYValue(y);
+        e.preventDefault();
         e.gesture.preventDefault();
       })
       .on("tap", function (e) {
@@ -113,6 +118,7 @@ birdur.directive('hammerDrag', function () {
             y = (curY >= minY) ? maxY : minY;
 
         toggleView(y);
+        e.preventDefault();
         e.gesture.preventDefault();
       })
       .on("dragend", function (e) {

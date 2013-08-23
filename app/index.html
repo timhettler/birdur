@@ -7,18 +7,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="format-detection" content="telephone=no">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=320.1, initial-scale=1, user-scalable=no" />
   <meta name="fragment" content="!" />
   <link rel="icon" href="img/favicon.png" type="image/png" />
-  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/touch-icon-57.png" />
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch-icon-114.png" />
+  <link rel="apple-touch-icon-precomposed" href="img/touch-icon-57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch-icon-72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch-icon-114.png" />
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch-icon-144.png" />
-  <link rel="apple-touch-startup-image" href="/img/startup.png">
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+  <link rel="apple-touch-startup-image" media="screen and (device-height: 568px)" href="img/startup-568h-retina.jpg">
+  <link rel="apple-touch-startup-image" href="img/startup@2x.jpg" media="screen and (device-height: 480px) and (min-device-pixel-ratio: 2)">
+  <link rel="apple-touch-startup-image" href="images/startup.jpg" media="screen and (device-height: 480px)">
 
-  <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
   <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular/angular-resource.min.js"></script>
   <script src="lib/angular/angular-leaflet-directive.js"></script>
@@ -33,7 +35,7 @@
   <script src="lib/hammer.js"></script>
   <script src="lib/scrollfix.js"></script>
 </head>
-<body ng-app="birdur" ng-controller="BirdurCtrl">
+<body ng-app="birdur" ng-controller="BirdurCtrl" disable-touch>
   <install-prompt ng-show="needsInstall"></install-prompt>
   <ng-view></ng-view>
   <script>
