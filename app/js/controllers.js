@@ -70,7 +70,7 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $location, 
     if(!$routeParams.query) {
       GeoLoc.locate()
         .then(function (position) {
-          $location.path('/map/'+latLng.join(','));
+          $location.path('/map/'+[position.coords.latitude, position.coords.longitude].join(','));
         }, function () {
           $location.replace().path('/');
         });

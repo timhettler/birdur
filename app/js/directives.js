@@ -6,6 +6,14 @@ birdur.directive('installPrompt', function () {
   }
 });
 
+birdur.directive('search', function () {
+  return function (scope, element, attrs) {
+    element.bind("focus", function (e) {
+      console.log(e);
+    });
+  }
+});
+
 birdur.directive('spinner', function () {
   return {
     restrict: 'E',
@@ -48,15 +56,11 @@ birdur.directive('disableTouch', function () {
       return false;
     }
 
-    Hammer(element[0])
-      .on("dragstart tap", function (e) {
-        if(!isTouchAllowed(angular.element(e.target))) {
-          e.preventDefault();
-          e.stopPropagation();
-          e.gesture.preventDefault();
-          e.gesture.stopPropagation();
-        }
-      });
+    element.bind('touchstart', function (e) {
+        e.preventDefault();
+      if(!isTouchAllowed(angular.element(e.target))) {
+      }
+    });
   };
 });
 
@@ -87,7 +91,7 @@ birdur.directive('hammerDrag', function () {
         },
         setSearchClass = function (y) {
           $searchBar.toggleClass('is-hidden', y !== minY);
-        }
+        },
         dragTarget = document.querySelector('.hotspot-container'),
         $dragTarget = angular.element(dragTarget),
         $searchBar = angular.element(document.querySelector('.map-search')),
@@ -119,7 +123,7 @@ birdur.directive('hammerDrag', function () {
 
         toggleView(y);
         e.preventDefault();
-        e.gesture.preventDefault();
+        e.stopPropagation();
       })
       .on("dragend", function (e) {
         var g = e.gesture,

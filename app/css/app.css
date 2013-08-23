@@ -493,7 +493,7 @@
   right: 0;
   top: 0;
   width: 350px;
-  z-index: 1001;
+  z-index: 9999;
 }
 @media (orientation: portrait) {
   /* line 168, ../../sass/_hotspot-detail.scss */

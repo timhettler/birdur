@@ -172,7 +172,7 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   right: 0;
   top: 0;
   width: 350px;
-  z-index: 1001;
+  z-index: 9999;
 
   @include mq-portrait {
     @include box-sizing('border-box');
