@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Birdur</title>
+        <meta name="description" content="Find birding hotspots anywhere in the United States" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="width=320.1, initial-scale=1, user-scalable=no" />
+        <meta name="fragment" content="!" />
+        <link rel="icon" href="assets/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon-precomposed" href="assets/touch-icon-57.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/touch-icon-72.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/touch-icon-114.png" />
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/touch-icon-144.png" />
+        <link rel="apple-touch-startup-image" media="screen and (device-height: 568px)" href="assets/startup-568h-retina.jpg">
+        <link rel="apple-touch-startup-image" href="assets/startup@2x.jpg" media="screen and (device-height: 480px) and (min-device-pixel-ratio: 2)">
+        <link rel="apple-touch-startup-image" href="images/startup.jpg" media="screen and (device-height: 480px)">
+        <link type="text/css" rel="stylesheet" href="css/app.css" />
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
+        <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+        <script type="text/javascript" src="../components/angular/angular.js"></script>
+        <script type="text/javascript" src="../components/angular-leaflet-directive/src/angular-leaflet-directive.js"></script>
+        <script type="text/javascript" src="../components/fastclick/lib/fastclick.js"></script>
+        <script type="text/javascript" src="../components/hammerjs/dist/hammer.js"></script>
+        <script type="text/javascript" src="../components/scrollfix/scrollfix.js"></script>
+        <script type="text/javascript" src="../components/spin.js/dist/spin.js"></script>
+        <script type="text/javascript" src="src/js/app.js"></script>
+        <script type="text/javascript" src="src/js/controllers.js"></script>
+        <script type="text/javascript" src="src/js/directives.js"></script>
+        <script type="text/javascript" src="src/js/routes.js"></script>
+        <script type="text/javascript" src="src/js/services.js"></script>
+        <script type="text/javascript" src="templates-app.js"></script>
+    </head>
+    
+    <body ng-app="birdur" ng-controller="BirdurCtrl" disable-touch>
+        <install-prompt ng-show="needsInstall"></install-prompt>
+        <ng-view></ng-view>
+        <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-42514657-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <script>
+            window.addEventListener('load', function() {
+                new ScrollFix(document.querySelector('.hotspot-item-container'));
+                FastClick.attach(document.body);
+            }, false);
+        </script>
+    </body>
+
+</html>

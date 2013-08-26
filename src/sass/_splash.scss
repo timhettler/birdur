@@ -1,0 +1,64 @@
+$splash-element-separation: 30px;
+
+.splash {
+  @extend %fullscreen;
+  @include align-items('center');
+  @include display-flex();
+  @include justify-content('center');
+}
+
+.splash-container {
+  text-align: center;
+  margin: 10px;
+  max-width: 297px;
+  width: 100%;
+}
+
+.splash-logo {
+  @include logo(168px);
+  margin: 0 auto;
+}
+
+.splash-title {
+  @include headline(48px);
+}
+
+.splash-form {
+  @include single-transition(opacity);
+  opacity: 0;
+
+  &.is-visible {
+    opacity: 1;
+  }
+}
+
+.splash-error {
+  color: red;
+  font-size: 16px;
+  line-height: 1.2;
+  margin-top: $splash-element-separation;
+  text-align: left;
+}
+
+.splash-input-container {
+  margin-top: $splash-element-separation;
+  position: relative;
+}
+
+.splash-input {
+  @extend %input;
+  border: 1px solid #bbb;
+}
+
+.splash-submit {
+  @extend %button;
+  font-size: 20px;
+  line-height: 50px;
+  margin-top: $splash-element-separation;
+}
+
+.splash-spinner {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}

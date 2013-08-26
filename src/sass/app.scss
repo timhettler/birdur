@@ -1,0 +1,115 @@
+@import "global-vars";
+
+@import "compass";
+@import "flexbox";
+
+@import "utils";
+@import "mixins";
+@import "placeholders";
+//@import "normalize";
+@import "fonts";
+
+@import "leaflet";
+@import "install";
+@import "splash";
+@import "hotspot-detail";
+
+@include global-reset();
+
+@include establish-baseline();
+
+@include mq-small-screen() {
+  @include establish-baseline($base-font-size * 0.75);
+}
+
+* {
+  @include box-sizing(border-box);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  @extend %fullscreen;
+}
+
+body {
+  @extend %fullscreen;
+  background-color: #859288;
+  background-image: image-url('bg_l.jpg');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  font-family: $font-stack--base;
+  position: relative;
+
+  @include mq-small-screen {
+    @include retina-image('bg_p', 'jpg');
+  }
+}
+
+html, body {
+  @include user-select(none);
+}
+
+a {
+  color: $color--slate;
+  text-decoration: none;
+
+  .no-touch &:hover {
+    text-decoration: underline;
+  }
+}
+
+.map-wrapper {
+  @extend %fullscreen;
+  position: relative;
+  z-index: 1;
+}
+
+#map {
+  @extend %fullscreen;
+}
+
+.geolocate {
+  @extend .icon-location;
+  background-color: rgba(#fff, 0.8);
+  border: 1px solid #888;
+  border-radius: 4px;
+  box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+  cursor: pointer;
+  font-size: 12px;
+  left: 360px;
+  line-height: 21px;
+  padding: 2px 0 0 0;
+  position: absolute;
+  text-align: center;
+  top: 70px;
+  width: 26px;
+  z-index: 1;
+
+  &:hover {
+    background-color: #f4f4f4;
+    color: #000;
+  }
+}
+
+.error-container {
+  @extend %fullscreen;
+  @include display-flex();
+  @include align-items(center);
+  @include justify-content(center);
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+  .error {
+    background: rgba($color--black, 0.9);
+    color: $color--yellow;
+    border-radius: 0.5em;
+    padding: 1em;
+    width: 500px;
+
+    @include mq-portrait {
+      width: 80%;
+    }
+  }

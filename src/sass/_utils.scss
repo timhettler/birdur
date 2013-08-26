@@ -1,0 +1,121 @@
+//*
+// Makes an element appear circular.
+@mixin circular() {
+    border-radius: 50%;
+}
+
+//*
+// Disables text selection and the on iOS devices that displays information about a link.
+@mixin disable-selection() {
+  @include user-select(none); //disables text selection
+  -webkit-touch-callout: none; //disables callout on iOS devices that displays information about the link
+}
+
+//*
+// Set properties required make an overflowing line of text display an ellipsis.
+@mixin overflow-ellipsis() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+//*
+// Sets the font-smoothing to "antialiased" on WebKit browsers, which can prevent "bleeding" when light text is on a dark background.
+// For more information on when it's appropriate to use this mixin, see: http://www.usabilitypost.com/2010/08/26/font-smoothing/
+@mixin antialiased() {
+    -webkit-font-smoothing: antialiased;
+}
+
+//*
+// Makes an element contain floated elements.
+// See: http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix {
+    @if ($legacy-support-for-ie) {
+        *zoom: 1;
+    }
+
+    &:before,
+    &:after {
+        display: table;
+        content: " ";
+        line-height: 0;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+//*
+// Adds an arrow to a side of an element, making it appear like a dialog box.
+// Adapted from: http://cssarrowplease.com/
+// @param {Number} $size The size of the arrow.
+// @param {Color} $bg-color The color of the arrow.
+// @param {String} $position Which side of the element the arrow should be placed on. Accepted values are "top", "left", "bottom", and "right".
+// @param {Number} $border-width Optional. The width of the arrow's border.
+// @param {Color} $border-color Optional. The color of the arrow's border.
+@mixin put-an-arrow-on-it($size, $bg-color, $position:bottom, $border-width:0, $border-color:transparent) {
+
+    $arrowProperty: opposite-position($position);
+    $borderProperty: if($position == top or $position == bottom, left, top);
+
+    position: relative;
+
+    &:after,
+    &:before {
+        #{$arrowProperty}: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    &:after {
+        border-#{$arrowProperty}-color: $bg-color;
+        border-width: $size;
+        #{$borderProperty}: 50%;
+        margin-#{$borderProperty}: $size * -1;
+    }
+
+    @if $border-width > 0 {
+
+      border: $border-width solid $border-color;
+
+      &:before {
+        border-#{$arrowProperty}-color: $border-color;
+        border-width: $size + $border-width;
+        #{$borderProperty}: 50%;
+        margin-#{$borderProperty}: ($size + $border-width) * -1;
+      }
+
+    }
+}
+
+//*
+// Calculates the dimensions of a nested border radius so that it looks normal.
+// Adapted from: http://joshnh.com/tools/get-your-nested-border-radii-right.html
+// @param {Number} $outerRadius The border-radius value of the parent element.
+// @param {Number} $outerPadding The space between the parent and the selected element.
+@mixin nested-border-radius($outerRadius, $outerPadding) {
+    $difference: $outerRadius - $outerPadding;
+    @include border-radius(if($difference > 0, $difference, 0));
+}
+
+//*
+// Replaces text with a background-image.
+// This technique is known as "Kellum Image Replacement". See: http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+// @param {String, Boolean} $bg-image Optional. The background-image of the element.
+// @param {Number, Boolean} $width Optional. The width of the element.
+// @param {Number, Boolean} $height Optional. The height of the element. If ommitted, is set to $width.
+@mixin text-replace($bg-img:false, $width:false, $height:$width) {
+    @if $bg-img { background-image: $bg-img; }
+    @if $height { height: $height; }
+    overflow: hidden;
+    text-align: left;
+    text-indent: 100%;
+    white-space: nowrap;
+    @if $width { width: $width; }
+}

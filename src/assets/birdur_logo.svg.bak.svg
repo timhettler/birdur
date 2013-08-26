@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="572px" height="572px" viewBox="24 63.75 572 572" enable-background="new 24 63.75 572 572" xml:space="preserve">
+<g id="Insp" display="none">
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="69" height="46" xlink:href="ABF1C090.jpeg"  transform="matrix(6.2608 0 0 8.4454 -556.5195 -52.9922)">
+	</image>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="216" height="144" xlink:href="ABF1C090.jpeg"  transform="matrix(3.7037 0 0 4.1667 -829 211.5)">
+	</image>
+	
+		<image display="inline" overflow="visible" enable-background="new    " width="168" height="167" xlink:href="ABF1C097.png"  transform="matrix(3.381 0 0 3.381 -574.002 159.748)">
+	</image>
+</g>
+<g id="Birdur">
+	<g>
+		<g>
+			<path fill="#EDAD21" d="M310,65.75c-156.849,0-284,127.151-284,284c0,156.849,127.151,284,284,284c156.849,0,284-127.151,284-284
+				C594,192.901,466.849,65.75,310,65.75z M476,211.5L370.557,323.012l-28.414,36.378l56.19,183.933L317,477.834l4.426-21.529
+				L180.333,400l-27.224-68.167H103l35.333-37l90.071,12.75L302.333,202L482,180.333L457.656,211.5H476z"/>
+		</g>
+	</g>
+	<g id="Beak_Fold">
+		<polygon fill="#EDAD21" points="298,501.5 330.666,416.666 306,524.5 		"/>
+	</g>
+	<g id="Tail_Fold">
+		<polyline fill="#EDAD21" points="153.167,356.667 143.573,307.904 162.667,356.667 		"/>
+	</g>
+	<g id="Layer_5">
+		<polyline fill="#EDAD21" points="482,180.333 430.683,246.034 492.5,180.333 		"/>
+	</g>
+</g>
+</svg>

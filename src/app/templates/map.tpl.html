@@ -1,0 +1,33 @@
+<div class="map-wrapper" ng-class="{'in-detail' : currentHotspot}">
+  <leaflet testing="testing" id="map" markers="markers" center="mapData.center" defaults="mapDefaults"></leaflet>
+  <div class="map-search">
+    <form class="map-search-form" name="mapSearch" ng-submit="handleUserInput(searchString)">
+      <div class="map-search-input-container">
+        <input class="map-search-input" name="searchString" ng-model="searchString" type="text" autocorrect="off" required />
+      </div><div class="map-search-button-container">
+        <button name="splashSubmit" class="map-search-button" type="submit">Search</button>
+      </div>
+    </form>
+  </div>
+  <article class="hotspot-container">
+    <header class="hotspot-header" hammer-drag>
+      <div class="hotspot-title">
+        <h1 class="hotspot-title--main">{{currentHotspot.mainLoc}}</h1>
+        <h2 class="hotspot-title--sub">{{currentHotspot.subLoc}}</h2>
+      </div>
+      <div class="hotspot-directions">
+        <a class="hotspot-directions-icon" href="http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}" target="_blank">Directions</a>
+      </div>
+    </header>
+    <main class="hotspot-list">
+      <div class="hotspot-item-container allow-touch">
+        <h2 class="hotspot-list-title">Recent Observations</h2>
+        <div ng-repeat="bird in currentHotspot.sightings" class="hotspot-item">{{bird.comName}}</div>
+      </div>
+      <spinner ng-show="!currentHotspot.sightings" class="hotspot-spinner" color="#fff" lines="13" length="20" width="10" radius="30"></spinner>
+    </main>
+  </article>
+  <div class="error-container" ng-show="errorMessage">
+    <div class="error" ng-bind-html-unsafe="errorMessage"></div>
+  </div>
+</div>

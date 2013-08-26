@@ -1,0 +1,747 @@
+/* line 1, ../../src/sass/_placeholders.scss */
+.install, .splash, html, body, .map-wrapper, #map, .error-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* line 7, ../../src/sass/_placeholders.scss */
+.install-logo, .splash-logo {
+  background-image: url('../assets/birdur_logo.svg?1377557881');
+  background-size: 100%;
+}
+
+/* line 28, ../../src/sass/_placeholders.scss */
+.splash-input, .map-search-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 0;
+  font-family: Avenir, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0;
+  padding: 6px 38px 7px 8px;
+  text-align: left;
+  width: 100%;
+}
+/* line 41, ../../src/sass/_placeholders.scss */
+.splash-input:focus, .map-search-input:focus {
+  outline: none;
+}
+
+/* line 46, ../../src/sass/_placeholders.scss */
+.splash-submit, .map-search-button {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+  background-color: #eead21;
+  border: none;
+  border-bottom: 2px solid #ee8121;
+  color: #fff;
+  font-family: Avenir, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-weight: bold;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  -webkit-touch-callout: none;
+  width: 100%;
+}
+/* line 62, ../../src/sass/_placeholders.scss */
+.splash-submit:active, .map-search-button:active {
+  border-bottom: none;
+  border-top: 2px solid #ee8121;
+}
+/* line 67, ../../src/sass/_placeholders.scss */
+[disabled].splash-submit, [disabled].map-search-button {
+  background-color: #888;
+  border-color: #555;
+  pointer-events: none;
+}
+
+@font-face {
+  font-family: 'bonvenocflight';
+  src: url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.eot');
+  src: url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.eot?#iefix') format("embedded-opentype"), url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.woff') format("woff"), url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.ttf') format("truetype"), url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.svg#bonvenocflight') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'broccolidry';
+  src: url('fonts/icomoon/broccolidry.eot');
+  src: url('fonts/icomoon/broccolidry.eot?#iefix') format("embedded-opentype"), url('fonts/icomoon/broccolidry.woff') format("woff"), url('fonts/icomoon/broccolidry.ttf') format("truetype"), url('fonts/icomoon/broccolidry.svg#broccolidry') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 23, ../../src/sass/_fonts.scss */
+.icon-location, .geolocate {
+  font-family: 'broccolidry';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+/* line 33, ../../src/sass/_fonts.scss */
+.icon-location:before, .geolocate:before {
+  content: "\e000";
+}
+
+/* line 1, ../../src/sass/_leaflet.scss */
+.leaflet-left {
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  transition: all 200ms;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+/* line 5, ../../src/sass/_leaflet.scss */
+.in-detail .leaflet-left {
+  -webkit-transform: translate3d(350px, 0, 0);
+  -moz-transform: translate3d(350px, 0, 0);
+  transform: translate3d(350px, 0, 0);
+}
+/* line 9, ../../src/sass/_leaflet.scss */
+.touch .leaflet-left {
+  display: none;
+}
+@media (orientation: portrait) {
+  /* line 1, ../../src/sass/_leaflet.scss */
+  .leaflet-left {
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* line 18, ../../src/sass/_leaflet.scss */
+.leaflet-popup-content-wrapper {
+  border-radius: 5px;
+}
+
+/* line 1, ../../src/sass/_install.scss */
+.install {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  pointer-events: none;
+}
+/* line 8, ../../src/sass/_install.scss */
+.install p {
+  margin: 1.2em 0;
+}
+/* line 12, ../../src/sass/_install.scss */
+.install strong, .install b {
+  font-weight: bold;
+}
+
+/* line 17, ../../src/sass/_install.scss */
+.install-container {
+  text-align: center;
+  margin: 10px;
+  max-width: 297px;
+  width: 100%;
+}
+
+/* line 24, ../../src/sass/_install.scss */
+.install-title {
+  font: 28px "bonvenocflight", Futura, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+  text-shadow: 0 -1px rgba(50, 50, 50, 0.25);
+}
+
+/* line 29, ../../src/sass/_install.scss */
+.install-logo {
+  height: 120px;
+  width: 120px;
+  margin: 1.2em auto;
+}
+
+/* line 34, ../../src/sass/_install.scss */
+.cta {
+  bottom: 1.2em;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 3, ../../src/sass/_splash.scss */
+.splash {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+/* line 10, ../../src/sass/_splash.scss */
+.splash-container {
+  text-align: center;
+  margin: 10px;
+  max-width: 297px;
+  width: 100%;
+}
+
+/* line 17, ../../src/sass/_splash.scss */
+.splash-logo {
+  height: 168px;
+  width: 168px;
+  margin: 0 auto;
+}
+
+/* line 22, ../../src/sass/_splash.scss */
+.splash-title {
+  font: 48px "bonvenocflight", Futura, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+}
+
+/* line 26, ../../src/sass/_splash.scss */
+.splash-form {
+  -webkit-transition: opacity 200ms;
+  -moz-transition: opacity 200ms;
+  transition: opacity 200ms;
+  opacity: 0;
+}
+/* line 30, ../../src/sass/_splash.scss */
+.splash-form.is-visible {
+  opacity: 1;
+}
+
+/* line 35, ../../src/sass/_splash.scss */
+.splash-error {
+  color: red;
+  font-size: 16px;
+  line-height: 1.2;
+  margin-top: 30px;
+  text-align: left;
+}
+
+/* line 43, ../../src/sass/_splash.scss */
+.splash-input-container {
+  margin-top: 30px;
+  position: relative;
+}
+
+/* line 48, ../../src/sass/_splash.scss */
+.splash-input {
+  border: 1px solid #bbb;
+}
+
+/* line 53, ../../src/sass/_splash.scss */
+.splash-submit {
+  font-size: 20px;
+  line-height: 50px;
+  margin-top: 30px;
+}
+
+/* line 60, ../../src/sass/_splash.scss */
+.splash-spinner {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+/* line 10, ../../src/sass/_hotspot-detail.scss */
+.hotspot-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  transition: all 200ms;
+  -webkit-transform: translate3d(-386px, 0, 1px);
+  -moz-transform: translate3d(-386px, 0, 1px);
+  transform: translate3d(-386px, 0, 1px);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: rgba(8, 8, 8, 0.9);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.65);
+  color: whitesmoke;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  padding-bottom: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  top: 0;
+  width: 350px;
+  z-index: 1001;
+}
+/* line 33, ../../src/sass/_hotspot-detail.scss */
+.hotspot-container.is-dragging {
+  -webkit-transition: none 200ms;
+  -moz-transition: none 200ms;
+  transition: none 200ms;
+}
+/* line 37, ../../src/sass/_hotspot-detail.scss */
+.in-detail .hotspot-container {
+  -webkit-transform: translate3d(0, 0, 1px);
+  -moz-transform: translate3d(0, 0, 1px);
+  transform: translate3d(0, 0, 1px);
+}
+@media (orientation: portrait) {
+  /* line 10, ../../src/sass/_hotspot-detail.scss */
+  .hotspot-container {
+    background-image: -webkit-linear-gradient(rgba(8, 8, 8, 0.9), #080808);
+    background-image: -moz-linear-gradient(rgba(8, 8, 8, 0.9), #080808);
+    background-image: linear-gradient(rgba(8, 8, 8, 0.9), #080808);
+    -webkit-transform: translate3d(0, 0, 1px);
+    -moz-transform: translate3d(0, 0, 1px);
+    transform: translate3d(0, 0, 1px);
+    background-color: transparent;
+    left: 0;
+    margin-left: 0;
+    top: 100%;
+    width: 100%;
+  }
+  /* line 50, ../../src/sass/_hotspot-detail.scss */
+  .in-detail .hotspot-container {
+    -webkit-transform: translate3d(0, -64px, 1px);
+    -moz-transform: translate3d(0, -64px, 1px);
+    transform: translate3d(0, -64px, 1px);
+  }
+}
+
+/* line 56, ../../src/sass/_hotspot-detail.scss */
+.hotspot-header {
+  margin-bottom: 1.33333em;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  border-bottom: 1px solid;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  width: 100%;
+}
+
+/* line 68, ../../src/sass/_hotspot-detail.scss */
+.hotspot-title, .hotspot-directions {
+  padding-left: 1em;
+}
+
+/* line 72, ../../src/sass/_hotspot-detail.scss */
+.hotspot-title {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+/* line 77, ../../src/sass/_hotspot-detail.scss */
+.hotspot-title--main {
+  font-size: 1.2em;
+  line-height: 1.33333em;
+  color: #fdd84c;
+}
+@media (max-width: 599px) {
+  /* line 77, ../../src/sass/_hotspot-detail.scss */
+  .hotspot-title--main {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+  /* line 84, ../../src/sass/_hotspot-detail.scss */
+  .is-up .hotspot-title--main {
+    white-space: normal;
+  }
+}
+
+/* line 90, ../../src/sass/_hotspot-detail.scss */
+.hotspot-title--sub {
+  color: whitesmoke;
+}
+
+/* line 94, ../../src/sass/_hotspot-detail.scss */
+.hotspot-directions {
+  font-size: 0.66667em;
+  line-height: 2em;
+  border-left: 1px solid;
+  display: block;
+  -webkit-tap-highlight-color: rgba(245, 245, 245, 0.25);
+  text-align: center;
+  width: 20%;
+}
+
+/* line 104, ../../src/sass/_hotspot-detail.scss */
+.hotspot-directions-icon {
+  background-image: url('../assets/icon-directions.png?1377557881');
+  background-position: center 6px;
+  background-repeat: no-repeat;
+  display: block;
+  padding-top: 24px;
+}
+
+/* line 112, ../../src/sass/_hotspot-detail.scss */
+.hotspot-list {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* line 120, ../../src/sass/_hotspot-detail.scss */
+.hotspot-item-container {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  background-clip: padding-box;
+  background-color: #3b3b3b;
+  border-radius: 3px;
+  padding-left: 1em;
+  padding-right: 1em;
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* line 134, ../../src/sass/_hotspot-detail.scss */
+.hotspot-list-title, .hotspot-item {
+  padding-bottom: 1em;
+  padding-top: 1em;
+  border-top: 1px solid;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
+}
+
+/* line 144, ../../src/sass/_hotspot-detail.scss */
+.hotspot-list-title {
+  font-size: 1.2em;
+  line-height: 1.33333em;
+  border: none;
+  color: #feeeb1;
+}
+
+@media (orientation: portrait) {
+  /* line 151, ../../src/sass/_hotspot-detail.scss */
+  .hotspot-item {
+    padding-top: 0.66667em;
+    padding-bottom: 0.66667em;
+  }
+}
+
+/* line 160, ../../src/sass/_hotspot-detail.scss */
+.hotspot-spinner {
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -5px;
+  position: absolute;
+  top: 50%;
+}
+
+/* line 168, ../../src/sass/_hotspot-detail.scss */
+.map-search {
+  -webkit-transition: all 200ms;
+  -moz-transition: all 200ms;
+  transition: all 200ms;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 350px;
+  z-index: 9999;
+}
+@media (orientation: portrait) {
+  /* line 168, ../../src/sass/_hotspot-detail.scss */
+  .map-search {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0.5em;
+    width: 100%;
+  }
+  /* line 182, ../../src/sass/_hotspot-detail.scss */
+  .map-search.is-hidden {
+    -webkit-transform: translate3d(0, -100%, 1px);
+    -moz-transform: translate3d(0, -100%, 1px);
+    transform: translate3d(0, -100%, 1px);
+  }
+}
+
+/* line 188, ../../src/sass/_hotspot-detail.scss */
+.map-search-form {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.65);
+}
+/* line 39, ../../src/sass/_utils.scss */
+.map-search-form:before, .map-search-form:after {
+  display: table;
+  content: " ";
+  line-height: 0;
+}
+/* line 45, ../../src/sass/_utils.scss */
+.map-search-form:after {
+  clear: both;
+}
+
+/* line 193, ../../src/sass/_hotspot-detail.scss */
+.map-search-input-container {
+  float: left;
+  width: 75%;
+}
+
+/* line 198, ../../src/sass/_hotspot-detail.scss */
+.map-search-input {
+  border: 0;
+}
+
+/* line 203, ../../src/sass/_hotspot-detail.scss */
+.map-search-button {
+  float: left;
+  width: 25%;
+  height: 37px;
+}
+
+/* line 209, ../../src/sass/_hotspot-detail.scss */
+.map-search-button {
+  background-image: url('../assets/search.svg?1377557881');
+  direction: ltr;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+
+/* line 17, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 105, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+html {
+  font-size: 112.5%;
+  line-height: 1.33333em;
+}
+
+@media (max-width: 599px) {
+  /* line 105, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/typography/_vertical_rhythm.scss */
+  html {
+    font-size: 84.375%;
+    line-height: 1.33333em;
+  }
+}
+/* line 25, ../../src/sass/app.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* line 34, ../../src/sass/app.scss */
+body {
+  background-color: #859288;
+  background-image: url('../assets/bg_l.jpg?1377557881');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  font-family: Avenir, Arial, sans-serif;
+  position: relative;
+}
+@media (max-width: 599px) {
+  /* line 34, ../../src/sass/app.scss */
+  body {
+    background-image: url('../assets/bg_p.jpg?1377557881');
+  }
+}
+@media (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 599px) and (min-resolution: 192dpi) {
+  /* line 34, ../../src/sass/app.scss */
+  body {
+    background-image: url('../assets/bg_p@2x.jpg?1377557881');
+  }
+}
+
+/* line 49, ../../src/sass/app.scss */
+html, body {
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* line 53, ../../src/sass/app.scss */
+a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+/* line 57, ../../src/sass/app.scss */
+.no-touch a:hover {
+  text-decoration: underline;
+}
+
+/* line 62, ../../src/sass/app.scss */
+.map-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/* line 72, ../../src/sass/app.scss */
+.geolocate {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid #888;
+  border-radius: 4px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+  font-size: 12px;
+  left: 360px;
+  line-height: 21px;
+  padding: 2px 0 0 0;
+  position: absolute;
+  text-align: center;
+  top: 70px;
+  width: 26px;
+  z-index: 1;
+}
+/* line 89, ../../src/sass/app.scss */
+.geolocate:hover {
+  background-color: #f4f4f4;
+  color: #000;
+}
+
+/* line 95, ../../src/sass/app.scss */
+.error-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+/* line 105, ../../src/sass/app.scss */
+.error {
+  background: rgba(8, 8, 8, 0.9);
+  color: #fdd84c;
+  border-radius: 0.5em;
+  padding: 1em;
+  width: 500px;
+}
+@media (orientation: portrait) {
+  /* line 105, ../../src/sass/app.scss */
+  .error {
+    width: 80%;
+  }
+}

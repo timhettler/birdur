@@ -1,0 +1,215 @@
+
+$hotspot-color--background: $color--black;
+$hotspot-color--text: $color--slate;
+$hotspot-color--text--alt: $color--yellow;
+$hotspot-color--border: $color--slate;
+$hotspot-unit--container-padding: 1em;
+$hotspot-unit--container-border-radius: 3px;
+$hotspot-unit--title-size: $base-font-size * 1.2;
+
+.hotspot-container {
+  @include display-flex();
+  @include flex-direction(column);
+  @include single-transition();
+  @include translate3d(-350px - ($base-font-size * 2), 0, 1px);
+  @include box-sizing('border-box');
+  background-color: rgba($hotspot-color--background, 0.9);
+  box-shadow: 0 0 7px rgba(0,0,0,0.65);
+  color: $hotspot-color--text;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  padding: {
+    bottom: $hotspot-unit--container-padding;
+    left: $hotspot-unit--container-padding;
+    right: $hotspot-unit--container-padding;
+  };
+  top: 0;
+  width: 350px;
+  z-index: 1001;
+
+  &.is-dragging {
+    @include single-transition(none);
+  }
+
+  .in-detail & {
+    @include translate3d(0, 0, 1px);
+  }
+
+  @include mq-portrait {
+    @include background-image(linear-gradient(rgba($hotspot-color--background, 0.9), rgba($hotspot-color--background, 1)));
+    @include translate3d(0, 0, 1px);
+    background-color: transparent;
+    left: 0;
+    margin-left: 0;
+    top: 100%;
+    width: 100%;
+
+    .in-detail & {
+      @include translate3d(0, -64px, 1px);
+    }
+  }
+}
+
+.hotspot-header {
+  @include trailer();
+  @include display-flex();
+  @include align-items('center');
+  border-bottom: 1px solid;
+  padding: {
+    bottom: $hotspot-unit--container-padding;
+    top: $hotspot-unit--container-padding;
+  };
+  width: 100%;
+}
+
+  %hotspot-header-child {
+    padding-left: $hotspot-unit--container-padding;
+  }
+
+  .hotspot-title {
+    @include flex(1);
+    @extend %hotspot-header-child;
+  }
+
+  .hotspot-title--main {
+    @include adjust-font-size-to($hotspot-unit--title-size, 1.2);
+    color: $hotspot-color--text--alt;
+
+    @include mq-small-screen() {
+      @include overflow-ellipsis();
+
+      .is-up & {
+        white-space: normal;
+      }
+    }
+  }
+
+  .hotspot-title--sub {
+    color: $hotspot-color--text;
+  }
+
+  .hotspot-directions {
+    @extend %hotspot-header-child;
+    @include adjust-font-size-to(12px);
+    border-left: 1px solid;
+    display: block;
+    -webkit-tap-highlight-color: rgba($color--slate, 0.25);
+    text-align: center;
+    width: 20%;
+  }
+
+    .hotspot-directions-icon {
+      background-image: image-url('icon-directions.png');
+      background-position: center 6px;
+      background-repeat: no-repeat;
+      display: block;
+      padding-top: 24px;
+    }
+
+.hotspot-list {
+  @include flex(1);
+  @include display-flex();
+  @include flex-direction(column);
+  overflow: hidden;
+  position: relative;
+}
+
+.hotspot-item-container {
+  @include flex(1);
+  background-clip: padding-box;
+  background-color: lighten($hotspot-color--background, 20%);
+  border-radius: $hotspot-unit--container-border-radius;
+  padding: {
+    left: $hotspot-unit--container-padding;
+    right: $hotspot-unit--container-padding;
+  };
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+  %hotspot-list-child {
+    @include padding-trailer(0.75);
+    @include padding-leader(0.75);
+    border-top: 1px solid;
+    padding: {
+      left: 0.25em;
+      right: 0.25em;
+    };
+  }
+
+  .hotspot-list-title {
+    @include adjust-font-size-to($hotspot-unit--title-size, 1.2);
+    @extend %hotspot-list-child;
+    border: none;
+    color: lighten($hotspot-color--text--alt, 20%);
+  }
+
+  .hotspot-item {
+    @extend %hotspot-list-child;
+
+    @include mq-portrait {
+      @include padding-leader(0.5);
+      @include padding-trailer(0.5);
+    }
+  }
+
+.hotspot-spinner {
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -5px;
+  position: absolute;
+  top: 50%;
+}
+
+.map-search {
+  @include single-transition();
+  padding: $hotspot-unit--container-padding;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 350px;
+  z-index: 9999;
+
+  @include mq-portrait {
+    @include box-sizing('border-box');
+    padding: $hotspot-unit--container-padding/2;
+    width: 100%;
+
+    &.is-hidden {
+      @include translate3d(0, -100%, 1px);
+    }
+  }
+}
+
+  .map-search-form {
+    @include clearfix();
+    box-shadow: 0 0 7px rgba(0,0,0,0.65);
+  }
+
+  .map-search-input-container {
+    float: left;
+    width: 75%;
+  }
+
+  .map-search-input {
+    @extend %input;
+    border: 0;
+  }
+
+  .map-search-button {
+    float: left;
+    width: 25%;
+    height: 37px;
+  }
+
+  .map-search-button {
+    @extend %button;
+    @include image-replace(image-url('search.svg'));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+  }
