@@ -6,14 +6,6 @@ birdur.directive('installPrompt', function () {
   }
 });
 
-birdur.directive('search', function () {
-  return function (scope, element, attrs) {
-    element.bind("focus", function (e) {
-      console.log(e);
-    });
-  }
-});
-
 birdur.directive('spinner', function () {
   return {
     restrict: 'E',
@@ -57,8 +49,8 @@ birdur.directive('disableTouch', function () {
     }
 
     element.bind('touchstart', function (e) {
-        e.preventDefault();
       if(!isTouchAllowed(angular.element(e.target))) {
+        e.preventDefault();
       }
     });
   };

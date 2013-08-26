@@ -12,7 +12,7 @@ birdur.service('Map', function(LocationService) {
       setMapView = function (lat, lng, name) {
         data.origin.lat = data.center.lat = lat;
         data.origin.lng = data.center.lng = lng;
-        data.center.zoom = 12;
+        data.center.zoom = 10;
         //data.locationName = name || "Current Location";
 
         return data;
@@ -200,6 +200,7 @@ birdur.factory('eBirdRef', function($resource) {
           type: 'geo',
           fmt: 'json',
           callback: 'JSON_CALLBACK',
+          dist: 50,
           back: '30',
           lng: '@lng',
           lat: '@lat'

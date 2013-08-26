@@ -153,6 +153,7 @@ birdur.controller('HotspotsListCtrl', function ($scope, $http, $log, $location, 
       data.sort(function (d1, d2) {
         return d1.distance - d2.distance;
       });
+      $log.log(data.length+" hotposts found");
       $scope.hotspots = data;
       $scope.setMarkers();
     });

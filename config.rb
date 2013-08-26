@@ -4,7 +4,7 @@ require 'compass-flexbox'
 # Set this to the root of your project when deployed:
 http_path = "/"
 css_dir = "app/css"
-sass_dir = "sass"
+sass_dir = "src/sass"
 images_dir = "app/img"
 javascripts_dir = "app/js"
 
