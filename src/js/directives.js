@@ -2,7 +2,7 @@ birdur.directive('installPrompt', function () {
   return {
     restrict: 'E',
     replace: true,
-    templateUrl: 'templates/install.html'
+    templateUrl: 'templates/install.tpl.html'
   }
 });
 

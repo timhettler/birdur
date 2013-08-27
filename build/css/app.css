@@ -7,7 +7,7 @@
 
 /* line 7, ../../src/sass/_placeholders.scss */
 .install-logo, .splash-logo {
-  background-image: url('../assets/birdur_logo.svg?1377557881');
+  background-image: url('../assets/birdur_logo.svg?1377640799');
   background-size: 100%;
 }
 
@@ -67,16 +67,16 @@
 
 @font-face {
   font-family: 'bonvenocflight';
-  src: url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.eot');
-  src: url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.eot?#iefix') format("embedded-opentype"), url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.woff') format("woff"), url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.ttf') format("truetype"), url('fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.svg#bonvenocflight') format("svg");
+  src: url('../assets/fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.eot');
+  src: url('../assets/fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.eot?#iefix') format("embedded-opentype"), url('../assets/fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.woff') format("woff"), url('../assets/fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.ttf') format("truetype"), url('../assets/fonts/bonvenocf_light_macroman/BonvenoCF-Light-webfont.svg#bonvenocflight') format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'broccolidry';
-  src: url('fonts/icomoon/broccolidry.eot');
-  src: url('fonts/icomoon/broccolidry.eot?#iefix') format("embedded-opentype"), url('fonts/icomoon/broccolidry.woff') format("woff"), url('fonts/icomoon/broccolidry.ttf') format("truetype"), url('fonts/icomoon/broccolidry.svg#broccolidry') format("svg");
+  src: url('../assets/fonts/icomoon/broccolidry.eot');
+  src: url('../assets/fonts/icomoon/broccolidry.eot?#iefix') format("embedded-opentype"), url('../assets/fonts/icomoon/broccolidry.woff') format("woff"), url('../assets/fonts/icomoon/broccolidry.ttf') format("truetype"), url('../assets/fonts/icomoon/broccolidry.svg#broccolidry') format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -408,7 +408,7 @@
 
 /* line 104, ../../src/sass/_hotspot-detail.scss */
 .hotspot-directions-icon {
-  background-image: url('../assets/icon-directions.png?1377557881');
+  background-image: url('../assets/icon-directions.png?1377640799');
   background-position: center 6px;
   background-repeat: no-repeat;
   display: block;
@@ -547,7 +547,7 @@
 
 /* line 209, ../../src/sass/_hotspot-detail.scss */
 .map-search-button {
-  background-image: url('../assets/search.svg?1377557881');
+  background-image: url('../assets/search.svg?1377640799');
   direction: ltr;
   overflow: hidden;
   text-indent: 100%;
@@ -646,7 +646,7 @@ html {
 /* line 34, ../../src/sass/app.scss */
 body {
   background-color: #859288;
-  background-image: url('../assets/bg_l.jpg?1377557881');
+  background-image: url('../assets/bg_l.jpg?1377640799');
   background-position: center;
   background-size: cover;
   color: #fff;
@@ -656,13 +656,13 @@ body {
 @media (max-width: 599px) {
   /* line 34, ../../src/sass/app.scss */
   body {
-    background-image: url('../assets/bg_p.jpg?1377557881');
+    background-image: url('../assets/bg_p.jpg?1377640799');
   }
 }
 @media (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 599px) and (min-resolution: 192dpi) {
   /* line 34, ../../src/sass/app.scss */
   body {
-    background-image: url('../assets/bg_p@2x.jpg?1377557881');
+    background-image: url('../assets/bg_p@2x.jpg?1377640799');
   }
 }
 

@@ -20,12 +20,17 @@
   <link rel="apple-touch-startup-image" href="assets/startup@2x.jpg" media="screen and (device-height: 480px) and (min-device-pixel-ratio: 2)">
   <link rel="apple-touch-startup-image" href="images/startup.jpg" media="screen and (device-height: 480px)">
 
-  <!-- build:style bundle -->
+  <!-- compile:style app -->
+  <!-- build:style app -->
   <!-- /build -->
+  <!-- /compile -->
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css" />
   <script src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
-  <!-- build:script bundle -->
-  <!-- /build -->
+  <!-- compile:script app -->
+  <!-- build:script angular --><!-- /build -->
+  <!-- build:script components --><!-- /build -->
+  <!-- build:script app --><!-- /build -->
+  <!-- /compile -->
 </head>
 <body ng-app="birdur" ng-controller="BirdurCtrl" disable-touch>
   <install-prompt ng-show="needsInstall"></install-prompt>

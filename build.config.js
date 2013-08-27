@@ -23,7 +23,7 @@ module.exports = {
     app_files: {
         js: ['src/js/*.js'],
 
-        atpl: [ 'src/app/**/*.tpl.html' ],
+        atpl: [ 'src/templates/*.tpl.html' ],
 
         html: ['src/index.html'],
     },
@@ -46,11 +46,13 @@ module.exports = {
         js: [
                 'components/angular/angular.js',
                 'components/angular-leaflet-directive/src/angular-leaflet-directive.js',
-                'components/angular-resource/angular-resource/js',
+                'components/angular-resource/angular-resource.js',
+                'components/angular-route/angular-route.js',
                 'components/fastclick/lib/fastclick.js',
                 'components/hammerjs/dist/hammer.js',
+                'components/modernizr/modernizr.js',
                 'components/scrollfix/scrollfix.js',
-                'components/spin.js/dist/spin.js'
+                'components/spinjs/dist/spin.js'
             ],
         css: []
     },
