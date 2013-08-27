@@ -1,11 +1,11 @@
+var birdur = angular.module('birdur');
 birdur.directive('installPrompt', function () {
   return {
     restrict: 'E',
     replace: true,
     templateUrl: 'templates/install.tpl.html'
   };
-});
-birdur.directive('spinner', function () {
+}).directive('spinner', function () {
   return {
     restrict: 'E',
     link: function (scope, element, attrs) {
@@ -30,8 +30,7 @@ birdur.directive('spinner', function () {
       var spinner = new Spinner(opts).spin(element[0]);
     }
   };
-});
-birdur.directive('disableTouch', function () {
+}).directive('disableTouch', function () {
   return function (scope, element) {
     if (!Modernizr.touch) {
       return;
@@ -51,8 +50,7 @@ birdur.directive('disableTouch', function () {
       }
     });
   };
-});
-birdur.directive('hammerDrag', function () {
+}).directive('hammerDrag', function () {
   return function (scope, element) {
     if (!Modernizr.touch) {
       return;

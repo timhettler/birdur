@@ -221,7 +221,7 @@ module.exports = function ( grunt ) {
 
   grunt.registerTask('build', [
     'clean', 'html2js',
-    'copy:build_assets', 'copy:build_appjs', 'copy:build_vendorjs', 'ngmin', 'compass:dev', 'htmlbuild:build'
+    'copy:build_assets', 'copy:build_appjs', 'copy:build_vendorjs', 'compass:dev', 'htmlbuild:build'
   ]);
 
   grunt.registerTask('compile', [

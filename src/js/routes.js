@@ -1,5 +1,7 @@
 'use strict';
 
+var birdur = angular.module('birdur');
+
 /* Routes */
 
 birdur.config(function ($routeProvider) {
@@ -15,4 +17,4 @@ birdur.config(function ($routeProvider) {
     .otherwise({
       redirectTo: "/"
     });
-})
+});
