@@ -30,9 +30,10 @@
   @include box-sizing('border-box');
   background-color: #fff;
   border-radius: 0;
+  color: #2d2d2d;
   font-family: $font-stack--base;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.5em;
   margin: 0;
   padding: 6px 38px 7px 8px;
   text-align: left;

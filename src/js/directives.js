@@ -1,3 +1,5 @@
+(function ( window, document, undefined ) {
+'use strict';
 
 var birdur = angular.module('birdur');
 
@@ -7,17 +9,17 @@ birdur
       restrict: 'E',
       replace: true,
       templateUrl: 'templates/install.tpl.html'
-    }
+    };
   })
   .directive('spinner', function () {
     return {
       restrict: 'E',
       link: function (scope, element, attrs) {
         var opts = {
-          lines: parseInt(attrs.lines) || 13, // The number of lines to draw
-          length: parseInt(attrs["length"]) || 4, // The length of each line
-          width: parseInt(attrs.width) || 2, // The line thickness
-          radius: parseInt(attrs.radius) || 4, // The radius of the inner circle
+          lines: parseInt(attrs.lines, 10) || 13, // The number of lines to draw
+          length: parseInt(attrs["length"], 10) || 4, // The length of each line
+          width: parseInt(attrs.width, 10) || 2, // The line thickness
+          radius: parseInt(attrs.radius, 10) || 4, // The radius of the inner circle
           corners: 1, // Corner roundness (0..1)
           rotate: 0, // The rotation offset
           direction: 1, // 1: clockwise, -1: counterclockwise
@@ -48,7 +50,7 @@ birdur
           $elem = $elem.parent();
         }
         return false;
-      }
+      };
 
       element.bind('touchstart', function (e) {
         if(!isTouchAllowed(angular.element(e.target))) {
@@ -66,8 +68,8 @@ birdur
               var transform = window.getComputedStyle(el, null).getPropertyValue('-webkit-transform');
               var results = transform.match(/matrix(?:(3d)\(-{0,1}\d+(?:, -{0,1}\d+)*(?:, (-{0,1}\d+))(?:, (-{0,1}\d+))(?:, (-{0,1}\d+)), -{0,1}\d+\)|\(-{0,1}\d+(?:, -{0,1}\d+)*(?:, (-{0,1}\d+))(?:, (-{0,1}\d+))\))/);
 
-              if(!results) return [0, 0, 0];
-              if(results[1] == '3d') return results.slice(2,5);
+              if(!results) { return [0, 0, 0]; }
+              if(results[1] == '3d') { return results.slice(2,5); }
 
               results.push(0);
               return results.slice(5, 8); // returns the [X,Y,Z,1] values
@@ -90,18 +92,18 @@ birdur
           $searchBar = angular.element(document.querySelector('.map-search')),
           minY = -64,
           maxY = dragTarget.offsetHeight * -1,
-          startY = parseInt(getTransform(dragTarget)[1]),
+          startY = parseInt(getTransform(dragTarget)[1], 10),
           dir = null;
 
-      Hammer(element[0])
+      new Hammer(element[0])
         .on("dragstart", function (e) {
-          startY = parseInt(getTransform(dragTarget)[1]);
+          startY = parseInt(getTransform(dragTarget)[1], 10);
           $dragTarget.addClass('is-dragging');
           e.preventDefault();
           e.gesture.preventDefault();
         })
         .on("drag", function (e) {
-          var ey = parseInt(e.gesture.deltaY) + startY,
+          var ey = parseInt(e.gesture.deltaY, 10) + startY,
               y = (ey > minY) ? minY : (ey < maxY) ? maxY : ey;
 
           setYValue(y);
@@ -111,7 +113,7 @@ birdur
         .on("tap", function (e) {
           if (angular.element(e.target).hasClass('hotspot-directions-icon')) { return false; }
 
-          var curY = parseInt(getTransform(dragTarget)[1]),
+          var curY = parseInt(getTransform(dragTarget)[1], 10),
               y = (curY >= minY) ? maxY : minY;
 
           toggleView(y);
@@ -127,3 +129,4 @@ birdur
     };
   });
 
+})( window, document );

@@ -1,3 +1,4 @@
+(function ( window, document, undefined ) {
 'use strict';
 
 var birdur = angular.module('birdur');
@@ -16,19 +17,19 @@ birdur
           data.origin.lat = data.center.lat = lat;
           data.origin.lng = data.center.lng = lng;
           data.center.zoom = 10;
-          //data.locationName = name || "Current Location";
+          data.locationName = name || "Current Location";
 
           return data;
         },
         getOrigin = function () {
-          return [data.origin.lat, data.origin.lng]
+          return [data.origin.lat, data.origin.lng];
         };
 
     return {
       data: data,
       setMapView: setMapView,
       getOrigin: getOrigin
-    }
+    };
   })
   .factory('InstallCheck', function () {
     var isIOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g),
@@ -54,7 +55,7 @@ birdur
                 "national park",
                 "wildlife",
                 "conservation",
-              ]
+              ];
       for(var i=0;i<types.length;i++) {
         if(place.indexOf(types[i]) >= 0) {
           return true;
@@ -74,16 +75,13 @@ birdur
 
       } else if(regex_address.test(searchString)) {
 
-        var address = searchString.split(regex_addressSeparator);
+        var address = searchString.split(regex_addressSeparator),
+            type = (isPark(address[0])) ? 'sight' : 'city';
 
         if(address.length == 1) {
-          var type = (isPark(address[0])) ? 'sight' : 'city';
-          console.log(isPark(address[0]), address[0]);
           query = "["+type+"="+address[0]+"][country=United States]";
 
         } else if(address.length == 2) {
-          var type = (isPark(address[0])) ? 'sight' : 'city';
-          console.log(isPark(address[0]), address[0]);
           query = "["+type+"="+address[0]+"][state="+address[1]+"][country=United States]";
 
         }
@@ -139,7 +137,7 @@ birdur
 
     return {
       getLatLng: getLatLng
-    }
+    };
   })
   .factory('GeoLoc', function ($q, $rootScope){
 
@@ -229,3 +227,5 @@ birdur
       }
     );
   });
+
+})( window, document );

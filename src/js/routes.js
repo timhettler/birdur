@@ -1,3 +1,4 @@
+(function ( window, document, undefined ) {
 'use strict';
 
 var birdur = angular.module('birdur');
@@ -18,3 +19,5 @@ birdur.config(function ($routeProvider) {
       redirectTo: "/"
     });
 });
+
+})( window, document );

@@ -3,6 +3,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-ngmin');
   grunt.loadNpmTasks('grunt-html2js');
@@ -99,16 +100,21 @@ module.exports = function ( grunt ) {
 
     jshint: {
       src: '<%= app_files.js %>',
+      gruntfile: [
+        'Gruntfile.js'
+      ],
       options: {
         curly: true,
         immed: true,
         newcap: true,
         noarg: true,
         sub: true,
-        boss: true,
-        eqnull: true
+        eqnull: true,
+        browser: true,
+        globals: {
+          angular: true
+        }
       },
-      globals: {}
     },
 
     concat: {
@@ -122,6 +128,48 @@ module.exports = function ( grunt ) {
           'module.suffix'
         ],
         dest: '<%= compile_dir %>/js/<%= pkg.name %>.js'
+      }
+    },
+
+    delta: {
+
+      gruntfile: {
+        files: 'Gruntfile.js',
+        tasks: [ 'jshint:gruntfile' ],
+        options: {
+          livereload: false
+        }
+      },
+
+      jssrc: {
+        files: [
+          '<%= app_files.js %>'
+        ],
+        tasks: [ 'jshint:src', 'copy:build_appjs' ]
+      },
+
+      assets: {
+        files: [
+          'src/assets/**/*'
+        ],
+        tasks: [ 'copy:build_assets' ]
+      },
+
+      html: {
+        files: [ '<%= app_files.html %>' ],
+        tasks: [ 'htmlbuild:build' ]
+      },
+
+      tpls: {
+        files: [
+          '<%= app_files.atpl %>'
+        ],
+        tasks: [ 'html2js' ]
+      },
+
+      compass: {
+        files: [ 'src/sass/*.scss' ],
+        tasks: [ 'compass:dev' ]
       }
     },
 
@@ -217,14 +265,20 @@ module.exports = function ( grunt ) {
 
   grunt.initConfig( grunt.util._.extend( taskConfig, userConfig ) );
 
+  grunt.renameTask( 'watch', 'delta' );
+  grunt.registerTask( 'watch', [ 'build', 'delta' ] );
+
   grunt.registerTask( 'default', [ 'build', 'compile' ] );
 
   grunt.registerTask('build', [
-    'clean', 'html2js',
-    'copy:build_assets', 'copy:build_appjs', 'copy:build_vendorjs', 'compass:dev', 'htmlbuild:build'
+    'clean', 'html2js', 'jshint',
+    'copy:build_assets', 'copy:build_appjs', 'copy:build_vendorjs',
+    'compass:dev', 'htmlbuild:build'
   ]);
 
   grunt.registerTask('compile', [
-    'copy:compile_assets', 'modernizr', 'ngmin', 'concat', 'uglify', 'imageoptim', 'compass:prod', 'htmlbuild:compile'
+    'copy:compile_assets', 'modernizr',
+    'ngmin', 'concat', 'uglify', 'imageoptim',
+    'compass:prod', 'htmlbuild:compile'
   ]);
 };

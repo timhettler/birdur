@@ -16,7 +16,6 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   background-color: rgba($hotspot-color--background, 0.9);
   box-shadow: 0 0 7px rgba(0,0,0,0.65);
   color: $hotspot-color--text;
-  -webkit-font-smoothing: antialiased;
   height: 100%;
   left: 0;
   overflow: hidden;
@@ -166,24 +165,35 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 }
 
 .map-search {
+  @include box-sizing('border-box');
   @include single-transition();
-  padding: $hotspot-unit--container-padding;
+  background-image: image-url('bg_l.jpg');
+  background-size: 320px auto;
+  background-position: center -80px;
+  padding: 40px 5px 5px;
   position: absolute;
   right: 0;
   top: 0;
-  width: 350px;
+  max-width: 320px;
+  width: 100%;
   z-index: 9999;
 
   @include mq-portrait {
-    @include box-sizing('border-box');
-    padding: $hotspot-unit--container-padding/2;
-    width: 100%;
 
     &.is-hidden {
       @include translate3d(0, -100%, 1px);
     }
   }
 }
+
+  .map-logo {
+    $logo-unit-size: 29px;
+    @include logo($logo-unit-size);
+    left: 50%;
+    margin-left: $logo-unit-size/2 * -1;
+    position: absolute;
+    top: 6px;
+  }
 
   .map-search-form {
     @include clearfix();
@@ -192,18 +202,20 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 
   .map-search-input-container {
     float: left;
-    width: 75%;
+    width: 84.6774%;
   }
 
   .map-search-input {
     @extend %input;
+    font-size: 12px;
+    padding: 3px 38px 3px 6px;
     border: 0;
   }
 
   .map-search-button {
     float: left;
-    width: 25%;
-    height: 37px;
+    width: 15.3226%;
+    height: 24px;
   }
 
   .map-search-button {
@@ -211,5 +223,5 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
     @include image-replace(image-url('search.svg'));
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 20px;
+    background-size: 14px;
   }

@@ -1,6 +1,7 @@
 <div class="map-wrapper" ng-class="{'in-detail' : currentHotspot}">
   <leaflet testing="testing" id="map" markers="markers" center="mapData.center" defaults="mapDefaults"></leaflet>
   <div class="map-search">
+    <div class="map-logo"></div>
     <form class="map-search-form" name="mapSearch" ng-submit="handleUserInput(searchString)">
       <div class="map-search-input-container">
         <input class="map-search-input" name="searchString" ng-model="searchString" type="text" autocorrect="off" required />

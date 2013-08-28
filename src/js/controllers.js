@@ -1,3 +1,4 @@
+(function ( window, document, undefined ) {
 'use strict';
 
 var birdur = angular.module('birdur');
@@ -6,7 +7,7 @@ var birdur = angular.module('birdur');
 
 birdur
   .controller('BirdurCtrl', function ($scope, $rootScope, InstallCheck) {
-      $rootScope.needsInstall = InstallCheck();
+      $rootScope.needsInstall = new InstallCheck();
   })
   .controller('SplashCtrl', function ($scope, $location, UserInput, GeoLoc, Map) {
 
@@ -41,7 +42,7 @@ birdur
         $scope.submitted = true;
         $scope.errorMessage = null;
       }
-    }
+    };
   })
   .controller('HotspotsListCtrl', function ($scope, $http, $log, $location, $routeParams, eBirdRef, eBirdObs, Map, UserInput, GeoLoc) {
 
@@ -93,14 +94,14 @@ birdur
         $scope.markers[i] = {
           lat: spot.lat,
           lng: spot.lng
-        }
-      };
+        };
+      }
 
       $scope.focusMarker(0);
     };
 
     $scope.$on('leafletDirectiveMarker.click', function(e, data){
-      $scope.focusMarker(parseInt(data.markerName));
+      $scope.focusMarker(parseInt(data.markerName, 10));
     });
 
 
@@ -171,3 +172,5 @@ birdur
 
     $scope.init();
   });
+
+})( window, document );
