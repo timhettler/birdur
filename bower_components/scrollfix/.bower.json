@@ -1,0 +1,14 @@
+{
+  "name": "scrollfix",
+  "homepage": "https://github.com/joelambert/ScrollFix",
+  "_release": "master",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "cc339b0d6d8ce7ed23ee8edf8441755f77dbdb88"
+  },
+  "_source": "git://github.com/joelambert/ScrollFix.git",
+  "_target": "*",
+  "_originalSource": "scrollfix",
+  "_direct": true
+}
