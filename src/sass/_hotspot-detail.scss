@@ -212,10 +212,9 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
     border: 0;
   }
 
-  .map-search-button {
+  .map-search-button-container {
     float: left;
     width: 15.3226%;
-    height: 24px;
   }
 
   .map-search-button {
@@ -224,4 +223,5 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 14px;
+    height: 24px;
   }

@@ -1,9 +1,0 @@
-{
-  "name": "scrollfix",
-  "version": "0.0.0",
-  "commit": "cc339b0d6d8ce7ed23ee8edf8441755f77dbdb88",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/joelambert/ScrollFix.git"
-  }
-}

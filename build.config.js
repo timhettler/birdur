@@ -11,15 +11,15 @@ module.exports = {
 
     vendor_files: {
         js: [
-                'components/angular/angular.js',
-                'components/angular-leaflet-directive/src/angular-leaflet-directive.js',
-                'components/angular-resource/angular-resource.js',
-                'components/angular-route/angular-route.js',
-                'components/fastclick/lib/fastclick.js',
-                'components/hammerjs/dist/hammer.js',
-                'components/modernizr/modernizr.js',
-                'components/scrollfix/scrollfix.js',
-                'components/spinjs/dist/spin.js'
+                'bower_components/angular/angular.js',
+                'bower_components/angular-leaflet-directive/src/angular-leaflet-directive.js',
+                'bower_components/angular-resource/angular-resource.js',
+                'bower_components/angular-route/angular-route.js',
+                'bower_components/fastclick/lib/fastclick.js',
+                'bower_components/hammerjs/dist/hammer.js',
+                'bower_components/modernizr/modernizr.js',
+                'bower_components/scrollfix/scrollfix.js',
+                'bower_components/spinjs/dist/spin.js'
             ],
         css: []
     },

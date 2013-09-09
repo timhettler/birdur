@@ -27,7 +27,8 @@
     "url": "https://github.com/timhettler/birdur.git"
   },
   "author": "Tim Hettler",
-  "license": "BSD",
-  "readmeFilename": "README.md",
-  "gitHead": "b17b37d5dcb28f59f84c4f4f9ecdbb6f0caf27fc"
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/timhettler/birdur/issues"
+  }
 }

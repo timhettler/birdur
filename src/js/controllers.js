@@ -7,7 +7,7 @@ var birdur = angular.module('birdur');
 
 birdur
   .controller('BirdurCtrl', function ($scope, $rootScope, InstallCheck) {
-      $rootScope.needsInstall = new InstallCheck();
+      $rootScope.needsInstall = InstallCheck();
   })
   .controller('SplashCtrl', function ($scope, $location, UserInput, GeoLoc, Map) {
 
@@ -61,7 +61,20 @@ birdur
         tileLayerOptions: {
           attribution: ''
         },
-        minZoom: 8
+        minZoom: 8,
+        icon: {
+          url: 'assets/marker.png',
+          retinaUrl: 'assets/marker@2x.png',
+          size: [16, 26],
+          anchor: [8, 25],
+          popup: [0, -25],
+          shadow: {
+            url: 'assets/marker-shadow.png',
+            retinaUrl: 'assets/marker-shadow@2x.png',
+            size: [21, 10],
+            anchor: [10, 4]
+          }
+        }
     };
 
     $scope.init = function () {

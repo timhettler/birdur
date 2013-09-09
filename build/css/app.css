@@ -7,7 +7,7 @@
 
 /* line 7, ../../src/sass/_placeholders.scss */
 .install-logo, .splash-logo, .map-logo {
-  background-image: url('../assets/birdur_logo.svg?1377711845');
+  background-image: url('../assets/birdur_logo.svg?1378245657');
   background-size: 100%;
 }
 
@@ -22,6 +22,7 @@
   background-color: #fff;
   border-radius: 0;
   color: #2d2d2d;
+  display: block;
   font-family: HelveticaNeue-Light, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.5em;
@@ -30,12 +31,12 @@
   text-align: left;
   width: 100%;
 }
-/* line 42, ../../src/sass/_placeholders.scss */
+/* line 43, ../../src/sass/_placeholders.scss */
 .splash-input:focus, .map-search-input:focus {
   outline: none;
 }
 
-/* line 47, ../../src/sass/_placeholders.scss */
+/* line 48, ../../src/sass/_placeholders.scss */
 .splash-submit, .map-search-button {
   -moz-user-select: -moz-none;
   -webkit-user-select: none;
@@ -44,6 +45,7 @@
   border: none;
   border-bottom: 2px solid #ee8121;
   color: #fff;
+  display: block;
   font-family: HelveticaNeue-Light, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   font-weight: bold;
@@ -54,12 +56,12 @@
   -webkit-touch-callout: none;
   width: 100%;
 }
-/* line 63, ../../src/sass/_placeholders.scss */
+/* line 65, ../../src/sass/_placeholders.scss */
 .splash-submit:active, .map-search-button:active {
   border-bottom: none;
   border-top: 2px solid #ee8121;
 }
-/* line 68, ../../src/sass/_placeholders.scss */
+/* line 70, ../../src/sass/_placeholders.scss */
 [disabled].splash-submit, [disabled].map-search-button {
   background-color: #888;
   border-color: #555;
@@ -408,7 +410,7 @@
 
 /* line 103, ../../src/sass/_hotspot-detail.scss */
 .hotspot-directions-icon {
-  background-image: url('../assets/icon-directions.png?1377711845');
+  background-image: url('../assets/icon-directions.png?1378245657');
   background-position: center 6px;
   background-repeat: no-repeat;
   display: block;
@@ -491,7 +493,7 @@
   -webkit-transition: all 200ms;
   -moz-transition: all 200ms;
   transition: all 200ms;
-  background-image: url('../assets/bg_l.jpg?1377711845');
+  background-image: url('../assets/bg_l.jpg?1378245657');
   background-size: 320px auto;
   background-position: center -80px;
   padding: 40px 5px 5px;
@@ -550,15 +552,14 @@
 }
 
 /* line 215, ../../src/sass/_hotspot-detail.scss */
-.map-search-button {
+.map-search-button-container {
   float: left;
   width: 15.3226%;
-  height: 24px;
 }
 
-/* line 221, ../../src/sass/_hotspot-detail.scss */
+/* line 220, ../../src/sass/_hotspot-detail.scss */
 .map-search-button {
-  background-image: url('../assets/search.svg?1377711845');
+  background-image: url('../assets/search.svg?1378245657');
   direction: ltr;
   overflow: hidden;
   text-indent: 100%;
@@ -566,6 +567,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: 14px;
+  height: 24px;
 }
 
 /* line 17, ../../../../../../../usr/local/Cellar/ruby/1.9.3-p385/lib/ruby/gems/1.9.1/gems/compass-0.13.alpha.4/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
@@ -657,7 +659,7 @@ html {
 /* line 34, ../../src/sass/app.scss */
 body {
   background-color: #859288;
-  background-image: url('../assets/bg_l.jpg?1377711845');
+  background-image: url('../assets/bg_l.jpg?1378245657');
   background-position: center;
   background-size: cover;
   color: #fff;
@@ -667,13 +669,13 @@ body {
 @media (max-width: 599px) {
   /* line 34, ../../src/sass/app.scss */
   body {
-    background-image: url('../assets/bg_p.jpg?1377711845');
+    background-image: url('../assets/bg_p.jpg?1378245657');
   }
 }
 @media (max-width: 599px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 599px) and (min-resolution: 192dpi) {
   /* line 34, ../../src/sass/app.scss */
   body {
-    background-image: url('../assets/bg_p@2x.jpg?1377711845');
+    background-image: url('../assets/bg_p@2x.jpg?1378245657');
   }
 }
 

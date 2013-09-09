@@ -31,11 +31,13 @@ birdur
       getOrigin: getOrigin
     };
   })
-  .factory('InstallCheck', function () {
+  .factory('InstallCheck', function ($log) {
     var isIOS = !!navigator.userAgent.match(/(iPad|iPhone|iPod)/g),
         isFullscreen = window.navigator.standalone;
 
     return function () {
+      $log.log("isIOS:",isIOS);
+      $log.log("isFullscreen:",isFullscreen);
       if(isIOS && isFullscreen || !isIOS) {
         return false;
       }

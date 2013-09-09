@@ -38,10 +38,10 @@ module.exports = function ( grunt ) {
           beautify: true,
           scripts: {
             components: [
-              '<%= build_dir %>/js/components/**/*.js',
+              '<%= build_dir %>/js/bower_components/**/*.js',
               '!**/angular.js'
             ],
-            angular: '<%= build_dir %>/js/components/angular/angular.js',
+            angular: '<%= build_dir %>/js/bower_components/angular/angular.js',
             app: [
               '<%= build_dir %>/js/*.js',
               '<%= html2js.app.dest %>'
@@ -106,7 +106,7 @@ module.exports = function ( grunt ) {
       options: {
         curly: true,
         immed: true,
-        newcap: true,
+        newcap: false,
         noarg: true,
         sub: true,
         eqnull: true,
@@ -253,7 +253,7 @@ module.exports = function ( grunt ) {
     },
 
     modernizr: {
-      devFile: '<%= build_dir %>/js/components/modernizr/modernizr.js',
+      devFile: '<%= build_dir %>/js/bower_components/modernizr/modernizr.js',
       outputFile: '<%= build_dir %>/js/modernizr.js',
       files: [
         '<%= build_dir %>/js/*.js',
