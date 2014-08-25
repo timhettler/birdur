@@ -10,13 +10,14 @@ birdur
 
     var data = {
           origin: {},
-          center: {},
+          center: {
+            zoom: 10
+          },
           locationName: null
         },
         setMapView = function (lat, lng, name) {
           data.origin.lat = data.center.lat = lat;
           data.origin.lng = data.center.lng = lng;
-          data.center.zoom = 10;
           data.locationName = name || "Current Location";
 
           return data;

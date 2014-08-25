@@ -3,14 +3,14 @@
   @include translate3d(0, 0, 0);
 
   .in-detail & {
-    @include translate3d(350px, 0, 0);
+    @include translate3d(375px, 0, 0);
   }
 
   .touch & {
     display: none;
   }
 
-  @include mq-portrait {
+  @include mq-small-screen {
     @include translate3d(0, 0, 0);
   }
 }

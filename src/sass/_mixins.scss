@@ -6,8 +6,20 @@
   }
 }
 
+@mixin mq-landscape() {
+  @media (orientation:landscape) {
+    @content;
+  }
+}
+
 @mixin mq-small-screen() {
   @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin mq-large-screen() {
+  @media (min-width: 600px) {
     @content;
   }
 }

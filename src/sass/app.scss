@@ -1,6 +1,7 @@
 @import "global-vars";
 
 @import "compass";
+@import "compass/css3/user-interface";
 @import "flexbox";
 
 @import "utils";
@@ -109,7 +110,7 @@ a {
     padding: 1em;
     width: 500px;
 
-    @include mq-portrait {
+    @include mq-small-screen {
       width: 80%;
     }
   }

@@ -7,44 +7,58 @@ $hotspot-unit--container-padding: 1em;
 $hotspot-unit--container-border-radius: 3px;
 $hotspot-unit--title-size: $base-font-size * 1.2;
 
+.app-container {
+
+  height: 100%;
+
+  @include mq-landscape {
+    @include display-flex();
+    @include flex-direction(column);
+    @include single-transition();
+    @include translate3d(-350px - ($base-font-size * 2), 0, 1px);
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 375px;
+    z-index: 1001;
+
+    .in-detail & {
+      @include translate3d(0, 0, 1px);
+    }
+
+  }
+}
+
 .hotspot-container {
   @include display-flex();
+  @include flex(1);
   @include flex-direction(column);
   @include single-transition();
-  @include translate3d(-350px - ($base-font-size * 2), 0, 1px);
   @include box-sizing('border-box');
   background-color: rgba($hotspot-color--background, 0.9);
   box-shadow: 0 0 7px rgba(0,0,0,0.65);
   color: $hotspot-color--text;
-  height: 100%;
-  left: 0;
   overflow: hidden;
-  position: absolute;
   padding: {
     bottom: $hotspot-unit--container-padding;
     left: $hotspot-unit--container-padding;
     right: $hotspot-unit--container-padding;
   };
-  top: 0;
-  width: 350px;
-  z-index: 1001;
+  width: 100%;
 
   &.is-dragging {
     @include single-transition(none);
   }
 
-  .in-detail & {
-    @include translate3d(0, 0, 1px);
-  }
-
-  @include mq-portrait {
+  @include mq-small-screen {
     @include background-image(linear-gradient(rgba($hotspot-color--background, 0.9), rgba($hotspot-color--background, 1)));
     @include translate3d(0, 0, 1px);
     background-color: transparent;
+    height: 100%;
     left: 0;
     margin-left: 0;
     top: 100%;
-    width: 100%;
+    z-index: 1001;
 
     .in-detail & {
       @include translate3d(0, -64px, 1px);
@@ -64,13 +78,10 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   width: 100%;
 }
 
-  %hotspot-header-child {
-    padding-left: $hotspot-unit--container-padding;
-  }
-
   .hotspot-title {
     @include flex(1);
-    @extend %hotspot-header-child;
+    font-family: $font-stack--title;
+    padding-right: $hotspot-unit--container-padding;
   }
 
   .hotspot-title--main {
@@ -91,21 +102,22 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   }
 
   .hotspot-directions {
-    @extend %hotspot-header-child;
     @include adjust-font-size-to(12px);
     border-left: 1px solid;
     display: block;
     -webkit-tap-highlight-color: rgba($color--slate, 0.25);
+    padding-left: $hotspot-unit--container-padding;
     text-align: center;
     width: 20%;
   }
 
     .hotspot-directions-icon {
-      background-image: image-url('icon-directions.png');
-      background-position: center 6px;
+      background-image: image-url('compass.png');
+      background-position: center 5px;
       background-repeat: no-repeat;
+      background-size: 20px;
       display: block;
-      padding-top: 24px;
+      padding-top: 25px;
     }
 
 .hotspot-list {
@@ -141,16 +153,19 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
   }
 
   .hotspot-list-title {
-    @include adjust-font-size-to($hotspot-unit--title-size, 1.2);
     @extend %hotspot-list-child;
+    background: image-url('sightings.svg') left center no-repeat;
+    background-size: 30px auto;
     border: none;
-    color: lighten($hotspot-color--text--alt, 20%);
+    font-family: $font-stack--title;
+    padding-left: 40px;
+    text-transform: uppercase;
   }
 
   .hotspot-item {
     @extend %hotspot-list-child;
 
-    @include mq-portrait {
+    @include mq-small-screen {
       @include padding-leader(0.5);
       @include padding-trailer(0.5);
     }
@@ -167,18 +182,19 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 .map-search {
   @include box-sizing('border-box');
   @include single-transition();
+  background-color: rgba($hotspot-color--background, 0.9);
   background-image: image-url('bg_l.jpg');
-  background-size: 320px auto;
+  background-size: 100% auto;
   background-position: center -80px;
   padding: 40px 5px 5px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  max-width: 320px;
-  width: 100%;
-  z-index: 9999;
+  position: relative;
 
-  @include mq-portrait {
+  @include mq-small-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
 
     &.is-hidden {
       @include translate3d(0, -100%, 1px);
@@ -197,7 +213,6 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 
   .map-search-form {
     @include clearfix();
-    box-shadow: 0 0 7px rgba(0,0,0,0.65);
   }
 
   .map-search-input-container {
@@ -207,8 +222,6 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
 
   .map-search-input {
     @extend %input;
-    font-size: 12px;
-    padding: 3px 38px 3px 6px;
     border: 0;
   }
 
@@ -223,5 +236,5 @@ $hotspot-unit--title-size: $base-font-size * 1.2;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 14px;
-    height: 24px;
+    height: 30px;
   }

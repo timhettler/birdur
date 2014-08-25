@@ -19,34 +19,36 @@ angular.module("templates/map.tpl.html", []).run(["$templateCache", function($te
   $templateCache.put("templates/map.tpl.html",
     "<div class=\"map-wrapper\" ng-class=\"{'in-detail' : currentHotspot}\">\n" +
     "  <leaflet testing=\"testing\" id=\"map\" markers=\"markers\" center=\"mapData.center\" defaults=\"mapDefaults\"></leaflet>\n" +
-    "  <div class=\"map-search\">\n" +
-    "    <div class=\"map-logo\"></div>\n" +
-    "    <form class=\"map-search-form\" name=\"mapSearch\" ng-submit=\"handleUserInput(searchString)\">\n" +
-    "      <div class=\"map-search-input-container\">\n" +
-    "        <input class=\"map-search-input\" name=\"searchString\" ng-model=\"searchString\" type=\"text\" autocorrect=\"off\" required />\n" +
-    "      </div><div class=\"map-search-button-container\">\n" +
-    "        <button name=\"splashSubmit\" class=\"map-search-button\" type=\"submit\">Search</button>\n" +
-    "      </div>\n" +
-    "    </form>\n" +
+    "  <div class=\"app-container\">\n" +
+    "    <div class=\"map-search\">\n" +
+    "      <div class=\"map-logo\"></div>\n" +
+    "      <form class=\"map-search-form\" name=\"mapSearch\" ng-submit=\"handleUserInput(searchString)\">\n" +
+    "        <div class=\"map-search-input-container\">\n" +
+    "          <input class=\"map-search-input\" name=\"searchString\" ng-model=\"searchString\" type=\"text\" autocorrect=\"off\" required />\n" +
+    "        </div><div class=\"map-search-button-container\">\n" +
+    "          <button name=\"splashSubmit\" class=\"map-search-button\" type=\"submit\">Search</button>\n" +
+    "        </div>\n" +
+    "      </form>\n" +
+    "    </div>\n" +
+    "    <article class=\"hotspot-container\">\n" +
+    "      <header class=\"hotspot-header\" hammer-drag>\n" +
+    "        <div class=\"hotspot-title\">\n" +
+    "          <h1 class=\"hotspot-title--main\">{{currentHotspot.mainLoc}}</h1>\n" +
+    "          <h2 class=\"hotspot-title--sub\">{{currentHotspot.subLoc}}</h2>\n" +
+    "        </div>\n" +
+    "        <div class=\"hotspot-directions\">\n" +
+    "          <a class=\"hotspot-directions-icon\" href=\"http://maps.apple.com/?saddr={{latlng[0]}},{{latlng[1]}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}\" target=\"_blank\">Directions</a>\n" +
+    "        </div>\n" +
+    "      </header>\n" +
+    "      <main class=\"hotspot-list\">\n" +
+    "        <div class=\"hotspot-item-container allow-touch\">\n" +
+    "          <h2 class=\"hotspot-list-title\">Recent Observations</h2>\n" +
+    "          <div ng-repeat=\"bird in currentHotspot.sightings\" class=\"hotspot-item\">{{bird.comName}}</div>\n" +
+    "        </div>\n" +
+    "        <spinner ng-show=\"!currentHotspot.sightings\" class=\"hotspot-spinner\" color=\"#fff\" lines=\"13\" length=\"20\" width=\"10\" radius=\"30\"></spinner>\n" +
+    "      </main>\n" +
+    "    </article>\n" +
     "  </div>\n" +
-    "  <article class=\"hotspot-container\">\n" +
-    "    <header class=\"hotspot-header\" hammer-drag>\n" +
-    "      <div class=\"hotspot-title\">\n" +
-    "        <h1 class=\"hotspot-title--main\">{{currentHotspot.mainLoc}}</h1>\n" +
-    "        <h2 class=\"hotspot-title--sub\">{{currentHotspot.subLoc}}</h2>\n" +
-    "      </div>\n" +
-    "      <div class=\"hotspot-directions\">\n" +
-    "        <a class=\"hotspot-directions-icon\" href=\"http://maps.apple.com/?saddr={{origin.lat}},{{origin.lng}}&amp;daddr={{currentHotspot.lat}},{{currentHotspot.lng}}\" target=\"_blank\">Directions</a>\n" +
-    "      </div>\n" +
-    "    </header>\n" +
-    "    <main class=\"hotspot-list\">\n" +
-    "      <div class=\"hotspot-item-container allow-touch\">\n" +
-    "        <h2 class=\"hotspot-list-title\">Recent Observations</h2>\n" +
-    "        <div ng-repeat=\"bird in currentHotspot.sightings\" class=\"hotspot-item\">{{bird.comName}}</div>\n" +
-    "      </div>\n" +
-    "      <spinner ng-show=\"!currentHotspot.sightings\" class=\"hotspot-spinner\" color=\"#fff\" lines=\"13\" length=\"20\" width=\"10\" radius=\"30\"></spinner>\n" +
-    "    </main>\n" +
-    "  </article>\n" +
     "  <div class=\"error-container\" ng-show=\"errorMessage\">\n" +
     "    <div class=\"error\" ng-bind-html-unsafe=\"errorMessage\"></div>\n" +
     "  </div>\n" +

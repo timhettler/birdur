@@ -36,6 +36,7 @@ module.exports = function ( grunt ) {
         options: {
           parseTag: 'build',
           beautify: true,
+          relative: true,
           scripts: {
             components: [
               '<%= build_dir %>/js/bower_components/**/*.js',
@@ -63,6 +64,7 @@ module.exports = function ( grunt ) {
         options: {
           parseTag: 'compile',
           beautify: true,
+          relative: true,
           scripts: {
             app: '<%= compile_dir %>/js/*.js'
           },

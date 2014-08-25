@@ -15,13 +15,15 @@ birdur
     $scope.submitted = false;
     $scope.errorMessage = null;
 
-    GeoLoc.locate()
-      .then(function (position) {
-        //Map.setMapView(position.coords.latitude, position.coords.longitude);
-        $location.path('/map/'+[position.coords.latitude, position.coords.longitude].join(','));
-      }, function () {
-        $scope.showForm = true;
-      });
+    if(!$scope.needsInstall) {
+      GeoLoc.locate()
+        .then(function (position) {
+          //Map.setMapView(position.coords.latitude, position.coords.longitude);
+          $location.path('/map/'+[position.coords.latitude, position.coords.longitude].join(','));
+        }, function () {
+          $scope.showForm = true;
+        });
+    }
 
     $scope.handleUserInput = function (searchString) {
       $scope.setFormState();
@@ -49,33 +51,48 @@ birdur
     $scope.errorMessage = "";
     $scope.currentHotspot = null;
     $scope.locationName = Map.data.locationName;
-    $scope.searchString = $scope.locationName;
     $scope.hotspots = [];
+    $scope.latlng = [];
 
     //Map defaults
+    var birdurIcons = {
+      default: L.Icon.extend({
+        options: {
+          iconUrl: 'assets/marker.png',
+          iconRetinaUrl: 'assets/marker@2x.png',
+          iconSize: [16, 26],
+          iconAnchor: [8, 25],
+          popupAnchor: [0, -25],
+          shadowUrl: 'assets/marker-shadow.png',
+          shadowRetinaUrl: 'assets/marker-shadow@2x.png',
+          shadowSize: [21, 10],
+          shadowAnchor: [10, 4]
+        }
+      }),
+      highlight: L.Icon.extend({
+        options: {
+          iconUrl: 'assets/marker-grey.png',
+          iconRetinaUrl: 'assets/marker-grey@2x.png',
+          iconSize: [16, 26],
+          iconAnchor: [8, 25],
+          popupAnchor: [0, -25],
+          shadowUrl: 'assets/marker-shadow.png',
+          shadowRetinaUrl: 'assets/marker-shadow@2x.png',
+          shadowSize: [21, 10],
+          shadowAnchor: [10, 4]
+        }
+      })
+    };
 
-    $scope.mapData = Map.data;
-    $scope.markers = {};
     $scope.mapDefaults = {
         tileLayer: 'http://{s}.tiles.mapbox.com/v3/timhettler.map-jws9isw6/{z}/{x}/{y}.png',
         tileLayerOptions: {
           attribution: ''
         },
-        minZoom: 8,
-        icon: {
-          url: 'assets/marker.png',
-          retinaUrl: 'assets/marker@2x.png',
-          size: [16, 26],
-          anchor: [8, 25],
-          popup: [0, -25],
-          shadow: {
-            url: 'assets/marker-shadow.png',
-            retinaUrl: 'assets/marker-shadow@2x.png',
-            size: [21, 10],
-            anchor: [10, 4]
-          }
-        }
+        minZoom: 8
     };
+    $scope.mapData = Map.data;
+    $scope.markers = {};
 
     $scope.init = function () {
       if($scope.needsInstall) {
@@ -90,8 +107,8 @@ birdur
             $location.replace().path('/');
           });
       } else {
-        var latlng = $routeParams.query.split(',');
-        Map.setMapView(latlng[0], latlng[1]);
+        $scope.latlng = $routeParams.query.split(',');
+        Map.setMapView($scope.latlng[0], $scope.latlng[1]);
         $scope.getHotspots();
       }
     };
@@ -103,10 +120,10 @@ birdur
 
       for (var i = 0; i < $scope.hotspots.length; i++) {
         var spot = $scope.hotspots[i];
-
         $scope.markers[i] = {
           lat: spot.lat,
-          lng: spot.lng
+          lng: spot.lng,
+          icon: new birdurIcons.default()
         };
       }
 
@@ -119,20 +136,26 @@ birdur
 
 
     $scope.focusMarker = function(id) {
-      var marker = $scope.markers[id];
 
       if($scope.currentHotspot) {
         if($scope.currentHotspot.markerID === id) { return; }
         $scope.markers[$scope.currentHotspot.markerID].focus = false;
+        $scope.markers[$scope.currentHotspot.markerID].icon = new birdurIcons.default();
         $scope.currentHotspot = null;
       }
 
+      var marker = $scope.markers[id];
+
       $scope.currentHotspot = $scope.hotspots[id];
       $scope.currentHotspot.markerID = id;
+      marker.icon = new birdurIcons.highlight();
 
       marker.focus = true;
       $scope.mapData.center.lat = marker.lat;
       $scope.mapData.center.lng = marker.lng;
+      if($scope.mapData.center.zoom < 10 ) {
+        $scope.mapData.center.zoom = 10;
+      }
 
       if(!$scope.currentHotspot.sightings) {
         $scope.getSightingSummary(id);
